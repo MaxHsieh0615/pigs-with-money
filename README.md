@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 
 # Set up instruction:
-git clone <repo link><br>
+git clone (repo link)<br>
 in terminal type : npm i<br> 
 in pigs-with-money directory, create a folder name 'config'<br>
 copy paste config.template into config folder as config.json<br>
