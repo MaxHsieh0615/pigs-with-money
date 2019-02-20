@@ -1,13 +1,13 @@
 <<<<<<< HEAD
 
 # Set up instruction:
-git clone <repo link>
-in terminal type : npm i 
-in pigs-with-money directory, create a folder name 'config'
-copy paste config.template into config folder as config.json
-update config.json database password.
+git clone <repo link><br>
+in terminal type : npm i<br> 
+in pigs-with-money directory, create a folder name 'config'<br>
+copy paste config.template into config folder as config.json<br>
+update config.json database password.<br>
   
-Note:  piggybusiness must be created in MySQL, I'll will work on sql script for future use.
+Note:  piggybusiness must be created in MySQL, I'll will work on sql script for future use.<br>
 
 # pigs-with-money
 =======
