@@ -1,4 +1,14 @@
 <<<<<<< HEAD
+
+# Set up instruction:
+git clone <repo link>
+in terminal type : npm i 
+in pigs-with-money directory, create a folder name 'config'
+copy paste config.template into config folder as config.json
+update config.json database password.
+  
+Note:  piggybusiness must be created in MySQL, I'll will work on sql script for future use.
+
 # pigs-with-money
 =======
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
