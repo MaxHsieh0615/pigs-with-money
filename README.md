@@ -5,7 +5,7 @@ git clone <repo link><br>
 in terminal type : npm i<br> 
 in pigs-with-money directory, create a folder name 'config'<br>
 copy paste config.template into config folder as config.json<br>
-update config.json database password.<br>
+update database passwordin config.json.<br>
   
 Note:  piggybusiness must be created in MySQL, I'll will work on sql script for future use.<br>
 
