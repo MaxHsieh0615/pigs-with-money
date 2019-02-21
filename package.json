@@ -25,6 +25,9 @@
     "if-env": "^1.0.4",
     "mongoose": "^5.3.16",
     "mysql2": "^1.6.5",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "react-router-dom": "^4.3.1",
     "sequelize": "^4.42.0"
   }
 }
