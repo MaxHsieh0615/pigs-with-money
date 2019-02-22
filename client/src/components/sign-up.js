@@ -5,7 +5,7 @@ class Signup extends Component {
 	constructor() {
 		super()
 		this.state = {
-			username: '',
+			email: '',
 			password: '',
 			confirmPassword: '',
 
@@ -24,8 +24,8 @@ class Signup extends Component {
 		event.preventDefault()
 
 		//request to server to add a new username/password
-		axios.post('/user/', {
-			username: this.state.username,
+		axios.post('/user', {
+			email: this.state.email,
 			password: this.state.password
 		})
 			.then(response => {
@@ -53,15 +53,15 @@ render() {
 			<form className="form-horizontal">
 				<div className="form-group">
 					<div className="col-1 col-ml-auto">
-						<label className="form-label" htmlFor="username">Username</label>
+						<label className="form-label" htmlFor="email">Email</label>
 					</div>
 					<div className="col-3 col-mr-auto">
 						<input className="form-input"
 							type="text"
-							id="username"
-							name="username"
-							placeholder="Username"
-							value={this.state.username}
+							id="email"
+							name="email"
+							placeholder="email"
+							value={this.state.email}
 							onChange={this.handleChange}
 						/>
 					</div>

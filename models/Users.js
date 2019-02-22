@@ -1,3 +1,4 @@
+const bcrypt = require('bcryptjs');
 
 module.exports = function(db, DataTypes){
     var Users = db.define("Users",{
@@ -18,7 +19,8 @@ module.exports = function(db, DataTypes){
         //enumeration account_type value can be parent or child 
         account_type:{  
           type:   DataTypes.ENUM,
-          values: ['parent', 'child']
+          values: ['parent', 'child'],
+          defaultValue: 'parent'
         },
 
         //if the user is a child, then it must have a parent_email
