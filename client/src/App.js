@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom'
 // components
 import Signup from './components/sign-up'
 import LoginForm from './components/login-form'
-import Navbar from './components/navbar'
+import Navbar from './components/Nav/index'
 import Home from './components/home'
 
 class App extends Component {
