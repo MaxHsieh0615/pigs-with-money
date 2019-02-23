@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-// import logo from '../logo.svg';
+import logo from '../img/piggybusiness_logo_01.png';
 import '../../App.css';
-import axios from 'axios'
+import axios from 'axios';
+import "./style.css";
 
 class Navbar extends Component {
     constructor() {
@@ -32,53 +33,33 @@ class Navbar extends Component {
         console.log(this.props);
 
         return (
-            // <nav>
-            //     <div class="nav-wrapper">
-            //         <a href="#" class="brand-logo">Logo</a>
-            //         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            //             <li><a href="sass.html">Sass</a></li>
-            //             <li><a href="badges.html">Components</a></li>
-            //             <li><a href="collapsible.html">JavaScript</a></li>
-            //         </ul>
-            //     </div>
-            // </nav>
-            // <div>
-            <header className="navbar App-header" id="nav-container">
-                <div className="col-4" >
+            <header className="navbar App-header" id="nav-mobile">
+                <div>
                     {loggedIn ? (
-                        <nav>
-                            <div class="nav-wrapper">
-                                <section className="navbar-section">
-                                    <Link to="/" className="btn btn-link text-secondary">
-                                        <span className="text-secondary">home</span>
+                            <nav>
+                                <div className="nav-wrapper">
+                                    <img class="brand-logo" id="logo" alt="logo" src={logo} />
+                                    <Link to="/" className="btn btn-link right hide-on-med-and-down">
+                                        <span>home</span>
                                     </Link>
-                                    <Link to="#" className="btn btn-link text-secondary" onClick={this.logout}>
-                                        <span className="text-secondary">logout</span></Link>
-
-                                </section>
-                            </div>
-                        </nav>
+                                    <Link to="/" className="btn btn-link right hide-on-med-and-down" onClick={this.logout}>
+                                        <span>logout</span></Link>
+                                </div>
+                            </nav>
                     ) : (
                             <nav>
-                                <div class="nav-wrapper">
-                                    <section className="navbar-section">
-                                        <a href="#" className="brand-logo"></a>
-                                        <Link to="/login" className="btn btn-link text-secondary">
-                                            <span className="text-secondary">login</span>
-                                        </Link>
-                                        <Link to="/signup" className="btn btn-link">
-                                            <span className="text-secondary">sign up</span>
-                                        </Link>
-                                    </section>
+                                <div className="nav-wrapper">
+                                    <img class="brand-logo" id="logo" alt="logo" src={logo} />
+                                    <Link to="/login" className="btn btn-link right hide-on-med-and-down">
+                                        <span>login</span>
+                                    </Link>
+                                    <Link to="/signup" className="btn btn-link right hide-on-med-and-down">
+                                        <span>sign up</span>
+                                    </Link>
                                 </div>
                             </nav>
                         )}
                 </div>
-                {/* <div className="col-4 col-mr-auto">
-                    <div id="top-filler"></div>
-                        <img src={logo} className="App-logo" alt="logo" />
-                        <h1 className="App-title">MERN Passport</h1>
-                    </div> */}
             </header>
 
         );
