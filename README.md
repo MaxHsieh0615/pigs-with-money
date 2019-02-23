@@ -7,7 +7,7 @@ in pigs-with-money directory, create a folder name 'config'
 copy paste config.template into config folder as config.json
 update database passwordin config.json.
 
-Note: piggybusiness must be created in MySQL, I'll will work on sql script for future use.
+Note: piggybusiness must be created in MySQL, I'll work on sql script for future use.
 
 pigs-with-money
 ======= This project was bootstrapped with Create React App.
@@ -17,7 +17,7 @@ In the project directory, you can run:
 
 npm start
 Runs the app in the development mode.
-Open http://localhost:3000 to view it in the browser.
+Open http://localhost:3001 to view it in the browser.
 
 The page will reload if you make edits.
 You will also see any lint errors in the console.
