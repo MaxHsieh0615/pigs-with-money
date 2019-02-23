@@ -1,7 +1,7 @@
 const express = require("express");
 const db = require("./models");
 const passport = require('./passport');
-
+const router = require('./routes/index')
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -37,6 +37,3 @@ db.sequelize.sync(syncOptions).then(function() {
     );
   });
 });
-
-
-//testingggggggggg
