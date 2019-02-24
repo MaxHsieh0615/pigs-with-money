@@ -6,6 +6,7 @@ module.exports = function(db, DataTypes){
         email: {
           type: DataTypes.STRING,
           allowNull: false,
+          primaryKey: true,
           unique: true,
           validate: {
             isEmail: true
