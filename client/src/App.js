@@ -6,6 +6,7 @@ import Signup from './components/sign-up'
 import LoginForm from './components/login-form'
 import Navbar from './components/Nav/index'
 import Home from './components/home'
+import SideNav from './components/SideNav/index'
 
 class App extends Component {
   constructor() {
@@ -52,8 +53,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-   
         <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
+        <SideNav></SideNav>
         {/* greet user if logged in: */}
         {this.state.loggedIn &&
           <p>Join the party, {this.state.username}!</p>
