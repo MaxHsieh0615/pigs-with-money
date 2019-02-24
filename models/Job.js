@@ -8,16 +8,22 @@ module.exports = function(db, DataTypes) {
       type: DataTypes.STRING
     },
     budget: {
-      type: DataTypes.STRING
+      type: DataTypes.FLOAT
     },
-    job_status: {
+    status: {
       type: DataTypes.STRING,
       values: DataTypes.ENUM('Open', 'Closed')
     },
-    job_owner: {
-      type: DataTypes.STRING
-    }
+
+    date_assigned:{
+      type: DataTypes.DATE
+    },
+    date_completed:{
+      type: DataTypes.DATE
+    },
+    
   });
+
   return Job;
 };
 
