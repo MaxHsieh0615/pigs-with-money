@@ -39,4 +39,9 @@ Object.keys(db).forEach(function(modelName) {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+//foreign keys
+db.Users = require("./Users")(sequelize,Sequelize);
+db.Job = require("./Job")(sequelize, Sequelize);
+db.Job.belongsTo(db.Users,{as: "requestor"});
+db.Job.belongsTo(db.Users,{as: "assignTo"});
 module.exports = db;
