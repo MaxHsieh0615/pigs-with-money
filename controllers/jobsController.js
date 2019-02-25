@@ -1,6 +1,6 @@
 const db = require("../models");
 
-// Defining methods for the booksController
+// Defining methods
 module.exports = {
   //find all jobs relate to requestor
   findAllByRequestor: function(req, res) {
@@ -38,6 +38,14 @@ module.exports = {
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  complete: function(req, res) {
+    db.Job
+    .findOneAndUpdate({ _id: req.params.id}, {status:"Closed"})
+    .then(dbModel => res.json({
+      message: "Updated Successfully"
+    }))
+    .catch(err=>res.status(422).json(err));
   },
   remove: function(req, res) {
     db.Job
