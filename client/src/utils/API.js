@@ -4,7 +4,7 @@ export default {
   // Gets all books
   //View tasks
   getCreateJob: function() {
-    return axios.post("/api/createjobs");
+    return axios.post("/api/api/CreateJob");
   },
   // Deletes the book with the given id
   deleteCreateJob: function(id) {

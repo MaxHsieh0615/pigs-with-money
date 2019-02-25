@@ -44,7 +44,7 @@ class CreateJob extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.title && this.state.description) {
-      API.createJob({
+      API.getCreateJob({
         title: this.state.title,
         description: this.state.description,
         budget: this.state.budget
