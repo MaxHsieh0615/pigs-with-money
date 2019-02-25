@@ -33,31 +33,49 @@ class Navbar extends Component {
         console.log(this.props);
 
         return (
-            <header className="navbar App-header" id="nav-mobile">
+            <header>
                 <div>
                     {loggedIn ? (
-                            <nav>
-                                <div className="nav-wrapper">
-                                    <img class="brand-logo" id="logo" alt="logo" src={logo} />
-                                    <Link to="/" className="btn btn-link right hide-on-med-and-down">
-                                        <span>home</span>
-                                    </Link>
-                                    <Link to="/" className="btn btn-link right hide-on-med-and-down" onClick={this.logout}>
-                                        <span>logout</span></Link>
-                                </div>
-                            </nav>
+                        <nav>
+                        <div className="nav-wrapper">
+                            <a href="#!"><img className="brand-logo" id="logo" alt="logo" src={logo} /></a>
+                            <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+                            <ul className="right hide-on-med-and-down">
+                                <li><a href="/" >Home</a></li>
+                                <li><a href="/about">About</a></li>
+                                <li><a href="/createjob">Create Job</a></li>
+                                <li><a href="/shop">Shop</a></li>
+                                <li><a href="/" onClick={this.logout}>Log Out</a></li>
+                            </ul>
+                            <ul className="sidenav" id="mobile-demo">
+                            <li><a href="/" >Home</a></li>
+                                <li><a href="/about">About</a></li>
+                                <li><a href="/createjob">Create Job</a></li>
+                                <li><a href="/shop">Shop</a></li>
+                                <li><a href="/" onClick={this.logout}>Log Out</a></li>
+                            </ul>
+                        </div>
+                    </nav>
                     ) : (
                             <nav>
                                 <div className="nav-wrapper">
-                                    <img class="brand-logo" id="logo" alt="logo" src={logo} />
-                                    <Link to="/login" className="btn btn-link right hide-on-med-and-down">
-                                        <span>login</span>
-                                    </Link>
-                                    <Link to="/signup" className="btn btn-link right hide-on-med-and-down">
-                                        <span>sign up</span>
-                                    </Link>
+                                    <a href=""><img className="brand-logo" id="logo" alt="logo" src={logo} /></a>
+                                    <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+                                    <ul className="right hide-on-med-and-down">
+                                        <li><a href="/" >Home</a></li>
+                                        <li><a href="/about">About</a></li>
+                                        <li><a href="/login">Login</a></li>
+                                        <li><a href="/signup">Sign Up</a></li>
+                                    </ul>
+                                    <ul className="sidenav" id="mobile-demo">
+                                        <li><a href="/">Home</a></li>
+                                        <li><a href="/about">About</a></li>
+                                        <li><a href="/login">Login</a></li>
+                                        <li><a href="/signup">Sign Up</a></li>
+                                    </ul>
                                 </div>
                             </nav>
+
                         )}
                 </div>
             </header>

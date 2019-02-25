@@ -5,8 +5,8 @@ import { Route } from 'react-router-dom'
 import Signup from './components/sign-up'
 import LoginForm from './components/login-form'
 import Navbar from './components/Nav/index'
-import Home from './components/home'
-import SideNav from './components/SideNav/index'
+import Home from './components/Home/home'
+import CreateJob from './components/CreateJob/createjob'
 
 class App extends Component {
   constructor() {
@@ -54,7 +54,6 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
-        <SideNav></SideNav>
         {/* greet user if logged in: */}
         {this.state.loggedIn &&
           <p>Join the party, {this.state.username}!</p>
@@ -75,7 +74,11 @@ class App extends Component {
           render={() =>
             <Signup/>}
         />
-
+        <Route
+          path="/createjob"
+          render={() =>
+            <CreateJob/>}
+        />
       </div>
     );
   }
