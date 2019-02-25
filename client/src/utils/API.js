@@ -3,8 +3,8 @@ import axios from "axios";
 export default {
   // Gets all books
   //View tasks
-  getCreateJob: function() {
-    return axios.post("/api/api/CreateJob");
+  getCreateJob: function(jobData) {
+    return axios.post("/api/createjob", jobData);
   },
   // Deletes the book with the given id
   deleteCreateJob: function(id) {

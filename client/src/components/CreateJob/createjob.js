@@ -9,7 +9,6 @@ import { Input, TextArea, FormBtn } from "../Form";
 
 class CreateJob extends Component {
   state = {
-    jobs: [],
     title: "",
     description: "",
     budget: 0,
