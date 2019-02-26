@@ -1,4 +1,4 @@
- "use strict";
+"use strict";
 
 var fs = require("fs");
 var path = require("path");
@@ -19,8 +19,8 @@ var db = {};
 //   );
 // }
 
-if (process.env.JAWSDB_URL) {
-  var sequelize = new Sequelize(process.env.JAWSDB_URL);
+if (config.use_env_variable) {
+  var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
   var sequelize = new Sequelize(
     config.database,
@@ -51,8 +51,8 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 //foreign keys
-db.Users = require("./Users")(sequelize,Sequelize);
+db.Users = require("./Users")(sequelize, Sequelize);
 db.Job = require("./Job")(sequelize, Sequelize);
-db.Job.belongsTo(db.Users,{as: "requestor"});
-db.Job.belongsTo(db.Users,{as: "assignTo"});
+db.Job.belongsTo(db.Users, { as: "requestor" });
+db.Job.belongsTo(db.Users, { as: "assignTo" });
 module.exports = db;
