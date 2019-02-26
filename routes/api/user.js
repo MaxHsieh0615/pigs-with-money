@@ -18,7 +18,7 @@ module.exports = (app) =>{
         (req, res) => {
             console.log('logged in', req.user);
             req.session.username = req.body.username;
-
+            
             var userInfo = {
                 username: req.user.username
             };

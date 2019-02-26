@@ -4,8 +4,9 @@ const db = require("../models");
 module.exports = {
   //find all jobs relate to requestor
   findAllByRequestor: function(req, res) {
+    console.log(req.query);
     db.Job
-      .findAll({where:{requestor:req.body.email}})
+      .findAll({where:{requestorEmail:req.query.email}})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -26,7 +27,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  create: function(req, res) {
+  createJob: function(req, res) {
     db.Job
       .create(req.body)
       .then(dbModel => res.json(dbModel))
