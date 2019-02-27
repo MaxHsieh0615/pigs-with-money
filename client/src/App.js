@@ -55,11 +55,9 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
-        {/* greet user if logged in: */}
         {this.state.loggedIn &&
           <p>Logged In as user: {this.state.username}</p>
         }
-        {/* Routes to different components */}
         <Route
           exact path="/"
           component={Home} />

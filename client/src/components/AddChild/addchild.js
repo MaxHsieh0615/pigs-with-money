@@ -14,7 +14,6 @@ class AddChild extends Component {
     status: "",
   };
 
-
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -29,7 +28,8 @@ class AddChild extends Component {
         child_name: this.state.child_name,
         piggy: this.state.piggy
       })
-        // .then(res => this.loadJobs())
+      // FIXME: see .then below
+        .then(res => this.getAddChild())
         .catch(err => console.log(err));
     }
   };
