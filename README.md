@@ -1,10 +1,30 @@
-# pigs-with-money
+# Project 3: Piggy Business
 
-Set up instruction:
-git clone (repo link)<br>
-in terminal type : npm i<br>
-in pigs-with-money directory, create a folder name 'config'<br>
-copy paste config.template into config folder as config.json<br>
-update database passwordin config.json.<br>
-<br>
-Note: piggybusiness must be created in MySQL, I'll will work on sql script for future use.<br>
+UCB Coding - Project 3
+
+## What is this?
+
+Created for project 3. Details to follow.
+
+## Setup Instructions
+
+1. Clone Repo
+1. Run npm i
+1. Create a config folder
+    1. Copy config.template and save as config.json
+    1. Update db passwords
+
+### Technologies
+
+* MySQL
+* Express
+* React
+* NodeJS
+
+### Authors
+
+* Dennis
+* Josh
+* Richard
+* Max
+* Gian

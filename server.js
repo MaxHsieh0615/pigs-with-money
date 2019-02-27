@@ -27,6 +27,7 @@ app.use(passport.session()) // calls serializeUser and deserializeUser
 require("./routes/api/user")(app);
 require("./routes/api/job")(app);
 
+
 // Starting the server, syncing our models ------------------------------------/
 var syncOptions = { force: false };
 db.sequelize.sync(syncOptions).then(function() {
