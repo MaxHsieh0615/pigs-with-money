@@ -43,7 +43,8 @@ class Navbar extends Component {
                             <ul className="right hide-on-med-and-down">
                                 <li><a href="/" >Home</a></li>
                                 <li><a href="/about">About</a></li>
-                                <li><a href="/createjob">Create Job</a></li>
+                                <li><a href="/createjob">Job</a></li>
+                                <li><a href="/addchild">Children</a></li>
                                 <li><a href="/shop">Shop</a></li>
                                 <li><a href="/" onClick={this.logout}>Log Out</a></li>
                             </ul>
@@ -51,6 +52,7 @@ class Navbar extends Component {
                             <li><a href="/" >Home</a></li>
                                 <li><a href="/about">About</a></li>
                                 <li><a href="/createjob">Create Job</a></li>
+                                <li><a href="/addchild">Children</a></li>
                                 <li><a href="/shop">Shop</a></li>
                                 <li><a href="/" onClick={this.logout}>Log Out</a></li>
                             </ul>

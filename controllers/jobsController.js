@@ -1,11 +1,12 @@
 const db = require("../models");
 
-// Defining methods for the booksController
+// Defining methods
 module.exports = {
   //find all jobs relate to requestor
   findAllByRequestor: function(req, res) {
+    console.log(req.query);
     db.Job
-      .findAll({where:{requestor:req.body.email}})
+      .findAll({where:{requestorEmail:req.query.email}})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -26,7 +27,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  create: function(req, res) {
+  createJob: function(req, res) {
     db.Job
       .create(req.body)
       .then(dbModel => res.json(dbModel))
@@ -38,6 +39,14 @@ module.exports = {
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  complete: function(req, res) {
+    db.Job
+    .findOneAndUpdate({ _id: req.params.id}, {status:"Closed"})
+    .then(dbModel => res.json({
+      message: "Updated Successfully"
+    }))
+    .catch(err=>res.status(422).json(err));
   },
   remove: function(req, res) {
     db.Job

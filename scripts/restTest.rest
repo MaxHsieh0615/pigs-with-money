@@ -1,0 +1,11 @@
+//HTTP request
+GET http://localhost:3001/api/findAllByRequestor?email=dennist82%40yahoo.com HTTP/1.1
+
+POST http://localhost:3001/api/createJob HTTP/1.1
+content-type: application/json
+
+{
+    "requestorEmail":"dennist82@yahoo.com",
+    "title":"clean kitchen", 
+    "description":"clean kitchen description"
+}
