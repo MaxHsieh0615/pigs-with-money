@@ -28,6 +28,8 @@ app.use(passport.session()) // calls serializeUser and deserializeUser
 // Add routes, both API and view
 require("./routes/api/user")(app);
 require("./routes/api/job")(app);
+require("./routes/api/children")(app);
+// TODO: add routes/api/children(app);
 
 // Starting the server, syncing our models ------------------------------------/
 var syncOptions = { force: false };
