@@ -21,7 +21,7 @@ module.exports = {
   },
 
   findOrCreate: function(req,res){
-    console.log('user signup');
+    console.log("user signup");
     const { email, password } = req.body;
     console.log(email,password);
     db.Users
