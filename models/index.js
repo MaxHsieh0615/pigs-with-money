@@ -44,4 +44,8 @@ db.Users = require("./Users")(sequelize,Sequelize);
 db.Job = require("./Job")(sequelize, Sequelize);
 db.Job.belongsTo(db.Users,{as: "requestor"});
 db.Job.belongsTo(db.Users,{as: "assignTo"});
+// TODO: children table 
+db.Child = require("./Child")(sequelize, Sequelize);
+
+
 module.exports = db;
