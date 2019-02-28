@@ -27,8 +27,16 @@ module.exports = {
   },
 
   create: function(req, res) {
+    // const {title,description,budget} = req.body;
+    // const params = {
+    //   title: title,
+    //   description: description,
+    //   budget: budget,
+    //   status: 'Open',
+    //   requestor: req.session.email
+    // }
     db.Job
-      .create(req.body)
+      .create(req.body.title)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

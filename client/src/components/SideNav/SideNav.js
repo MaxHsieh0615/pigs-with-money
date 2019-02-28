@@ -28,4 +28,5 @@ function SideNav() {
         </div>
     );
 }
+
 export default SideNav;
