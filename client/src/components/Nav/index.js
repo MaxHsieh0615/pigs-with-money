@@ -4,7 +4,7 @@ import '../../App.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import "./style.css";
-import {Navlinks, SideNavlinks} from '../Navlinks/Navlinks';
+import {LogOutNavlinks, LoginSideNavlinks} from '../Navlinks/Navlinks';
 
 class Navbar extends Component {
     constructor() {
@@ -42,10 +42,14 @@ class Navbar extends Component {
                                 <Link to="#!"><img className="brand-logo" id="logo" alt="logo" src={logo} /></Link>
                                 <Link to="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></Link>
                                 <ul className="right hide-on-med-and-down">
-                                    <SideNavlinks />
+                                    <LoginSideNavlinks 
+                                        logout = {this.logout}
+                                    />
                                 </ul>
                                 <ul className="sidenav" id="mobile-demo">
-                                    <SideNavlinks />
+                                    <LoginSideNavlinks 
+                                        logout = {this.logout}
+                                    />
                                 </ul>
                             </div>
                         </nav>
@@ -55,10 +59,10 @@ class Navbar extends Component {
                                     <Link to=""><img className="brand-logo" id="logo" alt="logo" src={logo} /></Link>
                                     <Link to="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></Link>
                                     <ul className="right hide-on-med-and-down">
-                                        <Navlinks />
+                                        <LogOutNavlinks />
                                     </ul>
                                     <ul className="sidenav" id="mobile-demo">
-                                        <Navlinks />
+                                        <LogOutNavlinks />
                                     </ul>
                                 </div>
                             </nav>

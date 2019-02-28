@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import "./style.css";
 
-
-class Navlinks extends React.Component {
+class LogOutNavlinks extends React.Component {
     render() {
         return (
             <div>
@@ -15,7 +15,7 @@ class Navlinks extends React.Component {
     }
 }
 
-class SideNavlinks extends React.Component {
+class LoginSideNavlinks extends React.Component {
     render() {
         return (
             <div>
@@ -23,10 +23,10 @@ class SideNavlinks extends React.Component {
                 <li><Link to="/about">About</Link></li>
                 <li><Link to="/createjob">Create Job</Link></li>
                 <li><Link to="/shop">Shop</Link></li>
-                <li><Link to="/" onClick={this.logout}>Log Out</Link></li>
+                <li><button to="/" onClick={this.props.logout}>Log Out</button></li>
             </div>
         );
     }
 }
 
-export {Navlinks, SideNavlinks}
+export {LogOutNavlinks, LoginSideNavlinks}
