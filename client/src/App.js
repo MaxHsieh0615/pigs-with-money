@@ -7,6 +7,7 @@ import LoginForm from './components/login-form'
 import Navbar from './components/Nav/index'
 import Home from './components/Home/home'
 import CreateJob from './components/CreateJob/createjob'
+import AddChild from './components/AddChild/addchild';
 
 class App extends Component {
   constructor() {
@@ -54,11 +55,9 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
-        {/* greet user if logged in: */}
         {this.state.loggedIn &&
-          <p>Join the party, {this.state.username}!</p>
+          <p>Logged In as user: {this.state.username}</p>
         }
-        {/* Routes to different components */}
         <Route
           exact path="/"
           component={Home} />
@@ -78,6 +77,11 @@ class App extends Component {
           path="/createjob"
           render={() =>
             <CreateJob/>}
+        />
+        <Route
+          path="/addchild"
+          render={() =>
+            <AddChild/>}
         />
       </div>
     );

@@ -1,39 +1,47 @@
 const db = require("../models");
 
-// Defining methods
+// Defining methods for the childController
 module.exports = {
+  //find all children related to requestor
+  findAllByRequestor: function(req, res) {
+    db.Child
+      .findAll({where:{requestor:req.body.email}})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
 
   //find all jobs relate to AssignedTo
-  findAllByChild: function(req, res) {
-    db.Job
+  findAllByAssignedTo: function(req, res) {
+    db.Child
       .findAll({where:{AssignedToEmail:req.body.email}})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
 
+
   findById: function(req, res) {
-    db.Job
-      .findById({where: {_id: req.params.id, AssignedToEmail: req.params.email}})
+    db.Child
+      .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
 
-  createChild: function(req, res) {
-    db.Users
+  create: function(req, res) {
+    db.Child
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
 
-  updateChildBudget: function(req, res) {
-    db.Users
-      .findOneAndUpdate({ email: req.params.email}, {budget: req.params.budget})
+  update: function(req, res) {
+    db.Child
+      .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  removeChild: function(req, res) {
-    db.Users
-      .destroy({ email: req.params.email })
+  remove: function(req, res) {
+    db.Child
+      .destroy({ _id: req.params.id })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
