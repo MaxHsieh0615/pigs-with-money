@@ -1,9 +1,8 @@
 const db = require("../models");
 
-// Defining methods
+// Defining methods for the childController
 module.exports = {
-
-  //find all jobs relate to AssignedTo
+  //find all children related to requestor
   findAllByChild: function(req, res) {
     db.Job
       .findAll({where:{AssignedToEmail:req.body.email}})
@@ -11,29 +10,25 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  findById: function(req, res) {
-    db.Job
-      .findById({where: {_id: req.params.id, AssignedToEmail: req.params.email}})
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-
+  //should I put this on Users table.
   createChild: function(req, res) {
-    db.Users
+    db.Child
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
 
+  //related to above if Child going to be in Users table.
   updateChildBudget: function(req, res) {
-    db.Users
-      .findOneAndUpdate({ email: req.params.email}, {budget: req.params.budget})
+    db.Child
+      .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+
   removeChild: function(req, res) {
-    db.Users
-      .destroy({ email: req.params.email })
+    db.Child
+      .destroy({ _id: req.params.id })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }

@@ -1,14 +1,16 @@
 const express = require("express");
 const db = require("./models");
 const passport = require('./passport');
-const router = require('./routes/index')
+const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Define middleware here
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/"));
@@ -26,6 +28,8 @@ app.use(passport.session()) // calls serializeUser and deserializeUser
 // Add routes, both API and view
 require("./routes/api/user")(app);
 require("./routes/api/job")(app);
+require("./routes/api/children")(app);
+// TODO: add routes/api/children(app);
 
 // Starting the server, syncing our models ------------------------------------/
 var syncOptions = { force: false };
