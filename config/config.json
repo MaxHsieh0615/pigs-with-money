@@ -1,14 +1,14 @@
 {
     "development": {
       "username": "root",
-      "password": "lol127",
+      "password": "",
       "database": "piggybusiness",
       "host": "localhost",
       "dialect": "mysql"
     },
     "test": {
       "username": "root",
-      "password": "lol127",
+      "password": "",
       "database": "testdb",
       "host": "localhost",
       "dialect": "mysql",
