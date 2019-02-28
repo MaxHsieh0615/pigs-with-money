@@ -10,13 +10,28 @@ export default {
   deleteCreateJob: function(id) {
     return axios.delete("/api/createjobs/" + id);
   },
+
+  //Submit task
+  saveCreateJob: function(jobData) {
+    return axios.post("/api/createjobs", jobData);
+  },
+
+  // TODO CHILD & CHILDREN Section
+
+  getAddChild: function(childrenData) {
+    return axios.post("/api/addchild", childrenData);
+  },
+
+  deleteAddChild: function(id) {
+    return axios.delete("/api/addchild/" + id);
+  },
+  // Add Child
+  saveAddChild: function(childrenData) {
+    return axios.post("/api/addchild", childrenData);
+  },
+
   //complete tasks router
   completeTask:{}, 
   updateTask:{},
 
-  // Saves a book to the database
-  //Submit task
-  saveCreateJob: function(jobData) {
-    return axios.post("/api/createjobs", jobData);
-  }
 };
