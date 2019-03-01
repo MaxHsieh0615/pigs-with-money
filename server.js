@@ -29,7 +29,10 @@ app.use(passport.session()) // calls serializeUser and deserializeUser
 require("./routes/api/user")(app);
 require("./routes/api/job")(app);
 require("./routes/api/children")(app);
-// TODO: add routes/api/children(app);
+// FIXME: store route
+
+
+
 
 // Starting the server, syncing our models ------------------------------------/
 var syncOptions = { force: false };
