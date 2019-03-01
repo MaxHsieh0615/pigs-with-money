@@ -23,7 +23,6 @@ module.exports = {
   findOrCreate: function(req,res){
     console.log("user signup");
     const { email, password } = req.body;
-    console.log(email,password);
     db.Users
       .findOrCreate({where:{email:email},defaults:{email:email,password:password}} )
       .then(result=> {
@@ -48,7 +47,6 @@ module.exports = {
   create: function(req, res) {
     console.log('user signup');
     const { email, password } = req.body;
-    console.log(email,password);
     db.Users
       .create(req.body)
       .then(dbModel => res.json(dbModel))
