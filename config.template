@@ -1,21 +1,4 @@
-{
-    "development": {
-      "username": "root",
-      "password": "password",
-      "database": "piggybusiness",
-      "host": "localhost",
-      "dialect": "mysql"
-    },
-    "test": {
-      "username": "root",
-      "password": "password",
-      "database": "testdb",
-      "host": "localhost",
-      "dialect": "mysql",
-      "logging": false
-    },
-    "production": {
-      "use_env_variable": "JAWSDB_URL",
-      "dialect": "mysql"
-    }
-}
+DB_HOST=localhost
+DB_USER=root
+DB_PASS=password
+DB_NAME=piggybusiness
