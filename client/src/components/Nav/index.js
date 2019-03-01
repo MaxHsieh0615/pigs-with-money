@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import logo from '../img/piggybusiness_logo_01.png';
 import '../../App.css';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import "./style.css";
+import {LogOutNavlinks, LoginSideNavlinks} from '../Navlinks/Navlinks';
 
 class Navbar extends Component {
     constructor() {
@@ -37,43 +38,31 @@ class Navbar extends Component {
                 <div>
                     {loggedIn ? (
                         <nav>
-                        <div className="nav-wrapper">
-                            <a href="#!"><img className="brand-logo" id="logo" alt="logo" src={logo} /></a>
-                            <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-                            <ul className="right hide-on-med-and-down">
-                                <li><a href="/" >Home</a></li>
-                                <li><a href="/about">About</a></li>
-                                <li><a href="/createjob">Job</a></li>
-                                <li><a href="/addchild">Children</a></li>
-                                <li><a href="/shop">Shop</a></li>
-                                <li><a href="/" onClick={this.logout}>Log Out</a></li>
-                            </ul>
-                            <ul className="sidenav" id="mobile-demo">
-                            <li><a href="/" >Home</a></li>
-                                <li><a href="/about">About</a></li>
-                                <li><a href="/createjob">Create Job</a></li>
-                                <li><a href="/addchild">Children</a></li>
-                                <li><a href="/shop">Shop</a></li>
-                                <li><a href="/" onClick={this.logout}>Log Out</a></li>
-                            </ul>
-                        </div>
-                    </nav>
+                            <div className="nav-wrapper">
+                                <Link to="#!"><img className="brand-logo" id="logo" alt="logo" src={logo} /></Link>
+                                <Link to="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></Link>
+                                <ul className="right hide-on-med-and-down">
+                                    <LoginSideNavlinks 
+                                        logout = {this.logout}
+                                    />
+                                </ul>
+                                <ul className="sidenav" id="mobile-demo">
+                                    <LoginSideNavlinks 
+                                        logout = {this.logout}
+                                    />
+                                </ul>
+                            </div>
+                        </nav>
                     ) : (
                             <nav>
                                 <div className="nav-wrapper">
-                                    <a href=""><img className="brand-logo" id="logo" alt="logo" src={logo} /></a>
-                                    <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+                                    <Link to=""><img className="brand-logo" id="logo" alt="logo" src={logo} /></Link>
+                                    <Link to="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></Link>
                                     <ul className="right hide-on-med-and-down">
-                                        <li><a href="/" >Home</a></li>
-                                        <li><a href="/about">About</a></li>
-                                        <li><a href="/login">Login</a></li>
-                                        <li><a href="/signup">Sign Up</a></li>
+                                        <LogOutNavlinks />
                                     </ul>
                                     <ul className="sidenav" id="mobile-demo">
-                                        <li><a href="/">Home</a></li>
-                                        <li><a href="/about">About</a></li>
-                                        <li><a href="/login">Login</a></li>
-                                        <li><a href="/signup">Sign Up</a></li>
+                                        <LogOutNavlinks />
                                     </ul>
                                 </div>
                             </nav>

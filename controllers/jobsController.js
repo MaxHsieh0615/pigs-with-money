@@ -29,7 +29,7 @@ module.exports = {
 
   createJob: function(req, res) {
     db.Job
-      .create(req.body)
+      .create(req.body.title)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
