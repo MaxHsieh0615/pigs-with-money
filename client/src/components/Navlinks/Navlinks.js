@@ -23,7 +23,7 @@ class LoginSideNavlinks extends React.Component {
                 <li><Link to="/about">About</Link></li>
                 <li><Link to="/createjob">Create Job</Link></li>
                 <li><Link to="/shop">Shop</Link></li>
-                <li><button to="/" onClick={this.props.logout}>Log Out</button></li>
+                <li><button to="/" onClick={this.props.logout} id="logoutbtn">Log Out</button></li>
             </div>
         );
     }

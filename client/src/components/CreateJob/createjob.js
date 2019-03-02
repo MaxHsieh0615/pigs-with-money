@@ -4,34 +4,39 @@ import Jumbotron from "../Jumbotron";
 import API from "../../utils/API";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../Grid";
-// import { List, ListItem } from "../List";
+import { List } from "../List";
 import { Input, TextArea, FormBtn } from "../Form";
+import { Link } from "react-router-dom";
+
+
 
 class CreateJob extends Component {
   state = {
+    jobs: [],
     title: "",
     description: "",
     budget: 0,
     status: "",
+    email: this.props.email
   };
 
-//   componentDidMount() {
-//     this.loadJobs();
-//   }
+  componentDidMount() {
+    this.loadJobs();
+  }
 
-//   loadJobs = () => {
-//     API.getJobs()
-//       .then(res =>
-//         this.setState({ books: res.data, title: "", author: "", synopsis: "" })
-//       )
-//       .catch(err => console.log(err));
-//   };
+  loadJobs = () => {
+    API.getAllJobs()
+      .then(res =>
+        this.setState({ jobs: res.data, title: "", description: "", budget: "" })
+      )
+      .catch(err => console.log(err));
+  };
 
-//   deleteJob = id => {
-//     API.deleteJob(id)
-//       .then(res => this.loadJobs())
-//       .catch(err => console.log(err));
-//   };
+  //   deleteJob = id => {
+  //     API.deleteJob(id)
+  //       .then(res => this.loadJobs())
+  //       .catch(err => console.log(err));
+  //   };
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -41,7 +46,6 @@ class CreateJob extends Component {
   };
 
   handleFormSubmit = event => {
-    event.preventDefault();
     if (this.state.title && this.state.description) {
       API.getCreateJob({
         title: this.state.title,
@@ -89,6 +93,33 @@ class CreateJob extends Component {
                 Submit Job
               </FormBtn>
             </form>
+          </Col>
+          <Col size="md-6 sm-12">
+            <Jumbotron>
+              <h1>Job List</h1>
+            </Jumbotron>
+            {this.state.jobs.length ? (
+              <List>
+                {this.state.jobs.map(job => (
+                  <div className="col">
+                    <div className="col s12 m12">
+                      <div className="card">
+                        <div className="card-image" key={job._id}>
+                          {/* <img src="images/sample-1.jpg"> */}
+                        </div>
+                        <div className="card-content">
+                          <span className="card-title">{job.title}</span>
+                          <p>{job.description}</p>
+                         <button id="addjobbtn">ADD JOB</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </List>
+            ) : (
+                <h3>No Results to Display</h3>
+              )}
           </Col>
         </Row>
       </Container>

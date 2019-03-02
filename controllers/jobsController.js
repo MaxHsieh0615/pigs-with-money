@@ -4,15 +4,16 @@ const db = require("../models");
 module.exports = {
   //find all jobs relate to requestor
   findAllByRequestor: function(req, res) {
-    console.log(req.query);
+    console.log("Calling findAllByRequestor");
     db.Job
-      .findAll({where:{requestorEmail:req.query.email}})
+      .findAll()
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
 
   //find all jobs relate to AssignedTo
   findAllByAssignedTo: function(req, res) {
+    
     db.Job
       .findAll({where:{AssignedToEmail:req.body.email}})
       .then(dbModel => res.json(dbModel))
@@ -28,8 +29,9 @@ module.exports = {
   },
 
   createJob: function(req, res) {
+    console.log(req.user);
     db.Job
-      .create(req.body.title)
+      .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
