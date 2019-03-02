@@ -12,11 +12,7 @@ import { Link } from "react-router-dom";
 
 class CreateJob extends Component {
   state = {
-<<<<<<< HEAD
-    jobs:[],
-=======
     jobs: [],
->>>>>>> 0aff58967b8186d274ff86054872631c750cdc41
     title: "",
     description: "",
     budget: 0,
@@ -26,21 +22,12 @@ class CreateJob extends Component {
 
   componentDidMount() {
     this.loadJobs();
-<<<<<<< HEAD
-  };
-
-  loadJobs = () => {
-    API.getJobs()
-      .then(res =>
-        this.setState({ jobs: res.data, title: "", author: "", synopsis: "" })
-=======
   }
 
   loadJobs = () => {
     API.getAllJobs()
       .then(res =>
         this.setState({ jobs: res.data, title: "", description: "", budget: "" })
->>>>>>> 0aff58967b8186d274ff86054872631c750cdc41
       )
       .catch(err => console.log(err));
   };
