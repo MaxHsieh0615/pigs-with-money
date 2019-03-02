@@ -8,6 +8,7 @@ import Navbar from './components/Nav/index'
 import Home from './components/Home/home'
 import CreateJob from './components/CreateJob/createjob'
 import AddChild from './components/AddChild/addchild';
+import Shop from './components/Shop/shop';
 
 class App extends Component {
   constructor() {
@@ -82,6 +83,11 @@ class App extends Component {
           path="/addchild"
           render={() =>
             <AddChild/>}
+        />
+        <Route
+          path="/shop"
+          render={() =>
+            <Shop/>}
         />
       </div>
     );
