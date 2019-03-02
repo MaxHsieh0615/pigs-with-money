@@ -49,15 +49,15 @@ class Product extends Component {
         </div>
         <div className="row btn-toolbar">
           <div className="col-6">
-            <button className="btn btn-outline-primary" onClick={this.showInfo}>
+            <button className="waves-effect waves-light btn btn-outline-primary" onClick={this.showInfo}>
               show info
             </button>
           </div>
           <div className="col-6 text-right">
-            <button className="btn btn-outline-primary" onClick={this.add}>
+            <button className="waves-effect waves-light btn btn-outline-primary" onClick={this.add}>
               +1
             </button>
-            <button className="btn btn-outline-primary" onClick={this.subtract} disabled={this.state.qty < 1}>
+            <button className="waves-effect waves-light btn btn-outline-primary" onClick={this.subtract} disabled={this.state.qty < 1}>
               -1
             </button>
           </div>
