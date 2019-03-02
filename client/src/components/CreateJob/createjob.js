@@ -9,23 +9,24 @@ import { Input, TextArea, FormBtn } from "../Form";
 
 class CreateJob extends Component {
   state = {
+    jobs:[],
     title: "",
     description: "",
     budget: 0,
     status: "",
   };
 
-//   componentDidMount() {
-//     this.loadJobs();
-//   }
+  componentDidMount() {
+    this.loadJobs();
+  };
 
-//   loadJobs = () => {
-//     API.getJobs()
-//       .then(res =>
-//         this.setState({ books: res.data, title: "", author: "", synopsis: "" })
-//       )
-//       .catch(err => console.log(err));
-//   };
+  loadJobs = () => {
+    API.getJobs()
+      .then(res =>
+        this.setState({ jobs: res.data, title: "", author: "", synopsis: "" })
+      )
+      .catch(err => console.log(err));
+  };
 
 //   deleteJob = id => {
 //     API.deleteJob(id)

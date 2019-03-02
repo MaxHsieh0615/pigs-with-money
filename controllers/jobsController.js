@@ -4,7 +4,7 @@ const db = require("../models");
 module.exports = {
   //find all jobs relate to requestor
   findAllByRequestor: function(req, res) {
-    console.log(req.query);
+    console.log(req.session.passport.user);
     db.Job
       .findAll({where:{requestorEmail:req.query.email}})
       .then(dbModel => res.json(dbModel))
@@ -19,6 +19,12 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
+  getJobs: function(req,res) {
+    db.Job
+      .findAll()
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
 
   findById: function(req, res) {
     db.Job
@@ -29,8 +35,8 @@ module.exports = {
 
   createJob: function(req, res) {
     db.Job
-      .create(req.body.title)
-      .then(dbModel => res.json(dbModel))
+      .create(req.body)
+      .then(dbModel => res.status(200).json(dbModel))
       .catch(err => res.status(422).json(err));
   },
 
