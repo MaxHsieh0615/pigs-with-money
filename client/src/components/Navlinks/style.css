@@ -31,6 +31,10 @@ button:active {
     transform: scale(0.99);
 }
 
+#addjobbtn {
+    float: none !important;
+}
+
 nav ul a {
     -webkit-transition: background-color .3s;
     transition: background-color .3s;

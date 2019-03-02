@@ -5,11 +5,19 @@ import "./style.css";
 
 // export function List({ children }) {
 //   return (
-//     <div>
-//       {children}
+//     <div className="list-overflow-container">
+//       <ul className="list-group">{children}</ul>
 //     </div>
 //   );
 // }
+
+export function List({ children }) {
+  return (
+    <div>
+      {children}
+    </div>
+  );
+}
 
 // export function ListItem({ children }) {
 //   return <li className="list-group-item">{children}</li>;

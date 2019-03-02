@@ -101,6 +101,7 @@ class CreateJob extends Component {
             {this.state.jobs.length ? (
               <List>
                 {this.state.jobs.map(job => (
+                  //  <ListItem key={job._id}>
                   <div className="col">
                     <div className="col s12 m12">
                       <div className="card">
@@ -110,11 +111,12 @@ class CreateJob extends Component {
                         <div className="card-content">
                           <span className="card-title">{job.title}</span>
                           <p>{job.description}</p>
-                         <button id="addjobbtn">ADD JOB</button>
+                         <button id="addjobbtn" className="btn btn-success">ADD JOB</button>
                         </div>
                       </div>
                     </div>
                   </div>
+                  // </ListItem>
                 ))}
               </List>
             ) : (
