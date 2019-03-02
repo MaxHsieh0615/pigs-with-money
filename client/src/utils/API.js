@@ -4,7 +4,12 @@ export default {
   // Gets all books
   //View tasks
   getCreateJob: function(jobData) {
+<<<<<<< HEAD
     return axios.post("/api/createJob", jobData);
+=======
+    console.log(jobData);
+    return axios.post("/api/createjob", jobData);
+>>>>>>> 0aff58967b8186d274ff86054872631c750cdc41
   },
   // Deletes the book with the given id
   deleteCreateJob: function(id) {
@@ -16,9 +21,19 @@ export default {
     return axios.post("/api/createjobs", jobData);
   },
 
+<<<<<<< HEAD
   getJobs: function(jobData){
     return axios.get("/api/getJobs",jobData);
   },
+=======
+  //Find All Jobs
+  getAllJobs: function(){
+    console.log("getAllJobs");
+    return axios.get("/api/findAllByRequestor", {email:"jommoore2003@me.com"})
+  },
+
+  // TODO CHILD & CHILDREN Section
+>>>>>>> 0aff58967b8186d274ff86054872631c750cdc41
 
   // TODO CHILD & CHILDREN Section
   getAddChild: function(childrenData) {
