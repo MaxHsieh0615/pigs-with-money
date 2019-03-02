@@ -4,7 +4,6 @@ export default {
   // Gets all books
   //View tasks
   getCreateJob: function(jobData) {
-    console.log(jobData);
     return axios.post("/api/createjob", jobData);
   },
   // Deletes the book with the given id
@@ -15,12 +14,6 @@ export default {
   //Submit task
   saveCreateJob: function(jobData) {
     return axios.post("/api/createjobs", jobData);
-  },
-
-  //Find All Jobs
-  getAllJobs: function(){
-    console.log("getAllJobs");
-    return axios.get("/api/findAllByRequestor", {email:"jommoore2003@me.com"})
   },
 
   // TODO CHILD & CHILDREN Section
@@ -37,6 +30,9 @@ export default {
     return axios.post("/api/addchild", childrenData);
   },
 
+  getAllJobs: function (){
+    return axios.get("/api/getAllJobs");
+  },
   //complete tasks router
   completeTask:{}, 
   updateTask:{},
