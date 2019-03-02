@@ -20,7 +20,7 @@ export default {
   //Find All Jobs
   getAllJobs: function(){
     console.log("getAllJobs");
-    return axios.get("/api/findAllByRequestor", {email:"jommoore2003@me.com"})
+    return axios.get("/api/findAllByRequestor", {email:"hi@gmail.com"})
   },
 
   // TODO CHILD & CHILDREN Section
