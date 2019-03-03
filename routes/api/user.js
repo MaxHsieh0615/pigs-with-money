@@ -15,7 +15,7 @@ module.exports = (app) =>{
     passport.authenticate('local'),
     (req, res) => {
       console.log('logged in', req.user.email);
-      req.session.username = req.body.username;
+      req.session.username = req.body.email;
       
       var userInfo = {
         username: req.user.username
@@ -29,6 +29,7 @@ module.exports = (app) =>{
       res.json({ user: req.user })
     } else {
       res.json({ user: null })
+
     }
     next();
   })
