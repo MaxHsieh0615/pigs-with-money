@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import axios from 'axios'
 import { Route } from 'react-router-dom'
 // components
@@ -7,8 +7,8 @@ import LoginForm from './components/login-form'
 import Navbar from './components/Nav/index'
 import Home from './components/Home/home'
 import CreateJob from './components/CreateJob/createjob'
-import AddChild from './components/AddChild/addchild';
-import Shop from './components/Shop/shop';
+import AddChild from './components/AddChild/addchild'
+import Shop from './components/Shop/shop'
 
 class App extends Component {
   constructor() {

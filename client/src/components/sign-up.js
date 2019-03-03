@@ -83,7 +83,7 @@ render() {
 				<div className="form-group ">
 					<div className="col-7"></div>
 					<button
-						className="btn btn-primary col-1 col-mr-auto"
+						className="waves-effect waves-light btn btn-primary col-1 col-mr-auto"
 						onClick={this.handleSubmit}
 						type="submit"
 					>Sign up</button>
