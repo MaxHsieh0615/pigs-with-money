@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
+
 class LoginForm extends Component {
     constructor() {
         super()
@@ -12,7 +13,7 @@ class LoginForm extends Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
-  
+
     }
 
     handleChange(event) {
@@ -47,7 +48,7 @@ class LoginForm extends Component {
             }).catch(error => {
                 console.log('login error: ')
                 console.log(error);
-                
+
             })
     }
 
@@ -92,8 +93,8 @@ class LoginForm extends Component {
                         <div className="form-group ">
                             <div className="col-7"></div>
                             <button
-                                className="btn btn-primary col-1 col-mr-auto"
-                               
+                                className="waves-effect waves-light btn btn-primary col-1 col-mr-auto"
+
                                 onClick={this.handleSubmit}
                                 type="submit">Login</button>
                         </div>
