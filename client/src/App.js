@@ -9,6 +9,9 @@ import Home from './components/Home/home'
 import CreateJob from './components/CreateJob/createjob'
 import AddChild from './components/AddChild/addchild';
 import Shop from './components/Shop/shop';
+// import Modal from './components/Modal/Modal';
+import About from './components/About/about';
+
 
 class App extends Component {
   constructor() {
@@ -47,10 +50,14 @@ class App extends Component {
     })
   }
 
+
+
   render() {
     const {loggedIn} = this.state;
 
     return (
+              
+
       <div className="App">
         <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         {loggedIn &&
@@ -76,6 +83,12 @@ class App extends Component {
         />
         
         <Route
+          path="/about"
+          render={() =>
+            <About/>}
+        />
+        
+        <Route
           path="/createjob"
           render={() =>
             <CreateJob loggedIn={this.state.loggedIn}/>}
@@ -90,6 +103,7 @@ class App extends Component {
           render={() =>
             <Shop loggedIn={this.state.loggedIn}/>}
         />
+
       </div>
     );
   }
