@@ -39,7 +39,7 @@ module.exports = {
 
   findById: function(req, res) {
     db.Users
-      .findById(req.params.email)
+      .findById({where:{email: req.params.email}})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -54,13 +54,13 @@ module.exports = {
   },
   update: function(req, res) {
     db.Users
-      .findOneAndUpdate({ email: req.params.email }, req.body)
+      .findOneAndUpdate({where:{ email: req.params.email }}, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
     db.Users
-      .destroy({ email: req.params.email })
+      .destroy({where:{ email: req.params.email }})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
