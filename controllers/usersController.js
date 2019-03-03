@@ -28,8 +28,8 @@ module.exports = {
       .then(result=> {
         //result true: record is created. false: record already exists. 
         result[1] ?
-          res.json({result:"Created user"}) :
-          res.status(422).json({result:"User already exists"})
+          res.status(200).json({message:"Created user"}) :
+          res.status(200).json({errMsg:"User already exists"})
       })
       .catch(err =>{
         //console.log('User.js create user error: ', err);
