@@ -111,7 +111,7 @@ class CreateJob extends Component {
                           <div className="card-content">
                             <span className="card-title">{job.title}</span>
                             <p>{job.description}</p>
-                          <button id="addjobbtn" className="btn btn-success">ADD JOB</button>
+                          <button id="addjobbtn" className="waves-effect waves-light btn btn-success">ADD JOB</button>
                           </div>
                         </div>
                       </div>

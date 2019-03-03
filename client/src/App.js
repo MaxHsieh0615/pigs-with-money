@@ -9,12 +9,15 @@ import Home from './components/Home/home'
 import CreateJob from './components/CreateJob/createjob'
 import AddChild from './components/AddChild/addchild'
 import Shop from './components/Shop/shop'
+import MyVerticallyCenteredModal from './components/Modals/index'
+import Button from 'react-bootstrap/Button'
 
 class App extends Component {
-  constructor() {
-    super()
+  constructor(...args) {
+    super(...args)
     this.state = {
-      loggedIn: false
+      loggedIn: false,
+      modalShow: false
     }
 
     this.getUser = this.getUser.bind(this)
@@ -26,7 +29,7 @@ class App extends Component {
     this.getUser()
   }
 
-  updateUser (userObject) {
+  updateUser(userObject) {
     this.setState(userObject)
   }
 
@@ -48,7 +51,8 @@ class App extends Component {
   }
 
   render() {
-    const {loggedIn} = this.state;
+    const { loggedIn } = this.state;
+    let modalClose = () => this.setState({ modalShow: false });
 
     return (
       <div className="App">
@@ -56,11 +60,10 @@ class App extends Component {
         {loggedIn &&
           <p>Logged In as user: {this.state.username}</p>
         }
-        
         <Route
           exact path="/"
           component={Home} />
-        
+
         <Route
           path="/login"
           render={() =>
@@ -72,24 +75,34 @@ class App extends Component {
         <Route
           path="/signup"
           render={() =>
-            <Signup/>}
+            <Signup />}
         />
-        
+
         <Route
           path="/createjob"
           render={() =>
-            <CreateJob loggedIn={this.state.loggedIn}/>}
+            <CreateJob loggedIn={this.state.loggedIn} />}
         />
         <Route
           path="/addchild"
           render={() =>
-            <AddChild loggedIn={this.state.loggedIn}/>}
+            <AddChild loggedIn={this.state.loggedIn} />}
         />
         <Route
           path="/shop"
           render={() =>
-            <Shop loggedIn={this.state.loggedIn}/>}
+            <Shop loggedIn={this.state.loggedIn} />}
         />
+          {/* <Button
+            variant="primary"
+            onClick={() => this.setState({ modalShow: true })}
+          >
+            Launch vertically centered modal
+          </Button> */}
+          <MyVerticallyCenteredModal
+            show={this.state.modalShow}
+            onHide={modalClose}
+          />
       </div>
     );
   }
