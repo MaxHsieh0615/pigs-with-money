@@ -14,8 +14,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      loggedIn: false,
-      username: null
+      loggedIn: false
     }
 
     this.getUser = this.getUser.bind(this)
@@ -34,34 +33,34 @@ class App extends Component {
   getUser() {
     axios.get('/user').then(response => {
       console.log('Get user response: ')
-      console.log(response.data)
       if (response.data.user) {
         console.log('Get User: There is a user saved in the server session: ')
-
         this.setState({
-          loggedIn: true,
-          username: response.data.user.username
+          loggedIn: true
         })
       } else {
         console.log('Get user: no user');
         this.setState({
-          loggedIn: false,
-          username: null
+          loggedIn: false
         })
       }
     })
   }
 
   render() {
+    const {loggedIn} = this.state;
+
     return (
       <div className="App">
         <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
-        {this.state.loggedIn &&
+        {loggedIn &&
           <p>Logged In as user: {this.state.username}</p>
         }
+        
         <Route
           exact path="/"
           component={Home} />
+        
         <Route
           path="/login"
           render={() =>
@@ -69,25 +68,27 @@ class App extends Component {
               updateUser={this.updateUser}
             />}
         />
+
         <Route
           path="/signup"
           render={() =>
             <Signup/>}
         />
+        
         <Route
           path="/createjob"
           render={() =>
-            <CreateJob/>}
+            <CreateJob loggedIn={this.state.loggedIn}/>}
         />
         <Route
           path="/addchild"
           render={() =>
-            <AddChild/>}
+            <AddChild loggedIn={this.state.loggedIn}/>}
         />
         <Route
           path="/shop"
           render={() =>
-            <Shop/>}
+            <Shop loggedIn={this.state.loggedIn}/>}
         />
       </div>
     );
