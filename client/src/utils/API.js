@@ -6,10 +6,6 @@ export default {
   getCreateJob: function(jobData) {
     return axios.post("/api/createjob", jobData);
   },
-  // Deletes the book with the given id
-  deleteCreateJob: function(id) {
-    return axios.delete("/api/createjobs/" + id);
-  },
 
   //Submit task
   saveCreateJob: function(jobData) {

@@ -15,20 +15,22 @@ module.exports = (app) =>{
     passport.authenticate('local'),
     (req, res) => {
       console.log('logged in', req.user.email);
-      req.session.username = req.body.username;
+      req.session.username = req.body.email;
       
       var userInfo = {
-        username: req.user.username
+        username: req.user.email
       };
-      res.send(userInfo);
+      res.json(userInfo);
   });
   
   app.get('/user', (req, res, next) => {
     console.log('===== user!!======')
     if (req.user) {
-      res.json({ user: req.user })
+      //passing info to app.js
+      res.json({ user: req.session.username })
     } else {
       res.json({ user: null })
+
     }
     next();
   })
