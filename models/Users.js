@@ -16,7 +16,20 @@ module.exports = function(db, DataTypes){
     password: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    
+    balance:{
+      type: DataTypes.FLOAT,
+      defaultValue: 0
+    },
+
+    //enumeration account_type value can be parent or child 
+    account_type:{  
+      type:   DataTypes.ENUM,
+      values: ['parent', 'child'],
+      defaultValue: 'parent'
     }
+    
   });
 
   // Creating a custom method for our User model. 

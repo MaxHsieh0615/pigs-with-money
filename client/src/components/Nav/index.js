@@ -32,7 +32,6 @@ class Navbar extends Component {
         const loggedIn = this.props.loggedIn;
         console.log('navbar render, props: ')
         console.log(this.props);
-
         return (
             <header>
                 <div>

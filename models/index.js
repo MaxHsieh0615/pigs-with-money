@@ -48,6 +48,7 @@ db.Job = require("./Job")(sequelize, Sequelize);
 db.Products = require("./Products")(sequelize, Sequelize);
 db.Job.belongsTo(db.Users,{as: "requestor"});
 db.Job.belongsTo(db.Users,{as: "assignee"});
+db.Users.hasOne(db.Users, {as: "parent"});
 // TODO: children table 
 db.Child = require("./Child")(sequelize, Sequelize);
 

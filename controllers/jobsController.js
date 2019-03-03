@@ -20,6 +20,12 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
+  getJobs: function(req,res) {
+    db.Job
+      .findAll({requestorEmail: req.session.username})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
 
   findById: function(req, res) {
     db.Job
@@ -29,10 +35,16 @@ module.exports = {
   },
 
   createJob: function(req, res) {
-    console.log(req.user);
+    console.log(req.body);  
+    console.log(req.session.username);
+    const dataSet = {
+      "title" : req.body.title,
+      "description" : req.body.description,
+      "budget" : req.body.budget,
+      "requestorEmail" : req.session.username}
     db.Job
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
+      .create(dataSet)
+      .then(dbModel => res.status(200).json(dbModel))
       .catch(err => res.status(422).json(err));
   },
 
