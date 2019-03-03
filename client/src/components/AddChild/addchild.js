@@ -66,6 +66,8 @@ class AddChild extends Component {
             </form>
           </Col>
         </Row>
+       
+
       </Container>
     );
   }

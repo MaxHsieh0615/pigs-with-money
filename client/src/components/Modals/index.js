@@ -22,7 +22,7 @@ class MyVerticallyCenteredModal extends React.Component {
             </p>
           </Modal.Body>
           <Modal.Footer closeButton>
-            <Button className="waves-effect waves-light" onClick={this.props.onHide}>Close</Button>
+            <Button className="waves-effect waves-light modalButton" onClick={this.props.onHide}>Close</Button>
           </Modal.Footer>
         </Modal>
       );

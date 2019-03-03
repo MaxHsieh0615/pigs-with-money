@@ -21,7 +21,8 @@ class LoginSideNavlinks extends React.Component {
             <div>
                 <li><Link className="sidenav-close" to="/" >Home</Link></li>
                 <li><Link className="sidenav-close" to="/about">About</Link></li>
-                <li><Link className="sidenav-close" to="/createjob">Create Job</Link></li>
+                <li><Link className="sidenav-close" to="/createjob">Jobs</Link></li>
+                <li><Link className="sidenav-close" to="/addchild">Children</Link></li>
                 <li><Link className="sidenav-close" to="/shop">Shop</Link></li>
                 <li><button className="sidenav-close" to="/" onClick={this.props.logout}>Log Out</button></li>
             </div>
