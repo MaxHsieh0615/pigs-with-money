@@ -1,53 +1,51 @@
-import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
-import axios from "axios";
+import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
+import axios from 'axios'
 
 class Signup extends Component {
   constructor() {
-    super();
-    this.state = {
-      email: "",
-      password: "",
-      confirmPassword: "",
-      flashMessage: ""
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  }
-  handleChange(event) {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
-  }
-  handleSubmit(event) {
-    event.preventDefault();
-    const { email, password } = this.state;
-    //request to server to add a new username/password
-    axios
-      .post("/user", {
-        email: email,
-        password: password
-      })
-      .then(response => {
-        const { message, errMsg } = response.data;
-        if (!response.data.errMsg) {
-          console.log("successful signup");
-          this.setState({
-            //redirect to login page
-            redirectTo: "/login",
-            flashMessage: message
-          });
-        } else {
-          this.setState({ flashMessage: errMsg });
-        }
-      })
-      .catch(error => {
-        this.setState({ flashMessage: "Signup Errored" });
-      });
-  }
+	super()
+	this.state = {
+	  email: '',
+	  password: '',
+	  confirmPassword: '',
+	  flashMessage: ''
+	}
+	  this.handleSubmit = this.handleSubmit.bind(this)
+	  this.handleChange = this.handleChange.bind(this)
+	}
+	handleChange(event) {
+	  this.setState({
+		[event.target.name]: event.target.value
+	  })
+	}
+	handleSubmit(event) {
+	  event.preventDefault()
+	  const {email,password} = this.state
+	  //request to server to add a new username/password
+	  axios.post('/user', {
+		email: email,
+		password: password
+	  })
+	  .then(response => {
+		const {message,errMsg} = response.data
+		if (!response.data.errMsg) {
+		console.log('successful signup')
+		this.setState({ //redirect to login page
+		  redirectTo: '/login',
+		  flashMessage: message
+		})
+		} else {
+		this.setState({flashMessage: errMsg})
+		}
+	  }).catch(error => {
+		this.setState({flashMessage: "Signup Errored"})
+	  })
+	}
 
-  render() {
-    const { flashMessage } = this.state;
+
+	render() {
+		const {flashMessage} = this.state;
 		if(this.state.redirectTo){
 			return <Redirect to={{ pathname: this.state.redirectTo }} />
 		}else{
@@ -107,7 +105,7 @@ class Signup extends Component {
 				</div>
 			);
 		}
-  }
+	}
 }
 
 export default Signup;
