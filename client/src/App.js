@@ -10,8 +10,8 @@ import CreateJob from './components/CreateJob/createjob'
 import About from './components/About/about';
 import AddChild from './components/AddChild/addchild'
 import Shop from './components/Shop/shop'
-import MyVerticallyCenteredModal from './components/Modals/index'
 import Button from 'react-bootstrap/Button'
+import MyVerticallyCenteredModal from './components/Modals/index'
 
 class App extends Component {
   constructor(...args) {
@@ -65,6 +65,10 @@ class App extends Component {
         {loggedIn &&
           <p>Logged In as user: {this.state.username}</p>
         }
+        <MyVerticallyCenteredModal
+          show={this.state.modalShow}
+          onHide={modalClose}
+        />
         <Route
           exact path="/"
           component={Home} />
@@ -104,16 +108,12 @@ class App extends Component {
           render={() =>
             <Shop loggedIn={this.state.loggedIn} />}
         />
-          {/* <Button
-            variant="primary"
-            onClick={() => this.setState({ modalShow: true })}
-          >
-            Launch vertically centered modal
-          // </Button> */}
-          <MyVerticallyCenteredModal
-            show={this.state.modalShow}
-            onHide={modalClose}
-          />
+        <Button
+          variant="primary"
+          onClick={() => this.setState({ modalShow: true })}
+        >
+          Launch modal
+          </Button>
       </div>
     );
   }
