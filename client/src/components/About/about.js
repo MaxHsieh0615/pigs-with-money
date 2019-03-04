@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+
 
 class About extends Component {
 
@@ -7,6 +8,7 @@ class About extends Component {
             width: 400
         }
         return (
+            
             <div>
                 <div className="section center">
                 <h3>About Us</h3>

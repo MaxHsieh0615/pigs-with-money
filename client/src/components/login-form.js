@@ -59,6 +59,8 @@ class LoginForm extends Component {
         } else {
             return (
                 <div>
+                
+                <div className="login-div">
                     <h4>Login</h4>
                     <form className="form-horizontal">
                         <div className="form-group">
@@ -99,6 +101,7 @@ class LoginForm extends Component {
                                 type="submit">Login</button>
                         </div>
                     </form>
+                </div>
                 </div>
             )
         }
