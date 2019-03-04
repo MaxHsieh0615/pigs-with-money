@@ -61,7 +61,7 @@ class LoginForm extends Component {
     } else {
       return (
         <div className="container">
-          <div className="login-div">
+          
             <h4>Login</h4>
             <form className="form-horizontal">
               <div className="form-group">
@@ -110,7 +110,7 @@ class LoginForm extends Component {
                 </button>
               </div>
             </form>
-          </div>
+          
           <MyVerticallyCenteredModal
             show={this.state.modalShow}
             text="SIGN UP example text goes here"
