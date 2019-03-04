@@ -49,7 +49,7 @@ class Product extends Component {
     let modalClose = () => this.setState({ modalShow: false });
 
     return (
-      <div>
+      <div className="container">
         <MyVerticallyCenteredModal
           show={this.state.modalShow}
           text="example text goes here"
@@ -109,6 +109,7 @@ class Total extends Component {
     let total = this.props.total.toFixed(2);
 
     return (
+      <div className="container">
       <div
         style={{
           marginTop: "30px",
@@ -120,6 +121,7 @@ class Total extends Component {
           <span className="col-6">total price:</span>
           <span className="col-6 text-right">${total}</span>
         </h3>
+      </div>
       </div>
     );
   }
@@ -144,6 +146,7 @@ class ProductForm extends Component {
 
   render() {
     return (
+      <div className="container">
       <form onSubmit={this.submit.bind(this)}>
         <h3>add item</h3>
         <div className="row form-group">
@@ -192,6 +195,7 @@ class ProductForm extends Component {
 
         <hr />
       </form>
+      </div>
     );
   }
 }
@@ -241,6 +245,7 @@ class ProductList extends Component {
     var component = this;
     var products = this.state.productList.map(function(product) {
       return (
+        <div className="container">
         <Product
           name={product.name}
           price={product.price}
@@ -248,11 +253,12 @@ class ProductList extends Component {
           handleShow={component.showProduct}
           handleTotal={component.calculateTotal}
         />
+        </div>
       );
     });
 
     return (
-      <div>
+      <div className="container">
         <ProductForm handleProduct={this.createProduct} />
         {products}
         <Total total={this.state.total} />

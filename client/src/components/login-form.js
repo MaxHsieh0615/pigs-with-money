@@ -60,8 +60,7 @@ class LoginForm extends Component {
       return <Redirect to={{ pathname: this.state.redirectTo }} />;
     } else {
       return (
-
-        <div>
+        <div className="container">
           <div className="login-div">
             <h4>Login</h4>
             <form className="form-horizontal">
@@ -113,10 +112,10 @@ class LoginForm extends Component {
             </form>
           </div>
           <MyVerticallyCenteredModal
-          show={this.state.modalShow}
-          text="SIGN UP example text goes here"
-          onHide={modalClose}
-        />
+            show={this.state.modalShow}
+            text="SIGN UP example text goes here"
+            onHide={modalClose}
+          />
           <Button
             variant="primary"
             onClick={() => this.setState({ modalShow: true })}

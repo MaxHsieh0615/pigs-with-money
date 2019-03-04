@@ -26,11 +26,10 @@ export default {
     return axios.post("/api/addchild", childrenData);
   },
 
-  getAllJobs: function (){
+  getAllJobs: function() {
     return axios.get("/api/getAllJobs");
   },
   //complete tasks router
-  completeTask:{}, 
-  updateTask:{},
-
+  completeTask: {},
+  updateTask: {}
 };
