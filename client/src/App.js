@@ -7,10 +7,11 @@ import LoginForm from './components/login-form'
 import Navbar from './components/Nav/index'
 import Home from './components/Home/home'
 import CreateJob from './components/CreateJob/createjob'
+import About from './components/About/about';
 import AddChild from './components/AddChild/addchild'
 import Shop from './components/Shop/shop'
-import MyVerticallyCenteredModal from './components/Modals/index'
 import Button from 'react-bootstrap/Button'
+import MyVerticallyCenteredModal from './components/Modals/index'
 
 class App extends Component {
   constructor(...args) {
@@ -50,16 +51,24 @@ class App extends Component {
     })
   }
 
+
+
   render() {
     const { loggedIn } = this.state;
     let modalClose = () => this.setState({ modalShow: false });
 
     return (
+              
+
       <div className="App">
         <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         {loggedIn &&
           <p>Logged In as user: {this.state.username}</p>
         }
+        <MyVerticallyCenteredModal
+          show={this.state.modalShow}
+          onHide={modalClose}
+        />
         <Route
           exact path="/"
           component={Home} />
@@ -79,6 +88,12 @@ class App extends Component {
         />
 
         <Route
+          path="/about"
+          render={() =>
+            <About/>}
+        />
+        
+        <Route
           path="/createjob"
           render={() =>
             <CreateJob loggedIn={this.state.loggedIn} />}
@@ -93,16 +108,12 @@ class App extends Component {
           render={() =>
             <Shop loggedIn={this.state.loggedIn} />}
         />
-          {/* <Button
-            variant="primary"
-            onClick={() => this.setState({ modalShow: true })}
-          >
-            Launch vertically centered modal
-          </Button> */}
-          <MyVerticallyCenteredModal
-            show={this.state.modalShow}
-            onHide={modalClose}
-          />
+        <Button
+          variant="primary"
+          onClick={() => this.setState({ modalShow: true })}
+        >
+          Launch modal
+          </Button>
       </div>
     );
   }

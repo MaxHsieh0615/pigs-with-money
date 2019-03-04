@@ -27,5 +27,3 @@ yarn-error.log*
 config
 .env
 test
-
-package-lock.json
