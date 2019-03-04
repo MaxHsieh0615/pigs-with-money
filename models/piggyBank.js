@@ -1,4 +1,6 @@
 module.exports = function(db, DataTypes) {
+
+  //anything else?
   const PiggyBank = db.define("piggy_bank", {
     child_name: {
       type: DataTypes.STRING
