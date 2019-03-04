@@ -60,6 +60,7 @@ class CreateJob extends Component {
     }else{
       return (
         <Container fluid>
+          <h1>{this.props.email}</h1>
           <Row>
             <Col size="md-6">
               <Jumbotron>

@@ -92,7 +92,7 @@ class App extends Component {
         <Route
           path="/createjob"
           render={() =>
-            <CreateJob loggedIn={this.state.loggedIn} />}
+            <CreateJob loggedIn={this.state.loggedIn} email={this.state.email}/>}
         />
         <Route
           path="/addchild"
