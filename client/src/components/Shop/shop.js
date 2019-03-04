@@ -3,6 +3,7 @@ import React, { Component } from "react";
 // FIXME: import API from "../../utils/API";
 import { Link } from "react-router-dom";
 
+
 let productList = [
   { name: "Ice Cream", price: 1, info: "Let's get some ice cream!" },
   { name: "Popcorn & Movie", price: 10, info: "Ready to watch a movie? Popcorn included!" }

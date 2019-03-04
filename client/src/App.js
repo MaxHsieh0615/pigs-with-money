@@ -7,6 +7,7 @@ import LoginForm from './components/login-form'
 import Navbar from './components/Nav/index'
 import Home from './components/Home/home'
 import CreateJob from './components/CreateJob/createjob'
+import About from './components/About/about';
 import AddChild from './components/AddChild/addchild'
 import Shop from './components/Shop/shop'
 import Button from 'react-bootstrap/Button'
@@ -50,11 +51,15 @@ class App extends Component {
     })
   }
 
+
+
   render() {
     const { loggedIn } = this.state;
     let modalClose = () => this.setState({ modalShow: false });
 
     return (
+              
+
       <div className="App">
         <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         {loggedIn &&
@@ -82,6 +87,12 @@ class App extends Component {
             <Signup />}
         />
 
+        <Route
+          path="/about"
+          render={() =>
+            <About/>}
+        />
+        
         <Route
           path="/createjob"
           render={() =>
