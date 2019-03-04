@@ -6,4 +6,4 @@ module.exports = (app) => {
   app.get("/api/findPiggyBankByChild", piggyBanksController.findPiggyBankByChild);
   app.get("/api/findPiggyBankByPiggyBankID", piggyBanksController.findPiggyBankByPiggyBankID);
   app.put("/api/updatePiggyBankBalance", piggyBanksController.updatePiggyBankBalance);
-}
+};
