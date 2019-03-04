@@ -53,7 +53,7 @@ class MyVerticallyCenteredModal extends React.Component {
               <Modal.Body>
                 <h4>Centered Modal</h4>
                 <p>
-                Hard coded everything here for now.
+                  {this.props.text}
                 </p>
               </Modal.Body>
               <Modal.Footer>

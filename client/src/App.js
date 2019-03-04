@@ -67,6 +67,7 @@ class App extends Component {
         }
         <MyVerticallyCenteredModal
           show={this.state.modalShow}
+          text="example text goes"
           onHide={modalClose}
         />
         <Route
@@ -108,12 +109,7 @@ class App extends Component {
           render={() =>
             <Shop loggedIn={this.state.loggedIn} />}
         />
-        <Button
-          variant="primary"
-          onClick={() => this.setState({ modalShow: true })}
-        >
-          Launch modal
-          </Button>
+
       </div>
     );
   }

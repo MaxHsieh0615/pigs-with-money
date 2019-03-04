@@ -9,7 +9,7 @@ class About extends Component {
         }
         return (
             
-            <div>
+            <div className="container">
                 <div className="section center">
                 <h3>About Us</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate ultrices ex eget dignissim. Donec sed molestie dolor. Nam nec nulla maximus, vestibulum mi non, sollicitudin orci. Integer auctor nulla non risus auctor aliquam sit amet quis nunc. Vivamus sit amet neque gravida, semper dui quis, tristique lacus. Pellentesque nec ipsum libero. Aenean id dapibus dui, et hendrerit purus.</p>
