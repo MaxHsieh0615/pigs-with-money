@@ -2,11 +2,16 @@ import React, { Component } from "react";
 // TODO: Create products db to hold prod data
 // FIXME: import API from "../../utils/API";
 import { Link } from "react-router-dom";
-
+import Button from "react-bootstrap/Button";
+import MyVerticallyCenteredModal from "../Modals/index";
 
 let productList = [
   { name: "Ice Cream", price: 1, info: "Let's get some ice cream!" },
-  { name: "Popcorn & Movie", price: 10, info: "Ready to watch a movie? Popcorn included!" }
+  {
+    name: "Popcorn & Movie",
+    price: 10,
+    info: "Ready to watch a movie? Popcorn included!"
+  }
 ];
 
 /* Product */
@@ -14,6 +19,7 @@ class Product extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      modalShow: false,
       qty: 0
     };
     this.add = this.add.bind(this);
@@ -40,30 +46,55 @@ class Product extends Component {
   }
 
   render() {
+    let modalClose = () => this.setState({ modalShow: false });
+
     return (
-      <div>
+      <div className="container">
+        <MyVerticallyCenteredModal
+          show={this.state.modalShow}
+          text="example text goes here"
+          onHide={modalClose}
+        />
         <div className="row form-group">
           <div className="col-sm-10">
-            <h4>{this.props.name}: ${this.props.price}</h4>
+            <h4>
+              {this.props.name}: ${this.props.price}
+            </h4>
           </div>
           <div className="col-sm-2 text-right">qty: {this.state.qty}</div>
         </div>
         <div className="row btn-toolbar">
           <div className="col-6">
-            <button className="waves-effect waves-light btn btn-outline-primary" onClick={this.showInfo}>
+            <button
+              className="waves-effect waves-light btn btn-outline-primary"
+              onClick={this.showInfo}
+            >
               show info
             </button>
           </div>
           <div className="col-6 text-right">
-            <button className="waves-effect waves-light btn btn-outline-primary" onClick={this.add}>
+            <button
+              className="waves-effect waves-light btn btn-outline-primary"
+              onClick={this.add}
+            >
               +1
             </button>
-            <button className="waves-effect waves-light btn btn-outline-primary" onClick={this.subtract} disabled={this.state.qty < 1}>
+            <button
+              className="waves-effect waves-light btn btn-outline-primary"
+              onClick={this.subtract}
+              disabled={this.state.qty < 1}
+            >
               -1
             </button>
           </div>
         </div>
         <hr />
+        <Button
+          variant="primary"
+          onClick={() => this.setState({ modalShow: true })}
+        >
+          Launch modal
+        </Button>
       </div>
     );
   }
@@ -78,17 +109,24 @@ class Total extends Component {
     let total = this.props.total.toFixed(2);
 
     return (
-      <div style={{"marginTop": "30px", "backgroundColor":"#F6F6F6","padding": "10px"}}>
+      <div className="container">
+      <div
+        style={{
+          marginTop: "30px",
+          backgroundColor: "#F6F6F6",
+          padding: "10px"
+        }}
+      >
         <h3 className="row" style={{ fontWeight: 400 }}>
           <span className="col-6">total price:</span>
           <span className="col-6 text-right">${total}</span>
         </h3>
       </div>
+      </div>
     );
   }
 }
 // TODO: Create CHECKOUT btn to debit from piggy bank
-
 
 /* ProductForm */
 class ProductForm extends Component {
@@ -108,6 +146,7 @@ class ProductForm extends Component {
 
   render() {
     return (
+      <div className="container">
       <form onSubmit={this.submit.bind(this)}>
         <h3>add item</h3>
         <div className="row form-group">
@@ -156,6 +195,7 @@ class ProductForm extends Component {
 
         <hr />
       </form>
+      </div>
     );
   }
 }
@@ -205,6 +245,7 @@ class ProductList extends Component {
     var component = this;
     var products = this.state.productList.map(function(product) {
       return (
+        <div className="container">
         <Product
           name={product.name}
           price={product.price}
@@ -212,11 +253,12 @@ class ProductList extends Component {
           handleShow={component.showProduct}
           handleTotal={component.calculateTotal}
         />
+        </div>
       );
     });
 
     return (
-      <div>
+      <div className="container">
         <ProductForm handleProduct={this.createProduct} />
         {products}
         <Total total={this.state.total} />
@@ -225,4 +267,4 @@ class ProductList extends Component {
   }
 }
 
-export default ProductList
+export default ProductList;

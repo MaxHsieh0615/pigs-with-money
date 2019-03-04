@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import Modal from 'react-bootstrap/Modal'
-import Button from 'react-bootstrap/Button'
-import "./style.css"
+import React, { Component } from 'react';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import "./style.css";
 import axios from 'axios';
 
 class MyVerticallyCenteredModal extends React.Component {
@@ -53,7 +53,7 @@ class MyVerticallyCenteredModal extends React.Component {
               <Modal.Body>
                 <h4>Centered Modal</h4>
                 <p>
-                Hard coded everything here for now.
+                  {this.props.text}
                 </p>
               </Modal.Body>
               <Modal.Footer>
