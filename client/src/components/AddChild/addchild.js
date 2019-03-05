@@ -36,7 +36,6 @@ class AddChild extends Component {
 
   render() {
     return (
-      <div className="container">
         <Container fluid>
           <Row>
             <Col size="md-6">
@@ -68,7 +67,6 @@ class AddChild extends Component {
             </Col>
           </Row>
         </Container>
-      </div>
     );
   }
 }
