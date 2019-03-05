@@ -10,12 +10,11 @@ import CreateJob from "./components/CreateJob/createjob";
 import About from "./components/About/about";
 import AddChild from "./components/AddChild/addchild";
 import Shop from "./components/Shop/shop";
-import Button from "react-bootstrap/Button";
 import MyVerticallyCenteredModal from "./components/Modals/index";
 
 class App extends Component {
-  constructor(...args) {
-    super(...args);
+  constructor() {
+    super();
     this.state = {
       loggedIn: false,
       modalShow: false
@@ -36,9 +35,7 @@ class App extends Component {
 
   getUser() {
     axios.get("/user").then(response => {
-      console.log("Get user response: ");
       if (response.data.user) {
-        console.log("Get User: There is a user saved in the server session: ");
         this.setState({
           loggedIn: true
         });
@@ -53,41 +50,43 @@ class App extends Component {
 
   render() {
     const { loggedIn } = this.state;
-    let modalClose = () => this.setState({ modalShow: false });
+    const modalClose = () => this.setState({ modalShow: false });
 
     return (
       <div className="App">
         <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
-        {loggedIn && <p>Logged In as user: {this.state.username}</p>}
-        <MyVerticallyCenteredModal
-          show={this.state.modalShow}
-          text="example text goes"
-          onHide={modalClose}
-        />
-        <Route exact path="/" component={Home} />
+        <div className="container">
+          {loggedIn && <p>Logged In as user: {this.state.username}</p>}
+          <MyVerticallyCenteredModal
+            show={this.state.modalShow}
+            text="example text goes"
+            onHide={modalClose}
+          />
+          <Route exact path="/" component={Home} />
 
-        <Route
-          path="/login"
-          render={() => <LoginForm updateUser={this.updateUser} />}
-        />
+          <Route
+            path="/login"
+            render={() => <LoginForm updateUser={this.updateUser} />}
+          />
 
-        <Route path="/signup" render={() => <Signup />} />
+          <Route path="/signup" render={() => <Signup />} />
 
-        <Route path="/about" render={() => <About />} />
+          <Route path="/about" render={() => <About />} />
 
-        <Route
-          path="/createjob"
-          render={() =>
-            <CreateJob loggedIn={this.state.loggedIn} email={this.state.email}/>}
-        />
-        <Route
-          path="/addchild"
-          render={() => <AddChild loggedIn={this.state.loggedIn} />}
-        />
-        <Route
-          path="/shop"
-          render={() => <Shop loggedIn={this.state.loggedIn} />}
-        />
+          <Route
+            path="/jobs"
+            render={() =>
+              <CreateJob loggedIn={this.state.loggedIn} email={this.state.email}/>}
+          />
+          <Route
+            path="/children"
+            render={() => <AddChild loggedIn={this.state.loggedIn} />}
+          />
+          <Route
+            path="/shop"
+            render={() => <Shop loggedIn={this.state.loggedIn} />}
+          />
+        </div>
       </div>
     );
   }
