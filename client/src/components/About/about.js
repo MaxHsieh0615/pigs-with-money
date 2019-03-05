@@ -2,9 +2,6 @@ import React, { Component } from "react";
 
 class About extends Component {
   render() {
-    const imageStyle = {
-      width: 400
-    };
     return (
       <div className="container">
         <div className="section center">

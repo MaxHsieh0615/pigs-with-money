@@ -4,7 +4,7 @@ import "../../App.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./style.css";
-import { LogOutNavlinks, LoginSideNavlinks } from "../Navlinks/Navlinks";
+import NavLinks from "../Navlinks/Navlinks";
 
 class Navbar extends Component {
   constructor() {
@@ -38,49 +38,26 @@ class Navbar extends Component {
     return (
       <header>
         <div>
-          {loggedIn ? (
-            <nav>
-              <div className="nav-wrapper">
-                <Link to="#!">
-                  <img className="brand-logo" id="logo" alt="logo" src={logo} />
-                </Link>
-                <Link
-                  to="#"
-                  data-target="mobile-demo"
-                  className="sidenav-trigger"
-                >
-                  <i className="material-icons">menu</i>
-                </Link>
-                <ul className="right hide-on-med-and-down">
-                  <LoginSideNavlinks logout={this.logout} />
-                </ul>
-                <ul className="sidenav" id="mobile-demo">
-                  <LoginSideNavlinks logout={this.logout} />
-                </ul>
-              </div>
-            </nav>
-          ) : (
-            <nav>
-              <div className="nav-wrapper">
-                <Link to="">
-                  <img className="brand-logo" id="logo" alt="logo" src={logo} />
-                </Link>
-                <Link
-                  to="#"
-                  data-target="mobile-demo"
-                  className="sidenav-trigger"
-                >
-                  <i className="material-icons">menu</i>
-                </Link>
-                <ul className="right hide-on-med-and-down">
-                  <LogOutNavlinks />
-                </ul>
-                <ul className="sidenav" id="mobile-demo">
-                  <LogOutNavlinks />
-                </ul>
-              </div>
-            </nav>
-          )}
+          <nav>
+            <div className="nav-wrapper">
+              <Link to="#!">
+                <img className="brand-logo" id="logo" alt="logo" src={logo} />
+              </Link>
+              <Link
+                to="#"
+                data-target="mobile-demo"
+                className="sidenav-trigger"
+              >
+                <i className="material-icons">menu</i>
+              </Link>
+              <ul className="right hide-on-med-and-down">
+                <NavLinks loggedIn={loggedIn} logout={this.logout} />
+              </ul>
+              <ul className="sidenav" id="mobile-demo">
+                <NavLinks loggedIn={loggedIn} logout={this.logout} />
+              </ul>
+            </div>
+          </nav>
         </div>
       </header>
     );

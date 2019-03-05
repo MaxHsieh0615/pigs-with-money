@@ -14,10 +14,9 @@ class MyVerticallyCenteredModal extends React.Component {
   }
 
   logout(event) {
-    event.preventDefault()
-    console.log('logging out')
+    event.preventDefault();
+    console.log('logging out');
     axios.post('/logout').then(response => {
-      console.log(response.data)
       if (response.status === 200) {
         this.props.updateUser({
           loggedIn: false,
@@ -25,13 +24,12 @@ class MyVerticallyCenteredModal extends React.Component {
         })
       }
     }).catch(error => {
-      console.log('Logout error')
-    })
+      console.log(`Logout error: ${error}`);
+    });
   }
   render() {
     const loggedIn = this.props.loggedIn;
-    let modalClose = () => this.setState({ modalShow: false });
-    console.log(this.props);
+    const modalClose = () => this.setState({ modalShow: false });
 
     return (
       <div>
