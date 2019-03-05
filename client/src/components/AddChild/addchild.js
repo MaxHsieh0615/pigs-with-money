@@ -64,80 +64,39 @@ class AddChild extends Component {
   }
 
   render() {
-    if (!this.props.loggedIn) {
-      return <Redirect to="/login" />;
-    } else {
-      return (
-        <div className="container">
-          <Container fluid>
-            <Row>
-              <Col size="md-6">
-                <Jumbotron>
-                  <h1>Add Child</h1>
-                </Jumbotron>
-                <form>
-                  <Input
-                    type="text"
-                    value={this.state.child_name}
-                    onChange={this.handleInputChange}
-                    name="child_name"
-                    placeholder="Name (required)"
-                  />
-                  <Input
-                    type="number"
-                    value={this.state.piggy}
-                    onChange={this.handleInputChange}
-                    name="piggy"
-                    placeholder="Budget (Optional)"
-                  />
-                  <FormBtn
-                    disabled={!(this.state.child_name && this.state.piggy)}
-                    onClick={this.handleFormSubmit}
-                  >
-                    Add Child
+    return (
+        <Container fluid>
+          <Row>
+            <Col size="md-6">
+              <Jumbotron>
+                <h1>Add child_name</h1>
+              </Jumbotron>
+              <form>
+                <Input
+                  type="text"
+                  value={this.state.child_name}
+                  onChange={this.handleInputChange}
+                  name="child_name"
+                  placeholder="Name (required)"
+                />
+                <Input
+                  type="number"
+                  value={this.state.piggy}
+                  onChange={this.handleInputChange}
+                  name="piggy"
+                  placeholder="Budget (Optional)"
+                />
+                <FormBtn
+                  disabled={!(this.state.child_name && this.state.piggy)}
+                  onClick={this.handleFormSubmit}
+                >
+                  Add Child
                 </FormBtn>
-                </form>
-              </Col>
-              <Col size="md-6 sm-12">
-                <Jumbotron>
-                  <h1>Child List</h1>
-                </Jumbotron>
-                {this.state.children.length ? (
-                  <List>
-                    {this.state.children.map(child => (
-                      //  <ListItem key={job._id}>
-                      <div className="col">
-                        <div className="col s12 m12">
-                          <div className="card">
-                            <div className="card-image" key={child.id}>
-                              {/* <img src="images/sample-1.jpg"> */}
-                            </div>
-                            <div className="card-content">
-                              <span className="card-title">{child.child_name}</span>
-                              <p>{child.piggy}</p>
-                              <button
-                                id={child.id}
-                                className="waves-effect waves-light btn btn-success"
-                                onClick={this.removeChild}
-                              >
-                                REMOVE CHILD
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      // </ListItem>
-                    ))}
-                  </List>
-                ) : (
-                    <h3>No Results to Display</h3>
-                  )}
-              </Col>
-            </Row>
-          </Container>
-        </div>
-      );
-    }
+              </form>
+            </Col>
+          </Row>
+        </Container>
+    );
   }
 }
 export default AddChild;

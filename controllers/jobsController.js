@@ -4,10 +4,9 @@ const db = require("../models");
 module.exports = {
   //find all jobs relate to requestor
   findAllByRequestor: function(req, res) {
-    console.log("Calling findAllByRequestor");
     db.Job
       .findAll()
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => res.status(200).json(dbModel))
       .catch(err => res.status(422).json(err));
   },
 
@@ -22,8 +21,8 @@ module.exports = {
 
   getJobs: function(req,res) {
     db.Job
-      .findAll({requestorEmail: req.session.username})
-      .then(dbModel => res.json(dbModel))
+      .findAll({where:{requestorEmail: req.session.username}})
+      .then(dbModel => res.status(200).json(dbModel))
       .catch(err => res.status(422).json(err));
   },
 
@@ -35,8 +34,6 @@ module.exports = {
   },
 
   createJob: function(req, res) {
-    console.log(req.body);  
-    console.log(req.session.username);
     const dataSet = {
       "title" : req.body.title,
       "description" : req.body.description,
