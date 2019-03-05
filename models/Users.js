@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs');
 
 module.exports = function(db, DataTypes){
-  var Users = db.define("Users",{
+  const Users = db.define("Users",{
     // The email cannot be null, and must be a proper email before creation
     email: {
       type: DataTypes.STRING,
@@ -23,7 +23,7 @@ module.exports = function(db, DataTypes){
       defaultValue: 0
     },
 
-    //enumeration account_type value can be parent or child 
+    // enumeration account_type value can be parent or child 
     account_type:{  
       type:   DataTypes.ENUM,
       values: ['parent', 'child'],
@@ -33,8 +33,8 @@ module.exports = function(db, DataTypes){
   });
 
   // Creating a custom method for our User model. 
-  //This will check if an unhashed password entered by the 
-  //user can be compared to the hashed password stored in our database
+  // This will check if an unhashed password entered by the 
+  // user can be compared to the hashed password stored in our database
   Users.prototype.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
   };

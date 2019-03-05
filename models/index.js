@@ -1,14 +1,13 @@
 "use strict";
 
-var fs = require("fs");
-var path = require("path");
-var Sequelize = require("sequelize");
-var basename = path.basename(module.filename);
-var env = process.env.NODE_ENV || "development";
+const fs = require("fs");
+const path = require("path");
+const Sequelize = require("sequelize");
+const basename = path.basename(module.filename);
+const env = process.env.NODE_ENV || "development";
 require("dotenv").config();
 
-//var config = require(__dirname + "/../config/config.json")[env];
-var db = {};
+let db = {};
 if (env !="development") {
   var sequelize = new Sequelize(process.env["JAWSDB_URL"]);
 } else {
@@ -29,7 +28,7 @@ fs.readdirSync(__dirname)
     );
   })
   .forEach(function(file) {
-    var model = sequelize.import(path.join(__dirname, file));
+    const model = sequelize.import(path.join(__dirname, file));
     db[model.name] = model;
   });
 
