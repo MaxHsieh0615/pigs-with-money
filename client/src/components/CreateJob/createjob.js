@@ -109,7 +109,7 @@ class CreateJob extends Component {
                       <div className="col">
                         <div className="col s12 m12">
                           <div className="card">
-                            <div className="card-image" key={job._id}>
+                            <div className="card-image" key={job.id}>
                               {/* <img src="images/sample-1.jpg"> */}
                             </div>
                             <div className="card-content">
@@ -120,6 +120,13 @@ class CreateJob extends Component {
                                 className="waves-effect waves-light btn btn-success"
                               >
                                 ADD JOB
+                              </button>
+                              <button
+                                id={job.id}
+                                className="waves-effect waves-light btn btn-success"
+                                onClick={this.deleteChild}
+                              >
+                                REMOVE JOB
                               </button>
                             </div>
                           </div>
