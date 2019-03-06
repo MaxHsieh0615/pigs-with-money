@@ -10,8 +10,7 @@ Created for project 3. Details to follow.
 
 1. Clone Repo
 1. Run npm i
-1. Create a config folder
-    1. Copy config.template and save as config.json
+1. Copy contents of config.template and save as .env
     1. Update db passwords
 
 ### Technologies
