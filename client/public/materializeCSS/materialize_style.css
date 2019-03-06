@@ -6,6 +6,10 @@
  * Made By MaterializeCSS.com
  */
 
+ .modal {
+   position: relative;
+ }
+
  nav ul a,
  nav .brand-logo {
    color: #444;
@@ -15,7 +19,7 @@
  p {
    line-height: 2rem;
  }
- 
+
  .sidenav-trigger {
    color: #26a69a;
  }

@@ -4,8 +4,8 @@ const db = require("../models");
 module.exports = {
   //find all children related to requestor
   findAllByChild: function(req, res) {
-    db.Job
-      .findAll({where:{AssignedToEmail:req.body.email}})
+    db.Child
+      .findAll()
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -27,8 +27,9 @@ module.exports = {
   },
 
   removeChild: function(req, res) {
+    console.log(req.params.id)
     db.Child
-      .destroy({ _id: req.params.id })
+      .destroy({where:{id: req.params.id}})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
