@@ -11,7 +11,7 @@ class AddChild extends Component {
   state = {
     child_name: "",
     piggy: 0,
-    status: "",
+    status: ""
   };
 
   handleInputChange = event => {
@@ -28,7 +28,7 @@ class AddChild extends Component {
         child_name: this.state.child_name,
         piggy: this.state.piggy
       })
-      // FIXME: see .then below
+        // FIXME: see .then below
         .then(res => this.getAddChild())
         .catch(err => console.log(err));
     }
@@ -36,37 +36,37 @@ class AddChild extends Component {
 
   render() {
     return (
-      <Container fluid>
-        <Row>
-          <Col size="md-6">
-            <Jumbotron>
-              <h1>Add child_name</h1>
-            </Jumbotron>
-            <form>
-              <Input
-                type="text"
-                value={this.state.child_name}
-                onChange={this.handleInputChange}
-                name="child_name"
-                placeholder="Name (required)"
-              />
-              <Input
-                type="number"
-                value={this.state.piggy}
-                onChange={this.handleInputChange}
-                name="piggy"
-                placeholder="Budget (Optional)"
-              />
-              <FormBtn
-                disabled={!(this.state.child_name && this.state.piggy)}
-                onClick={this.handleFormSubmit}
-              >
-                Add Child
-              </FormBtn>
-            </form>
-          </Col>
-        </Row>
-      </Container>
+        <Container fluid>
+          <Row>
+            <Col size="md-6">
+              <Jumbotron>
+                <h1>Add child_name</h1>
+              </Jumbotron>
+              <form>
+                <Input
+                  type="text"
+                  value={this.state.child_name}
+                  onChange={this.handleInputChange}
+                  name="child_name"
+                  placeholder="Name (required)"
+                />
+                <Input
+                  type="number"
+                  value={this.state.piggy}
+                  onChange={this.handleInputChange}
+                  name="piggy"
+                  placeholder="Budget (Optional)"
+                />
+                <FormBtn
+                  disabled={!(this.state.child_name && this.state.piggy)}
+                  onClick={this.handleFormSubmit}
+                >
+                  Add Child
+                </FormBtn>
+              </form>
+            </Col>
+          </Row>
+        </Container>
     );
   }
 }

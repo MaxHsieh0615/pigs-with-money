@@ -1,15 +1,7 @@
 .nav-wrapper {
-    background-color: aqua;
+    background-color: #9b74c2;
     width: 100%;
 }
 #logo {
     height: 100%;
-}
-.btn {
-    height: 50%;
-    margin-top: 16px;
-    margin-right: 20px;
-    padding-right: 10px;
-    float: left;
-    text-align: center;
 }

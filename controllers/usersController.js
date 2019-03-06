@@ -21,16 +21,15 @@ module.exports = {
   },
 
   findOrCreate: function(req,res){
-    console.log('user signup');
+    console.log("user signup");
     const { email, password } = req.body;
-    console.log(email,password);
     db.Users
       .findOrCreate({where:{email:email},defaults:{email:email,password:password}} )
       .then(result=> {
         //result true: record is created. false: record already exists. 
         result[1] ?
-          res.json({result:"Created user"}) :
-          res.status(422).json({result:"User already exists"})
+          res.status(200).json({message:"Created user"}) :
+          res.status(200).json({errMsg:"User already exists"})
       })
       .catch(err =>{
         //console.log('User.js create user error: ', err);
@@ -40,7 +39,7 @@ module.exports = {
 
   findById: function(req, res) {
     db.Users
-      .findById(req.params.email)
+      .findById({where:{email: req.params.email}})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -48,7 +47,6 @@ module.exports = {
   create: function(req, res) {
     console.log('user signup');
     const { email, password } = req.body;
-    console.log(email,password);
     db.Users
       .create(req.body)
       .then(dbModel => res.json(dbModel))
@@ -56,13 +54,13 @@ module.exports = {
   },
   update: function(req, res) {
     db.Users
-      .findOneAndUpdate({ email: req.params.email }, req.body)
+      .findOneAndUpdate({where:{ email: req.params.email }}, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
     db.Users
-      .destroy({ email: req.params.email })
+      .destroy({where:{ email: req.params.email }})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }

@@ -4,21 +4,27 @@ const db = require("../models");
 module.exports = {
   //find all jobs relate to requestor
   findAllByRequestor: function(req, res) {
-    console.log(req.query);
     db.Job
-      .findAll({where:{requestorEmail:req.query.email}})
-      .then(dbModel => res.json(dbModel))
+      .findAll()
+      .then(dbModel => res.status(200).json(dbModel))
       .catch(err => res.status(422).json(err));
   },
 
   //find all jobs relate to AssignedTo
   findAllByAssignedTo: function(req, res) {
+    
     db.Job
       .findAll({where:{AssignedToEmail:req.body.email}})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
 
+  getJobs: function(req,res) {
+    db.Job
+      .findAll({where:{requestorEmail: req.session.username}})
+      .then(dbModel => res.status(200).json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
 
   findById: function(req, res) {
     db.Job
@@ -28,9 +34,14 @@ module.exports = {
   },
 
   createJob: function(req, res) {
+    const dataSet = {
+      "title" : req.body.title,
+      "description" : req.body.description,
+      "budget" : req.body.budget,
+      "requestorEmail" : req.session.username}
     db.Job
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
+      .create(dataSet)
+      .then(dbModel => res.status(200).json(dbModel))
       .catch(err => res.status(422).json(err));
   },
 
