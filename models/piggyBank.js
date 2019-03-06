@@ -1,24 +1,15 @@
 module.exports = function(db, DataTypes) {
 
-  //anything else?
   const PiggyBank = db.define("piggy_bank", {
-    child_name: {
+    amount: {
+      type: DataTypes.FLOAT
+    },
+    transaction: {
+      type: DataTypes.ENUM,
+      values: ['withdraw', 'deposit']
+    },
+    description: {
       type: DataTypes.STRING
-    },
-    piggy_bank_id: {
-      type: DataTypes.INTEGER
-    },
-    previous_balance: {
-      type: DataTypes.FLOAT
-    },
-    amount_earned: {
-      type: DataTypes.FLOAT
-    },
-    current_balance: {
-      type: DataTypes.FLOAT
-    },
-    date: {
-      type: DataTypes.DATE
     }
   });
   return PiggyBank;

@@ -1,9 +1,11 @@
-const piggyBanksController = require('../../controllers/piggyBanksController');
+const piggyBanksController = require("../../controllers/piggyBanksController");
 
-//what else do we need?
-module.exports = (app) => {
-  app.post('/api/findPiggyBankByChild',piggyBanksController.findPiggyBankByChild);
-  app.get("/api/findPiggyBankByChild", piggyBanksController.findPiggyBankByChild);
-  app.get("/api/findPiggyBankByPiggyBankID", piggyBanksController.findPiggyBankByPiggyBankID);
-  app.put("/api/updatePiggyBankBalance", piggyBanksController.updatePiggyBankBalance);
+module.exports = app => {
+  
+  app.get("/api/addFunds/:id", piggyBanksController.addFunds);
+
+  app.get("/api/deductFunds/:id", piggyBanksController.deductFunds);
+
+  app.get("/api/showAllTransactions/:id/:email", piggyBanksController.showAllTransactions);
+
 };
