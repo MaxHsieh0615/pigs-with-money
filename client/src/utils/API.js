@@ -6,10 +6,6 @@ export default {
   getCreateJob: function(jobData) {
     return axios.post("/api/createjob", jobData);
   },
-  // Deletes the book with the given id
-  deleteCreateJob: function(id) {
-    return axios.delete("/api/createjobs/" + id);
-  },
 
   //Submit task
   saveCreateJob: function(jobData) {
@@ -23,15 +19,21 @@ export default {
   },
 
   deleteAddChild: function(id) {
-    return axios.delete("/api/addchild/" + id);
+    return axios.delete("/api/removeChild/" + id);
   },
   // Add Child
   saveAddChild: function(childrenData) {
     return axios.post("/api/addchild", childrenData);
   },
 
-  //complete tasks router
-  completeTask:{}, 
-  updateTask:{},
+  findAllByChild: function() {
+    return axios.get("/api/findAllByChild");
+  },
 
+  getAllJobs: function() {
+    return axios.get("/api/getAllJobs");
+  },
+  //complete tasks router
+  completeTask: {},
+  updateTask: {}
 };
