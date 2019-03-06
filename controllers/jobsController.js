@@ -47,13 +47,13 @@ module.exports = {
 
   update: function(req, res) {
     db.Job
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .findOneAndUpdate({ id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   complete: function(req, res) {
     db.Job
-    .findOneAndUpdate({ _id: req.params.id}, {status:"Closed"})
+    .findOneAndUpdate({ id: req.params.id}, {status:"Closed"})
     .then(dbModel => res.json({
       message: "Updated Successfully"
     }))
@@ -61,7 +61,7 @@ module.exports = {
   },
   remove: function(req, res) {
     db.Job
-      .destroy({ _id: req.params.id })
+      .destroy({ id: req.params.id })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }

@@ -1,4 +1,4 @@
-const childrenController = require('../../controllers/childrenController');
+const childrenController = require("../../controllers/childrenController");
 
 module.exports = (app) =>{
   app.post('/api/addChild',childrenController.createChild);

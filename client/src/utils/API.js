@@ -19,11 +19,15 @@ export default {
   },
 
   deleteAddChild: function(id) {
-    return axios.delete("/api/addchild/" + id);
+    return axios.delete("/api/removeChild/" + id);
   },
   // Add Child
   saveAddChild: function(childrenData) {
     return axios.post("/api/addchild", childrenData);
+  },
+
+  findAllByChild: function() {
+    return axios.get("/api/findAllByChild");
   },
 
   getAllJobs: function() {
