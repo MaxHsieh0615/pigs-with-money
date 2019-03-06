@@ -9,14 +9,14 @@ const strategy = new LocalStrategy(
   function(username, password, done) {
 	db.Users.findOne({ where: {email: username} }).then((user) => {
 	if (!user) {
-	  return done(null, false, { message: 'Incorrect username' })
+	  return done(null, false, { message: 'Incorrect username' });
 	}
 	if (!user.validPassword(password)) {
-	  return done(null, false, { message: 'Incorrect password' })
+	  return done(null, false, { message: 'Incorrect password' });
 	}
-	  return done(null, user)
+	  return done(null, user);
 	}).catch(err => done(err));
   }
 )
 
-module.exports = strategy
+module.exports = strategy;

@@ -9,40 +9,37 @@ module.exports = (app) =>{
   app.post(
     '/user/login',
     (req, res, next) =>{
-      console.log('routes/user.js, login, req.body: ');
-      next()
+      next();
     },
     passport.authenticate('local'),
     (req, res) => {
-      console.log('logged in', req.user.email);
       req.session.username = req.body.email;
       
-      var userInfo = {
+      const userInfo = {
         username: req.user.email
       };
       res.json(userInfo);
   });
   
   app.get('/user', (req, res, next) => {
-    console.log('===== user!!======')
     if (req.user) {
       //passing info to app.js
-      res.json({ user: req.session.username })
+      res.json({ user: req.session.username });
     } else {
-      res.json({ user: null })
+      res.json({ user: null });
 
     }
     next();
-  })
+  });
 
   app.post('/logout', (req, res) => {
     if (req.user) {
-      req.logout()
-      console.log("logging out")
-      res.send({ msg: 'logging out' })
+      req.logout();
+      console.log("logging out");
+      res.send({ msg: 'logging out' });
     } else {
-      console.log("no user to log out")
-      res.send({ msg: 'no user to log out' })
+      console.log("no user to log out");
+      res.send({ msg: 'no user to log out' });
     }
-  })
+  });
 }

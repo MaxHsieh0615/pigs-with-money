@@ -1,38 +1,25 @@
 "use strict";
 
-var fs = require("fs");
-var path = require("path");
+const fs = require("fs");
+const path = require("path");
 const Sequelize = require("sequelize");
-var basename = path.basename(module.filename);
-var env = process.env.NODE_ENV || "development";
+const basename = path.basename(module.filename);
+const env = process.env.NODE_ENV || "development";
 require("dotenv").config();
 
-//var config = require(__dirname + "/../config/config.json")[env];
-var db = {};
-// if (env !="development") {
-//   var sequelize = new Sequelize(process.env["JAWSDB_URL"]);
-// } else {
-//   var sequelize = new Sequelize(
-//     process.env.DB_NAME,
-//     process.env.DB_USER,
-//     process.env.DB_PASS,
-//     {
-//       host: process.env.DB_HOST,
-//       dialect: "mysql"
-//     });
-// }
-const sequelize = new Sequelize('piggybusiness', 'root', 'lol127', {
-  host: 'localhost',
-  dialect: 'mysql',
-
-  pool: {
-    max: 5,
-    min: 0,
-    acquire: 30000,
-    idle: 10000
-  },
-
-});
+let db = {};
+if (env !="development") {
+  var sequelize = new Sequelize(process.env["JAWSDB_URL"]);
+} else {
+  var sequelize = new Sequelize(
+    process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PASS,
+    {
+      host: process.env.DB_HOST,
+      dialect: "mysql"
+    });
+}
 
 fs.readdirSync(__dirname)
   .filter(function(file) {
@@ -41,7 +28,7 @@ fs.readdirSync(__dirname)
     );
   })
   .forEach(function(file) {
-    var model = sequelize.import(path.join(__dirname, file));
+    const model = sequelize.import(path.join(__dirname, file));
     db[model.name] = model;
   });
 
