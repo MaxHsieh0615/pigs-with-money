@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import Jumbotron from "../Jumbotron";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../Grid";
-
 import { Input, TextArea, FormBtn } from "../Form";
 import { Redirect } from "react-router-dom";
 import ListJobs from "../ListJobs";
+import Button from "react-bootstrap/Button";
+import CreateJobModal from "../CreateJobForm/createjobform";
 
 class CreateJob extends Component {
   state = {
@@ -15,7 +16,7 @@ class CreateJob extends Component {
     budget: 0,
     status: ""
   };
-
+  
   componentDidMount() {
     if (this.props.loggedIn) {
       this.loadJobs();
@@ -43,7 +44,7 @@ class CreateJob extends Component {
   };
 
   handleFormSubmit = event => {
-    event.preventDefault();
+    // event.preventDefault();
     if (this.state.title && this.state.description) {
       API.getCreateJob({
         title: this.state.title,
@@ -56,6 +57,7 @@ class CreateJob extends Component {
   };
 
   render() {
+    let modalClose = () => this.setState({ modalShow: false });
     if (!this.props.loggedIn) {
       return <Redirect to="/login" />;
     } else {
@@ -65,6 +67,17 @@ class CreateJob extends Component {
           <Container fluid>
             <Row>
               <Col size="md-6">
+              <CreateJobModal
+            show={this.state.modalShow}
+            onHide={modalClose}
+            loadJobs={this.loadJobs}
+          />
+          <Button
+            variant="primary"
+            onClick={() => this.setState({ modalShow: true })}
+          >
+            Launch modal
+          </Button>
                 <Jumbotron>
                   <h1>Create Job</h1>
                 </Jumbotron>
