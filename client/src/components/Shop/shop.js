@@ -5,13 +5,18 @@ import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import MyVerticallyCenteredModal from "../Modals/index";
-
+import ProductList from "./productList";
+import { Col, Row, Container } from "../Grid";
+import Jumbotron from "../Jumbotron";
+import { Input, TextArea, FormBtn } from "../Form";
+import { Redirect } from "react-router-dom";
 
 /* Product */
 class Shop extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      products: [],
       modalShow: false,
       name: "",
       info: "",
@@ -25,9 +30,9 @@ class Shop extends Component {
 
   componentDidMount() {
     // if (this.props.loggedIn) {
-      this.loadProducts();
+    this.loadProducts();
     // }
-  };
+  }
 
   loadProducts = () => {
     API.getAllProducts()
@@ -52,14 +57,15 @@ class Shop extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
+    console.log("Prod submit btn clicked")
     if (this.state.name && this.state.price && this.state.info) {
-      API.getAllProducts({
+      API.createProduct({
         name: this.state.name,
         info: this.state.info,
         price: this.state.price,
         qty: this.state.qty
       })
-        .then(res => this.loadJobs())
+        .then(res => this.loadProducts())
         .catch(err => console.log(err));
     }
   };
@@ -84,102 +90,74 @@ class Shop extends Component {
 
   render() {
     let modalClose = () => this.setState({ modalShow: false });
-
-    return (
-      <div>
-        <form>
-          <h3>add item</h3>
-          <div className="row">
-            <label className="col-sm-2  col-sm-form-label">item name:</label>
-            <div className="col-sm-10">
-              <input
-                type="text"
-                className="form-control"
-                ref="name"
-                placeholder="Museum Visit"
-                required
-              />
-            </div>
-          </div>
-  
-          <div className="row">
-            <label className="col-sm-2  col-sm-form-label">price:</label>
-            <div className="col-sm-10">
-              <input
-                type="number"
-                className="form-control"
-                ref="price"
-                placeholder="10"
-                required
-              />
-            </div>
-          </div>
-  
-          <div className="row">
-            <label className="col-sm-2  col-sm-form-label">info:</label>
-            <div className="col-sm-10">
-              <input
-                type="text"
-                className="form-control"
-                ref="info"
-                placeholder="Let's go to the museum!"
-              />
-            </div>
-          </div>
-  
-          <div className="row form-group">
-            <div className="offset-2 col-10">
-              <button className="btn btn-outline-primary">create item</button>
-            </div>
-          </div>
-        </form>
-        {/* <MyVerticallyCenteredModal
+    if (!this.props.loggedIn) {
+      return <Redirect to="/login" />;
+    } else {
+      return (
+        <div>
+          <h1>{this.props.email}</h1>
+          <Container fluid>
+            <Row>
+              <Col size="md-6">
+                <Jumbotron>
+                  <h1>Create Product</h1>
+                </Jumbotron>
+                <form>
+                  <Input
+                    type="text"
+                    value={this.state.name}
+                    onChange={this.handleInputChange}
+                    name="name"
+                    placeholder="Product name (required)"
+                  />
+                  <TextArea
+                    value={this.state.info}
+                    onChange={this.handleInputChange}
+                    name="info"
+                    placeholder="Info (required)"
+                  />
+                  <Input
+                    type="number"
+                    value={this.state.price}
+                    onChange={this.handleInputChange}
+                    name="price"
+                    placeholder="Price (optional)"
+                  />
+                  <Input
+                    type="number"
+                    value={this.state.qty}
+                    onChange={this.handleInputChange}
+                    name="qty"
+                    placeholder="Qty (optional)"
+                  />
+                  <FormBtn
+                    disabled={!(this.state.name && this.state.info)}
+                    onClick={this.handleFormSubmit}
+                  >
+                    Add Product
+                  </FormBtn>
+                </form>
+              </Col>
+              <Col size="md-6 sm-12">
+                <Jumbotron>
+                  <h1>Products List</h1>
+                </Jumbotron>
+                {this.state.products.length ? (
+                  <ProductList products={this.state.products} />
+                ) : (
+                  <h3>No Results to Display</h3>
+                )}
+              </Col>
+            </Row>
+          </Container>
+          {/* <MyVerticallyCenteredModal
           show={this.state.modalShow}
           text="example text goes here"
           onHide={modalClose}
         /> */}
-        <div className="row form-group">
-          <div className="col-sm-10">
-            <h4>
-              {this.props.name}: ${this.props.price}
-            </h4>
-          </div>
-          <div className="col-sm-2 text-right">qty: {this.state.qty}</div>
         </div>
-        <div className="row btn-toolbar">
-          <div className="col-6">
-            <button
-              className="waves-effect waves-light btn btn-outline-primary"
-              onClick={this.showInfo}
-            >
-              show info
-            </button>
-          </div>
-          <div className="col-6 text-right">
-            <button
-              className="waves-effect waves-light btn btn-outline-primary"
-              onClick={this.add}
-            >
-              +1
-            </button>
-            <button
-              className="waves-effect waves-light btn btn-outline-primary"
-              onClick={this.subtract}
-              disabled={this.state.qty < 1}
-            >
-              -1
-            </button>
-          </div>
-        </div>
-        <hr />
-        <Button
-          variant="primary"
-          onClick={() => this.setState({ modalShow: true })}
-        >
-          Launch modal
-        </Button>
-      </div>
-    );
+      );
+    }
   }
 }
 
