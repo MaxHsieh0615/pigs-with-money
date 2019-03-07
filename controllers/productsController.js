@@ -2,11 +2,11 @@ const db = require("../models");
 
 // Defining methods for the booksController
 module.exports = {
-  findAll: function(req, res) {
+  getAllProducts: function(req, res) {
+    console.log('words in here')
     db.Products
-      .find(req.query)
-      .sort({ date: -1 })
-      .then(dbModel => res.status(200).json(dbModel))
+      .findAll()
+      .then(products => res.status(200).json(products))
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
@@ -17,7 +17,7 @@ module.exports = {
   },
   create: function(req, res) {
     db.Products
-      .create(req.body)
+      .create({where:req.body})
       .then(dbModel => res.status(200).json(dbModel))
       .catch(err => res.status(422).json(err));
   },

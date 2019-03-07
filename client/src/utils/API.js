@@ -36,14 +36,16 @@ export default {
   },
 
   // Shop section
+
+
   // submit product
-  saveProduct: function(productData) {
+  createProduct: function(productData) {
     return axios.post("/api/products", productData);
   },
 
-  // view product
-  getProduct: function(productData) {
-    return axios.post("/api/products", productData);
+  // view all products
+  getAllProducts: function() {
+    return axios.get("/api/products");
   },
 
   // delete product
