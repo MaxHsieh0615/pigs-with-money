@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export default {
-  // Gets all books
   //View tasks
   getCreateJob: function(jobData) {
     return axios.post("/api/createjob", jobData);
@@ -11,6 +10,8 @@ export default {
   saveCreateJob: function(jobData) {
     return axios.post("/api/createjobs", jobData);
   },
+
+  // TODO: Delete Job
 
   // TODO CHILD & CHILDREN Section
 
@@ -33,6 +34,25 @@ export default {
   getAllJobs: function() {
     return axios.get("/api/getAllJobs");
   },
+
+  // Shop section
+
+
+  // submit product
+  createProduct: function(productData) {
+    return axios.post("/api/products", productData);
+  },
+
+  // view all products
+  getAllProducts: function() {
+    return axios.get("/api/products");
+  },
+
+  // delete product
+  deleteProduct: function(id) {
+    return axios.delete("/api/products" + id);
+  },
+
   //complete tasks router
   completeTask: {},
   updateTask: {}
