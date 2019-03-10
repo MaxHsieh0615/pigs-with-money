@@ -43,6 +43,10 @@ class Navbar extends Component {
               <Link to="#!">
                 <img className="brand-logo" id="logo" alt="logo" src={logo} />
               </Link>
+              {/* <div className="container">
+          {loggedIn && <p>Welcome! {this.state.email}</p>}
+              </div> */}
+              
               <Link
                 to="#"
                 data-target="mobile-demo"
