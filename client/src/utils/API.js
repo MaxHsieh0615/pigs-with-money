@@ -11,9 +11,7 @@ export default {
     return axios.post("/api/createjobs", jobData);
   },
 
-  // TODO: Delete Job
-
-  // TODO CHILD & CHILDREN Section
+  // CHILD & CHILDREN Section
 
   getAddChild: function(childrenData) {
     return axios.post("/api/addchild", childrenData);

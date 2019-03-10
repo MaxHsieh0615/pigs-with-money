@@ -11,6 +11,7 @@ import About from "./components/About/about";
 import AddChild from "./components/AddChild/addchild";
 import Shop from "./components/Shop/shop";
 import MyVerticallyCenteredModal from "./components/Modals/index";
+import { Footer } from "react-materialize";
 
 class App extends Component {
   constructor() {
@@ -75,8 +76,12 @@ class App extends Component {
 
           <Route
             path="/jobs"
-            render={() =>
-              <CreateJob loggedIn={this.state.loggedIn} email={this.state.email}/>}
+            render={() => (
+              <CreateJob
+                loggedIn={this.state.loggedIn}
+                email={this.state.email}
+              />
+            )}
           />
           <Route
             path="/children"
@@ -87,6 +92,16 @@ class App extends Component {
             render={() => <Shop loggedIn={this.state.loggedIn} />}
           />
         </div>
+
+        <Footer
+          copyrights="&copy 2019 Copyright Piggy Business"
+          moreLinks={
+            <a className="grey-text text-lighten-4 right" href="#!">
+              More Links
+            </a>
+          }
+          className="example"
+        />
       </div>
     );
   }

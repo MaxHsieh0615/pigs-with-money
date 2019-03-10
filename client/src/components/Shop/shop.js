@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-// TODO: Create products db to hold prod data
-// FIXME: import API from "../../utils/API";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";

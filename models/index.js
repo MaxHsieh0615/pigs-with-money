@@ -49,7 +49,6 @@ db.PiggyBank = require("./piggyBank")(sequelize, Sequelize);
 db.Job.belongsTo(db.Users,{as: "requestor"});
 db.Job.belongsTo(db.Users,{as: "assignee"});
 db.Users.hasOne(db.Users, {as: "parent"});
-// TODO: children table 
 db.PiggyBank.belongsTo(db.Users, {as: "owner"});
 db.Child = require("./Child")(sequelize, Sequelize);
 
