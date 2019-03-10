@@ -110,18 +110,6 @@ class LoginForm extends Component {
                 </button>
               </div>
             </form>
-          
-          <MyVerticallyCenteredModal
-            show={this.state.modalShow}
-            text="SIGN UP example text goes here"
-            onHide={modalClose}
-          />
-          <Button
-            variant="primary"
-            onClick={() => this.setState({ modalShow: true })}
-          >
-            Launch modal
-          </Button>
         </div>
       );
     }
