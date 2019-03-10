@@ -12,6 +12,7 @@
 
 .modal-close:hover {
     background-color: white !important;
+    margin-right: 10px;
 }
 
 
@@ -26,6 +27,7 @@
     background-size:contain;
 }
 
-button {
+button.modal-action {
     color:#fff;
+    margin-right: 5px !important;
 }
