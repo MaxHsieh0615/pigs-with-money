@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 
 class About extends Component {
   render() {
@@ -22,7 +24,7 @@ class About extends Component {
           <div className="col s12 m4">
             <div className="card">
               <div className="card-image">
-                <img src="images/sample-1.jpg" />
+                <img src="images/sample-1.jpg" alt="sample1"/>
                 <span className="card-title">Card Title</span>
               </div>
               <div className="card-content">
@@ -33,7 +35,7 @@ class About extends Component {
                 </p>
               </div>
               <div className="card-action">
-                <a href="#">This is a link</a>
+                <Link to="#">This is a link</Link>
               </div>
             </div>
           </div>
@@ -41,7 +43,7 @@ class About extends Component {
           <div className="col s12 m4">
             <div className="card">
               <div className="card-image">
-                <img src="images/sample-1.jpg" />
+                <img src="images/sample-1.jpg" alt="sample1"/>
                 <span className="card-title">Card Title</span>
               </div>
               <div className="card-content">
@@ -52,7 +54,7 @@ class About extends Component {
                 </p>
               </div>
               <div className="card-action">
-                <a href="#">This is a link</a>
+                <Link to="#">This is a link</Link>
               </div>
             </div>
           </div>
@@ -60,7 +62,7 @@ class About extends Component {
           <div className="col s12 m4">
             <div className="card">
               <div className="card-image">
-                <img src="images/sample-1.jpg" />
+                <img src="images/sample-1.jpg" alt="sample1"/>
                 <span className="card-title">Card Title</span>
               </div>
               <div className="card-content">
@@ -71,7 +73,7 @@ class About extends Component {
                 </p>
               </div>
               <div className="card-action">
-                <a href="#">This is a link</a>
+                <Link to="#">This is a link</Link>
               </div>
             </div>
           </div>

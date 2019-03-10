@@ -1,11 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 // TODO: Create products db to hold prod data
 // FIXME: import API from "../../utils/API";
-import API from "../../utils/API";
-import { Link } from "react-router-dom";
 import { List } from "../List";
-import Button from "react-bootstrap/Button";
-import MyVerticallyCenteredModal from "../Modals/index";
 
 
 function productList(props){

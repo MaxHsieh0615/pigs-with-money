@@ -2,9 +2,6 @@ import React, { Component } from "react";
 // TODO: Create products db to hold prod data
 // FIXME: import API from "../../utils/API";
 import API from "../../utils/API";
-import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import MyVerticallyCenteredModal from "../Modals/index";
 import ProductList from "./productList";
 import { Col, Row, Container } from "../Grid";
 import Jumbotron from "../Jumbotron";
@@ -89,7 +86,6 @@ class Shop extends Component {
   }
 
   render() {
-    let modalClose = () => this.setState({ modalShow: false });
     if (!this.props.loggedIn) {
       return <Redirect to="/login" />;
     } else {

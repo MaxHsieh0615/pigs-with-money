@@ -1,4 +1,3 @@
-
 button {
     -webkit-transition: background-color .3s;
     transition: background-color .3s;
@@ -66,5 +65,4 @@ nav ul a {
         background-color: white;
     }
     
-
 }

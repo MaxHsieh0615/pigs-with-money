@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import DeleteBtn from "../DeleteBtn";
 import Jumbotron from "../Jumbotron";
 import API from "../../utils/API";
-import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../Grid";
-import { List, ListItem } from "../List";
-import { Input, TextArea, FormBtn } from "../Form";
+import { List } from "../List";
+import { Input, FormBtn } from "../Form";
 import { Redirect } from "react-router-dom";
 
 
