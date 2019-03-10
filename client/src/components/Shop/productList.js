@@ -8,7 +8,7 @@ import Button from "react-bootstrap/Button";
 import MyVerticallyCenteredModal from "../Modals/index";
 
 
-function productList(props){
+function ProductsList(props){
     return (
       <List>
         {props.products.map(product => (
@@ -35,5 +35,5 @@ function productList(props){
     )
   }
 
-  export default productList;
+  export default ProductsList;
   

@@ -5,7 +5,7 @@ import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import MyVerticallyCenteredModal from "../Modals/index";
-import ProductList from "./productList";
+import ProductsList from "./productList";
 import { Col, Row, Container } from "../Grid";
 import Jumbotron from "../Jumbotron";
 import { Input, TextArea, FormBtn } from "../Form";
@@ -143,7 +143,7 @@ class Shop extends Component {
                   <h1>Products List</h1>
                 </Jumbotron>
                 {this.state.products.length ? (
-                  <ProductList products={this.state.products} />
+                  <ProductsList products={this.state.products} />
                 ) : (
                   <h3>No Results to Display</h3>
                 )}
