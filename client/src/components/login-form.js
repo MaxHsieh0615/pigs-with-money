@@ -84,7 +84,6 @@ class LoginForm extends Component {
                   Password:{" "}
                 </label>
               </div>
-<<<<<<< HEAD
               <div className="col-3 col-mr-auto">
                 <input
                   className="form-input"
@@ -107,9 +106,6 @@ class LoginForm extends Component {
                 </button>
             </div>
           </form>
-=======
-            </form>
->>>>>>> 4196dc0e9bdaac227f40ad8c38a9a97bb1e46208
         </div>
       );
     }

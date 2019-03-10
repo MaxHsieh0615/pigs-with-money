@@ -10,6 +10,7 @@ import CreateJob from "./components/CreateJob/createjob";
 import About from "./components/About/about";
 import AddChild from "./components/AddChild/addchild";
 import Shop from "./components/Shop/shop";
+import MyVerticallyCenteredModal from "./components/Modals/index";
 
 
 class App extends Component {
@@ -49,6 +50,7 @@ class App extends Component {
 
   render() {
     const { loggedIn } = this.state;
+    const modalClose = () => this.setState({ modalShow: false });
 
     return (
       <div className="App">

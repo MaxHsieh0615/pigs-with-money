@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./about.css";
+import { Link } from "react-router-dom";
 
 class About extends Component {
   render() {
@@ -11,8 +12,6 @@ class About extends Component {
             We're a team of 5 people based in the California Bay Area. We are all responsible for working on the product (front-end design and back-end design). We love what we do and look forward to you trying our application.
           </p>
         </div>
-        <br />
-        <br />
         <div className="row center">
           <div className="col s12 m4">
             <div className="card">
@@ -23,20 +22,16 @@ class About extends Component {
               <h5>Joshua Moore</h5>
               <h6>Front-End Web Developer</h6>
               <div className="card-content">
-             
+
                 <p>
-                I have a passion for building state-of-the-art, easy to use websites that result in an improved customer online experience. 
+                  I have a passion for building state-of-the-art, easy to use websites that result in an improved customer online experience.
                 </p>
                 <p>
-                I love learning, brainstorming and collaborating with others on group projects as well as learning new techniques, processes and programming languages that can provide a new and more efficient way of writing and implementing code.
+                  I love learning, brainstorming and collaborating with others on group projects as well as learning new techniques, processes and programming languages that can provide a new and more efficient way of writing and implementing code.
                 </p>
               </div>
               <div className="card-action">
-<<<<<<< HEAD
-                <Link to="#">This is a link</Link>
-=======
                 <a href="https://github.com/joshmoore2003" target="_blank">Github Profile</a>
->>>>>>> 4196dc0e9bdaac227f40ad8c38a9a97bb1e46208
               </div>
             </div>
           </div>
@@ -44,7 +39,7 @@ class About extends Component {
           <div className="col s12 m4">
             <div className="card">
               <div className="card-image">
-                <img src="images/sample-1.jpg" alt="sample1"/>
+                <img src="images/sample-1.jpg" alt="sample1" />
                 <span className="card-title">Card Title</span>
               </div>
               <div className="card-content">
@@ -63,7 +58,7 @@ class About extends Component {
           <div className="col s12 m4">
             <div className="card">
               <div className="card-image">
-                <img src="images/sample-1.jpg" alt="sample1"/>
+                <img src="images/sample-1.jpg" alt="sample1" />
                 <span className="card-title">Card Title</span>
               </div>
               <div className="card-content">
