@@ -1,0 +1,31 @@
+.modal {
+    position: fixed !important;
+}
+
+.modal-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    content:"";
+    font-size: 0px;
+}
+
+.modal-close:hover {
+    background-color: white !important;
+}
+
+
+
+.modal-close:before {
+    display: block;
+    content: " ";
+    font-size: 0px !important;
+    background-image: url("https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-close-512.png");
+    height: 20px;
+    width: 20px;
+    background-size:contain;
+}
+
+button {
+    color:#fff;
+}
