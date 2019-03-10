@@ -5,6 +5,9 @@ import { Col, Row, Container } from "../Grid";
 import { List } from "../List";
 import { Input, FormBtn } from "../Form";
 import { Redirect } from "react-router-dom";
+import { Modal } from 'react-materialize';
+import Button from 'react-bootstrap/Button';
+
 
 
 class AddChild extends Component {
@@ -62,6 +65,12 @@ class AddChild extends Component {
   }
 
   render() {
+    const loggedIn = this.props.loggedIn;
+        const modalClose = () => this.setState(
+            { modalShow: false },
+            this.loadJobs(),
+            this.reload()
+        );
     if (!this.props.loggedIn) {
       return <Redirect to="/login" />;
     } else {
@@ -70,7 +79,7 @@ class AddChild extends Component {
           <Container fluid>
             <Row>
               <Col size="md-6">
-                <Jumbotron>
+                {/* <Jumbotron>
                   <h1>Add Child</h1>
                 </Jumbotron>
                 <form>
@@ -97,45 +106,80 @@ class AddChild extends Component {
                 </form>
               </Col>
               <Col size="md-6 sm-12">
-                <Jumbotron>
-                  <h1>Child List</h1>
-                </Jumbotron>
-                {this.state.children.length ? (
-                  <List>
-                    {this.state.children.map(child => (
-                      //  <ListItem key={job._id}>
-                      <div className="col">
-                        <div className="col s12 m12">
-                          <div className="card">
-                            <div className="card-image" key={child.id}>
-                              {/* <img src="images/sample-1.jpg"> */}
-                            </div>
-                            <div className="card-content">
-                              <span className="card-title">{child.child_name}</span>
-                              <p>{child.piggy}</p>
-                              <button
-                                id={child.id}
-                                className="waves-effect waves-light btn btn-success"
-                                onClick={this.removeChild}
-                              >
-                                REMOVE CHILD
+              */}
+                <Modal
+                  {...this.props}
+                  size="lg"
+                  aria-labelledby="contained-modal-title-vcenter"
+                  show={this.state.modalShow}
+                  onHide={modalClose}
+                ></Modal>
+                <Modal
+                  header='Add a Child'
+                  trigger={<Button>CREATE CHILD</Button>}
+                >
+                  <form>
+                    <Input
+                      type="text"
+                      value={this.state.child_name}
+                      onChange={this.handleInputChange}
+                      name="child_name"
+                      placeholder="Name (required)"
+                    />
+                    <Input
+                      type="number"
+                      value={this.state.piggy}
+                      onChange={this.handleInputChange}
+                      name="piggy"
+                      placeholder="Budget (Optional)"
+                    />
+                    <FormBtn
+                      disabled={!(this.state.child_name && this.state.piggy)}
+                      onClick={this.handleFormSubmit}
+                    >
+                      Add Child
+                    </FormBtn>
+                  </form>
+                </Modal>
+                  <Jumbotron>
+                    <h1>Child List</h1>
+                  </Jumbotron>
+                  {this.state.children.length ? (
+                    <List>
+                      {this.state.children.map(child => (
+                        //  <ListItem key={job._id}>
+                        <div className="col">
+                          <div className="col s12 m12">
+                            <div className="card">
+                              <div className="card-image" key={child.id}>
+                                {/* <img src="images/sample-1.jpg"> */}
+                              </div>
+                              <div className="card-content">
+                                <span className="card-title">{child.child_name}</span>
+                                <p>{child.piggy}</p>
+                                <button
+                                  id={child.id}
+                                  className="waves-effect waves-light btn btn-success"
+                                  onClick={this.removeChild}
+                                >
+                                  REMOVE CHILD
                               </button>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      // </ListItem>
-                    ))}
-                  </List>
-                ) : (
-                    <h3>No Results to Display</h3>
-                  )}
-              </Col>
+                        // </ListItem>
+                      ))}
+                    </List>
+                  ) : (
+                      <h3>No Results to Display</h3>
+                    )}
+                </Col>
             </Row>
           </Container>
         </div>
-      );
+          );
+        }
+      }
     }
-  }
-}
-export default AddChild;
+    export default AddChild;
