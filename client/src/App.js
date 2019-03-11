@@ -54,9 +54,8 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
+        <Navbar updateUser={this.updateUser} loggedIn={loggedIn} />
         <div className="container">
-          {loggedIn && <p>Logged In as user: {this.state.username}</p>}
           <MyVerticallyCenteredModal
             show={this.state.modalShow}
             text="example text goes"

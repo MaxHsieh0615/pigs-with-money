@@ -24,7 +24,7 @@ module.exports = {
     }
     console.log(dataSet)
     db.Products
-      .create({dataSet})
+      .create(dataSet)
       .then(dbModel => res.status(200).json(dbModel))
       .catch(err => res.status(422).json(err));
   },

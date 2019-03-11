@@ -46,12 +46,13 @@ db.Users = require("./Users")(sequelize,Sequelize);
 db.Job = require("./Job")(sequelize, Sequelize);
 db.Products = require("./Products")(sequelize, Sequelize);
 db.PiggyBank = require("./piggyBank")(sequelize, Sequelize);
-db.Job.belongsTo(db.Users,{as: "requestor"});
-db.Job.belongsTo(db.Users,{as: "assignee"});
-db.Users.hasOne(db.Users, {as: "parent"});
-// TODO: children table 
-db.PiggyBank.belongsTo(db.Users, {as: "owner"});
 db.Child = require("./Child")(sequelize, Sequelize);
+db.Job.belongsTo(db.Users,{as: "requestor"});
+db.Job.belongsTo(db.Child,{as: "assignee"});
+db.Users.hasOne(db.Users, {as: "parent"});
+db.Child.belongsTo(db.Users,{as: "parent"});
+// TODO: children table 
+db.PiggyBank.belongsTo(db.Child, {as: "owner"});
 
 
 module.exports = db;
