@@ -1,7 +1,5 @@
 import React from "react";
 import { List } from "../List";
-import Jumbotron from "../Jumbotron";
-import { Col } from "../Grid";
 
 function ListJobs(props){
   return (

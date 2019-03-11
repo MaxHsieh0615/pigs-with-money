@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import { Input, TextArea, FormBtn } from "../Form";
+import { Input, TextArea } from "../Form";
 import "./style.css";
-import axios from 'axios';
 import API from "../../utils/API";
 
 

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Route } from "react-router-dom";
+import "./App.css";
 // components
 import Signup from "./components/sign-up";
 import LoginForm from "./components/login-form";
@@ -13,12 +14,12 @@ import Shop from "./components/Shop/shop";
 import MyVerticallyCenteredModal from "./components/Modals/index";
 import { Footer } from "react-materialize";
 
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
       loggedIn: false,
-      modalShow: false
     };
 
     this.getUser = this.getUser.bind(this);
@@ -55,7 +56,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
+        <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>
         <div className="container">
           {loggedIn && <p>Logged In as user: {this.state.email}</p>}
           <MyVerticallyCenteredModal

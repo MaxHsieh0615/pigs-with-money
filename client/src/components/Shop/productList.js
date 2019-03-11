@@ -1,9 +1,5 @@
-import React, { Component } from "react";
-import API from "../../utils/API";
-import { Link } from "react-router-dom";
+import React from "react";
 import { List } from "../List";
-import Button from "react-bootstrap/Button";
-import MyVerticallyCenteredModal from "../Modals/index";
 
 
 function ProductsList(props){
