@@ -74,11 +74,9 @@ class AddChild extends Component {
       return (
         <div>
           <Modal
-            {...this.props}
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             show={this.state.modalShow}
-            onHide={modalClose}
           ></Modal>
           <Modal
             header='Add a Child'

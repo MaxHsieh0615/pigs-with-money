@@ -77,11 +77,9 @@ class CreateJob extends Component {
             <Row>
               <Col size="md-6 sm-12">
                 <Modal
-                  {...this.props}
                   size="lg"
                   aria-labelledby="contained-modal-title-vcenter"
                   show={this.state.modalShow}
-                  onHide={modalClose}
                 ></Modal>
                 <Modal
                   header='Add a Job'
