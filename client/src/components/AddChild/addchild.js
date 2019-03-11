@@ -65,7 +65,6 @@ class AddChild extends Component {
   }
 
   render() {
-    const loggedIn = this.props.loggedIn;
         const modalClose = () => this.setState(
             { modalShow: false },
             this.loadJobs(),

@@ -6,7 +6,6 @@ import { Input, TextArea, FormBtn } from "../Form";
 import { Redirect } from "react-router-dom";
 import ListJobs from "../ListJobs";
 import Button from "react-bootstrap/Button";
-import CreateJobModal from "../CreateJobForm/createjobform";
 import { Modal } from 'react-materialize';
 import "./style.css";
 

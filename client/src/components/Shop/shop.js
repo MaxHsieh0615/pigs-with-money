@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import MyVerticallyCenteredModal from "../Modals/index";
 import ProductsList from "./productList";
 import { Col, Row, Container } from "../Grid";
 import Jumbotron from "../Jumbotron";
