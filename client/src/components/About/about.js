@@ -7,10 +7,22 @@ class About extends Component {
     return (
       <div>
         <div className="section center">
-          <h3>About Us</h3>
+          <h3>Our Mission</h3>
+          <h5>To create a fun and engaging platform for the future.</h5>
+          <br />
           <p>
-            We're a team of 5 people based in the California Bay Area. We are all responsible for working on the product (front-end design and back-end design). We love what we do and look forward to you trying our application.
+            At Piggy Business, we are a committed team of life long learners. We
+            believe that we should adapt to new technologies and help others
+            around us too. This application is a team project that we started
+            for a class. It has since evolved into something more!
           </p>
+          <p>
+            We’ve seen parents and children alike find joy in earning and
+            learning to spend money wisely. We hope you sign up and check it
+            out!
+          </p>
+          <p>Feel free to reach out to our team.</p>
+          <p>Enjoy your visit.</p>
         </div>
         <div className="row center">
           <div className="col s12 m4">
@@ -22,16 +34,22 @@ class About extends Component {
               <h5>Joshua Moore</h5>
               <h6>Front-End Web Developer</h6>
               <div className="card-content">
-
                 <p>
-                  I have a passion for building state-of-the-art, easy to use websites that result in an improved customer online experience.
+                  I have a passion for building state-of-the-art, easy to use
+                  websites that result in an improved customer online
+                  experience.
                 </p>
                 <p>
-                  I love learning, brainstorming and collaborating with others on group projects as well as learning new techniques, processes and programming languages that can provide a new and more efficient way of writing and implementing code.
+                  I love learning, brainstorming and collaborating with others
+                  on group projects as well as learning new techniques,
+                  processes and programming languages that can provide a new and
+                  more efficient way of writing and implementing code.
                 </p>
               </div>
               <div className="card-action">
-                <a href="https://github.com/joshmoore2003" target="_blank">Github Profile</a>
+                <a href="https://github.com/joshmoore2003" target="_blank">
+                  Github Profile
+                </a>
               </div>
             </div>
           </div>
@@ -39,18 +57,16 @@ class About extends Component {
           <div className="col s12 m4">
             <div className="card">
               <div className="card-image">
-                <img src="images/sample-1.jpg" alt="sample1" />
-                <span className="card-title">Card Title</span>
+                <img src={require("../img/piggy_gg.png")} />
+                <span className="card-title">Banksalot, Piggy</span>
               </div>
+              <h5>Piggy Banksalot</h5>
+              <h6>Keeper of Money</h6>
               <div className="card-content">
-                <p>
-                  I am a very simple card. I am good at containing small bits of
-                  information. I am convenient because I require little markup
-                  to use effectively.
-                </p>
+                <p>I am a happy pig. I can keep count of your earnings.</p>
               </div>
               <div className="card-action">
-                <Link to="#">This is a link</Link>
+                <a href="#">Piggy Business</a>
               </div>
             </div>
           </div>
@@ -58,18 +74,72 @@ class About extends Component {
           <div className="col s12 m4">
             <div className="card">
               <div className="card-image">
-                <img src="images/sample-1.jpg" alt="sample1" />
-                <span className="card-title">Card Title</span>
+                <img src={require("../img/piggy_gg.png")} />
+                <span className="card-title">Max</span>
               </div>
+              <h5>Max</h5>
+              <h6>Front End Developer</h6>
+              <div className="card-content">
+                <p>Materialize CSS fan.</p>
+              </div>
+              <div className="card-action">
+                <a href="#">Max Github</a>
+              </div>
+            </div>
+          </div>
+
+          <div className="col s12 m4">
+            <div className="card">
+              <div className="card-image">
+                <img src={require("../img/piggy_gg.png")} />
+                <span className="card-title">Dennis Tam</span>
+              </div>
+              <h5>Dennis Tam</h5>
+              <h6>Web Developer</h6>
               <div className="card-content">
                 <p>
-                  I am a very simple card. I am good at containing small bits of
-                  information. I am convenient because I require little markup
-                  to use effectively.
+                  Full Stack Web Developer. Development Master Maintenance
+                  Engineer.
                 </p>
               </div>
               <div className="card-action">
-                <Link to="#">This is a link</Link>
+                <a href="#">Dennis Github</a>
+              </div>
+            </div>
+          </div>
+
+          <div className="col s12 m4">
+            <div className="card">
+              <div className="card-image">
+                <img src={require("../img/piggy_gg.png")} />
+                <span className="card-title">Richard Luong</span>
+              </div>
+              <h5>Richard Luong</h5>
+              <h6>Web Developer</h6>
+              <div className="card-content">
+                <p>
+                  Full Stack Web Developer. Makes sure the piggy holds money.
+                </p>
+              </div>
+              <div className="card-action">
+                <a href="#">Richard Github</a>
+              </div>
+            </div>
+          </div>
+
+          <div className="col s12 m4">
+            <div className="card">
+              <div className="card-image">
+                <img src={require("../img/piggy_gg.png")} />
+                <span className="card-title">Gian Banares</span>
+              </div>
+              <h5>Gian</h5>
+              <h6>Web Developer</h6>
+              <div className="card-content">
+                <p>I really don't know what to put here.</p>
+              </div>
+              <div className="card-action">
+                <a href="#">Piggy Business</a>
               </div>
             </div>
           </div>

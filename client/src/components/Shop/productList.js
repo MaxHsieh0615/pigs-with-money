@@ -1,10 +1,10 @@
-import React from "react";
-// TODO: Create products db to hold prod data
-// FIXME: import API from "../../utils/API";
+import React, { Component } from "react";
+import API from "../../utils/API";
+import { Link } from "react-router-dom";
 import { List } from "../List";
 
 
-function productList(props){
+function ProductsList(props){
     return (
       <List>
         {props.products.map(product => (
@@ -31,5 +31,5 @@ function productList(props){
     )
   }
 
-  export default productList;
+  export default ProductsList;
   

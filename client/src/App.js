@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Route } from "react-router-dom";
+import "./App.css";
 // components
 import Signup from "./components/sign-up";
 import LoginForm from "./components/login-form";
@@ -11,6 +12,7 @@ import About from "./components/About/about";
 import AddChild from "./components/AddChild/addchild";
 import Shop from "./components/Shop/shop";
 import MyVerticallyCenteredModal from "./components/Modals/index";
+import { Footer } from "react-materialize";
 
 
 class App extends Component {
@@ -54,7 +56,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
+        <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>
         <div className="container">
           {loggedIn && <p>Logged In as user: {this.state.email}</p>}
           <MyVerticallyCenteredModal
@@ -75,8 +77,12 @@ class App extends Component {
 
           <Route
             path="/jobs"
-            render={() =>
-              <CreateJob loggedIn={this.state.loggedIn} email={this.state.email}/>}
+            render={() => (
+              <CreateJob
+                loggedIn={this.state.loggedIn}
+                email={this.state.email}
+              />
+            )}
           />
           <Route
             path="/children"
@@ -87,6 +93,16 @@ class App extends Component {
             render={() => <Shop loggedIn={this.state.loggedIn} />}
           />
         </div>
+
+        <Footer
+          copyrights="&copy 2019 Copyright Piggy Business"
+          moreLinks={
+            <a className="grey-text text-lighten-4 right" href="#!">
+              More Links
+            </a>
+          }
+          className="example"
+        />
       </div>
     );
   }
