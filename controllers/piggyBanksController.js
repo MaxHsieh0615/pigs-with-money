@@ -5,7 +5,7 @@ module.exports = {
     db.Job.findOne({where: {id: id}})
     .then(job => {
       const dataSet = {
-        ownerEmail : job.assigneeId,
+        ownerId : job.assigneeId,
         amount : job.budget,
         transaction : "deposit",
         description : `Completed: ${job.id} ${job.title}`
@@ -18,7 +18,7 @@ module.exports = {
     db.Products.findOne({where: {id: productId}})
     .then(product => {
       const dataSet = {
-        ownerEmail : childId,
+        ownerId : childId,
         amount : product.price,
         transaction : "withdraw",
         description : `Purchased: ${product.id} ${product.name}`

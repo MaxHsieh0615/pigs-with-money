@@ -59,6 +59,7 @@ module.exports = {
       .update({status:"Closed"},{where: {id: req.body.jobId}})
       .then(dbModel => res.status(200).json(dbModel) )
       .catch(err=>res.status(422).json(err));
+      
     children.addBudget(req.body.jobId);  
     piggyBanks.addFunds(req.body.jobId);
   },
