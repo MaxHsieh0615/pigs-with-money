@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Route } from "react-router-dom";
+import "./App.css";
 // components
 import Signup from "./components/sign-up";
 import LoginForm from "./components/login-form";
@@ -13,12 +14,12 @@ import Shop from "./components/Shop/shop";
 import MyVerticallyCenteredModal from "./components/Modals/index";
 import { Footer } from "react-materialize";
 
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
       loggedIn: false,
-      modalShow: false
     };
 
     this.getUser = this.getUser.bind(this);
@@ -91,15 +92,13 @@ class App extends Component {
             render={() => <Shop loggedIn={this.state.loggedIn} />}
           />
         </div>
-
         <Footer
           copyrights="&copy 2019 Copyright Piggy Business"
           moreLinks={
-            <a className="grey-text text-lighten-4 right" href="#!">
-              More Links
+            <a className="grey-text text-lighten-4 right" href="https://github.com/MaxHsieh0615/pigs-with-money">
+              Github
             </a>
           }
-          className="example"
         />
       </div>
     );

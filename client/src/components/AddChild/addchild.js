@@ -1,9 +1,9 @@
 import React, { Component } from "react";
+import Jumbotron from "../Jumbotron";
 import API from "../../utils/API";
 import { List } from "../List";
 import { Redirect } from "react-router-dom";
 import {Button,Input,Col,Row,Card} from "react-materialize";
-import Jumbotron from "../Jumbotron";
 
 class AddChild extends Component {
   state = {
@@ -59,7 +59,6 @@ class AddChild extends Component {
   }
 
   render() {
-    const loggedIn = this.props.loggedIn;
         const modalClose = () => this.setState(
             { modalShow: false },
             this.loadJobs(),

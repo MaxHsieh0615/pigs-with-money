@@ -1,10 +1,8 @@
 import React from "react";
-// TODO: Create products db to hold prod data
-// FIXME: import API from "../../utils/API";
 import { List } from "../List";
 import {Button,Input,Col,Card,CardTitle} from 'react-materialize'
 
-function ProductsList(props){
+function productsList(props){
     return (
       <List>
         {props.products.map(product => (
@@ -24,5 +22,5 @@ function ProductsList(props){
     )
   }
 
-  export default ProductsList;
+  export default productsList;
   

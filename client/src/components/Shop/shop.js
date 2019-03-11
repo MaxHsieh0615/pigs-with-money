@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import ProductList from "./productList";
+import productsList from "./productList";
+// import { Col, Row, Container } from "../Grid";
+// import Jumbotron from "../Jumbotron";
+// import { Input, TextArea, FormBtn } from "../Form";
 import { Redirect } from "react-router-dom";
 import { Row } from "react-materialize";
 import AddProductForm from "./AddProductForm";
@@ -88,7 +91,7 @@ class Shop extends Component {
           <AddProductForm handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit}/>
           <Row> 
               {this.state.products.length ? (
-                <ProductList products={this.state.products} />
+                <productList products={this.state.products} />
               ) : (
                 <h3>No Results to Display</h3>
               )}

@@ -6,6 +6,14 @@ import { Col, Row, Container } from "../Grid";
 import { Input, TextArea, FormBtn } from "../Form";
 import { Redirect } from "react-router-dom";
 import Job from "../Job";
+import { Modal } from 'react-materialize';
+import "./style.css";
+
+// export default () => (
+//   <Button waves='light'>
+//     <Icon>thumb_up</Icon>
+//   </Button>
+// )
 
 class CreateJob extends Component {
   state = {

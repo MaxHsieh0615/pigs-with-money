@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
-import Button from "react-bootstrap/Button";
-import MyVerticallyCenteredModal from "./Modals/index";
-
 class LoginForm extends Component {
   constructor() {
     super();
@@ -54,62 +51,61 @@ class LoginForm extends Component {
   }
 
   render() {
-    let modalClose = () => this.setState({ modalShow: false });
     console.log(this.props);
     if (this.state.redirectTo) {
       return <Redirect to={{ pathname: this.state.redirectTo }} />;
     } else {
       return (
         <div className="container">
-          
-            <h4>Login</h4>
-            <form className="form-horizontal">
-              <div className="form-group">
-                <div className="col-1 col-ml-auto">
-                  <label className="form-label" htmlFor="username">
-                    Email
-                  </label>
-                </div>
-                <div className="col-3 col-mr-auto">
-                  <input
-                    className="form-input"
-                    type="text"
-                    id="email"
-                    name="email"
-                    placeholder="email"
-                    value={this.state.email}
-                    onChange={this.handleChange}
-                  />
-                </div>
+
+          <h4>Login</h4>
+          <form className="form-horizontal">
+            <div className="form-group">
+              <div className="col-1 col-ml-auto">
+                <label className="form-label" htmlFor="username">
+                  Email
+                </label>
               </div>
-              <div className="form-group">
-                <div className="col-1 col-ml-auto">
-                  <label className="form-label" htmlFor="password">
-                    Password:{" "}
-                  </label>
-                </div>
-                <div className="col-3 col-mr-auto">
-                  <input
-                    className="form-input"
-                    placeholder="password"
-                    type="password"
-                    name="password"
-                    value={this.state.password}
-                    onChange={this.handleChange}
-                  />
-                </div>
+              <div className="col-3 col-mr-auto">
+                <input
+                  className="form-input"
+                  type="text"
+                  id="email"
+                  name="email"
+                  placeholder="email"
+                  value={this.state.email}
+                  onChange={this.handleChange}
+                />
               </div>
-              <div className="form-group ">
-                <div className="col-7" />
-                <button
-                  className="waves-effect waves-light btn btn-primary col-1 col-mr-auto"
-                  onClick={this.handleSubmit}
-                  type="submit"
-                >
-                  Login
+            </div>
+            <div className="form-group">
+              <div className="col-1 col-ml-auto">
+                <label className="form-label" htmlFor="password">
+                  Password:{" "}
+                </label>
+              </div>
+              <div className="col-3 col-mr-auto">
+                <input
+                  className="form-input"
+                  placeholder="password"
+                  type="password"
+                  name="password"
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                />
+              </div>
+            </div>
+            <div className="form-group ">
+              <div className="col-7" />
+              <button
+                className="waves-effect waves-light btn btn-primary col-1 col-mr-auto"
+                onClick={this.handleSubmit}
+                type="submit"
+              >
+                Login
                 </button>
-              </div>
-            </form>
+            </div>
+          </form>
         </div>
       );
     }
