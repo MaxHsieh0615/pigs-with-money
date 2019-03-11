@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { Parallax, Slider, Slide } from "react-materialize";
-import "./style.css";
 
 class Home extends Component {
   render() {
     return (
-      <div className="homeFont">
+      <div>
         <div className="container">
           <h1 className="header center">Learn. Earn. Save.</h1>
           <Slider>

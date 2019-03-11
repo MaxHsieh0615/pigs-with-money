@@ -56,7 +56,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>
+        <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         <div className="container">
           {loggedIn && <p>Logged In as user: {this.state.email}</p>}
           <MyVerticallyCenteredModal
@@ -93,15 +93,13 @@ class App extends Component {
             render={() => <Shop loggedIn={this.state.loggedIn} />}
           />
         </div>
-
         <Footer
           copyrights="&copy 2019 Copyright Piggy Business"
           moreLinks={
-            <a className="grey-text text-lighten-4 right" href="#!">
-              More Links
+            <a className="grey-text text-lighten-4 right" href="https://github.com/MaxHsieh0615/pigs-with-money">
+              Github
             </a>
           }
-          className="example"
         />
       </div>
     );
