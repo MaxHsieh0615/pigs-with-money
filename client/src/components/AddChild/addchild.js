@@ -1,22 +1,15 @@
 import React, { Component } from "react";
-import DeleteBtn from "../DeleteBtn";
-import Jumbotron from "../Jumbotron";
 import API from "../../utils/API";
-import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../Grid";
-import { List, ListItem } from "../List";
-import { Input, TextArea, FormBtn } from "../Form";
+import { List } from "../List";
 import { Redirect } from "react-router-dom";
-import { Modal } from 'react-materialize';
-import Button from 'react-bootstrap/Button';
-
-
+import {Button,Input,Col,Row,Card} from "react-materialize";
+import Jumbotron from "../Jumbotron";
 
 class AddChild extends Component {
   state = {
     children: [],
-    child_name: "",
-    piggy: 0,
+    name: "",
+    balance: 0,
     status: ""
   };
 
@@ -31,9 +24,8 @@ class AddChild extends Component {
       .then(res =>
         this.setState({
           children: res.data,
-          child_name: "",
-          piggy: "",
-          budget: ""
+          name: "",
+          balance: 0
         })
       )
       .catch(err => console.log(err));
@@ -48,10 +40,10 @@ class AddChild extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.child_name && this.state.piggy) {
-      API.getAddChild({
-        child_name: this.state.child_name,
-        piggy: this.state.piggy
+    if (this.state.name && this.state.balance) {
+      API.createChild({
+        name: this.state.name,
+        balance: this.state.balance
       })
         // FIXME: see .then below
         .then(res => this.loadChild())
@@ -60,8 +52,8 @@ class AddChild extends Component {
   };
 
   removeChild = events => {
-    console.log(events.target.id)
-    API.deleteAddChild(events.target.id)
+    const {id} = events.target;
+    API.removeChild(id)
       .then(res => this.loadChild())
       .catch(err => console.log(err));
   }
@@ -77,108 +69,59 @@ class AddChild extends Component {
       return <Redirect to="/login" />;
     } else {
       return (
-        <div className="container">
-          <Container fluid>
+        <div>
+        <Row>
+          <Col s={12}>
+            <Jumbotron>
+              <h1>Add Child</h1>
+            </Jumbotron>
             <Row>
-              <Col size="md-6">
-                {/* <Jumbotron>
-                  <h1>Add Child</h1>
-                </Jumbotron>
-                <form>
-                  <Input
-                    type="text"
-                    value={this.state.child_name}
-                    onChange={this.handleInputChange}
-                    name="child_name"
-                    placeholder="Name (required)"
-                  />
-                  <Input
-                    type="number"
-                    value={this.state.piggy}
-                    onChange={this.handleInputChange}
-                    name="piggy"
-                    placeholder="Budget (Optional)"
-                  />
-                  <FormBtn
-                    disabled={!(this.state.child_name && this.state.piggy)}
-                    onClick={this.handleFormSubmit}
-                  >
-                    Add Child
-                </FormBtn>
-                </form>
-              </Col>
-              <Col size="md-6 sm-12">
-              */}
-                <Modal
-                  {...this.props}
-                  size="lg"
-                  aria-labelledby="contained-modal-title-vcenter"
-                  show={this.state.modalShow}
-                  onHide={modalClose}
-                ></Modal>
-                <Modal
-                  header='Add a Child'
-                  trigger={<Button>CREATE CHILD</Button>}
-                >
-                  <form>
-                    <Input
-                      type="text"
-                      value={this.state.child_name}
-                      onChange={this.handleInputChange}
-                      name="child_name"
-                      placeholder="Name (required)"
-                    />
-                    <Input
-                      type="number"
-                      value={this.state.piggy}
-                      onChange={this.handleInputChange}
-                      name="piggy"
-                      placeholder="Budget (Optional)"
-                    />
-                    <FormBtn
-                      disabled={!(this.state.child_name && this.state.piggy)}
-                      onClick={this.handleFormSubmit}
-                    >
-                      Add Child
-                    </FormBtn>
-                  </form>
-                </Modal>
-                  <Jumbotron>
-                    <h1>Child List</h1>
-                  </Jumbotron>
-                  {this.state.children.length ? (
-                    <List>
-                      {this.state.children.map(child => (
-                        //  <ListItem key={job._id}>
-                        <div className="col">
-                          <div className="col s12 m12">
-                            <div className="card">
-                              <div className="card-image" key={child.id}>
-                                {/* <img src="images/sample-1.jpg"> */}
-                              </div>
-                              <div className="card-content">
-                                <span className="card-title">{child.child_name}</span>
-                                <p>{child.piggy}</p>
-                                <button
-                                  id={child.id}
-                                  className="waves-effect waves-light btn btn-success"
-                                  onClick={this.removeChild}
-                                >
-                                  REMOVE CHILD
-                              </button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        // </ListItem>
-                      ))}
-                    </List>
-                  ) : (
-                      <h3>No Results to Display</h3>
-                    )}
-                </Col>
+              <Input
+                type="text"
+                value={this.state.name}
+                onChange={this.handleInputChange}
+                name="name"
+                placeholder="Name (required)"
+              />
+              <Input
+                type="number"
+                value={this.state.balance}
+                onChange={this.handleInputChange}
+                name="balance"
+                placeholder="Budget (Optional)"
+              />
+              <Button
+                disabled={!this.state.name}
+                onClick={this.handleFormSubmit}
+              >
+                Add
+              </Button>
             </Row>
-          </Container>
+          </Col>
+          </Row>
+          <Row>
+            <Jumbotron>
+              <h1>Child List</h1>
+            </Jumbotron>
+
+            {this.state.children.length ? (
+              <List>
+                {this.state.children.map(child => (
+                  //  <ListItem key={job._id}>
+                  <Col s={12} m={6} key={child.id}>
+                    <Card className='small' title={child.name}
+                    actions={[<Button waves='light' key={child.id} id={child.id} onClick={this.removeChild}> Remove Child</Button>
+                            ]}>
+                      <p className="card-text">{child.name}</p>
+                      <p>Balance: {child.balance}</p>
+                    </Card>
+                  </Col>
+                ))}
+              </List>
+            ) : (
+              <h3>No Results to Display</h3>
+            )}
+          </Row>
         </div>
           );
         }
