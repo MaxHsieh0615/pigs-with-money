@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-// TODO: Create products db to hold prod data
-// FIXME: import API from "../../utils/API";
 import API from "../../utils/API";
 import ProductList from "./productList";
 import { Redirect } from "react-router-dom";

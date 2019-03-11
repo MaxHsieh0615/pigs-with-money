@@ -6,18 +6,26 @@
  * Made By MaterializeCSS.com
  */
 
- .modal {
-   position: relative;
+ footer.page-footer {
+  padding-top: 0px;
+  background-color: #c8c8c8;
+}
+
+ footer div.row {
+  margin-bottom: 0px;
+}
+
+ .sidenav li > a {
+  font-size: 3rem;
+}
+
+ .card .card-title {
+   font-size: 55px;
+   text-align: center;
  }
 
- nav ul a,
- nav .brand-logo {
-   color: #444;
-   text-align: left;
- }
- 
- p {
-   line-height: 2rem;
+ .modal {
+   position: relative;
  }
 
  .sidenav-trigger {
@@ -56,8 +64,5 @@
  .icon-block .material-icons {
    font-size: inherit;
  }
- 
- footer.page-footer {
-   margin: 0;
- }
+
  

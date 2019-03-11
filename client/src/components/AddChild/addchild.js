@@ -1,9 +1,13 @@
 import React, { Component } from "react";
+import Jumbotron from "../Jumbotron";
 import API from "../../utils/API";
 import { List } from "../List";
+import { Input, FormBtn } from "../Form";
 import { Redirect } from "react-router-dom";
-import {Button,Input,Col,Row,Card} from "react-materialize";
-import Jumbotron from "../Jumbotron";
+import { Modal,Card,Col } from 'react-materialize';
+import Button from 'react-bootstrap/Button';
+
+
 
 class AddChild extends Component {
   state = {
@@ -56,69 +60,77 @@ class AddChild extends Component {
     API.removeChild(id)
       .then(res => this.loadChild())
       .catch(err => console.log(err));
-  }
+  };
 
   render() {
+    const modalClose = () => this.setState(
+          { modalShow: false },
+          this.loadJobs(),
+          this.reload()
+      );
     if (!this.props.loggedIn) {
       return <Redirect to="/login" />;
     } else {
       return (
         <div>
-        <Row>
-          <Col s={12}>
-            <Jumbotron>
-              <h1>Add Child</h1>
-            </Jumbotron>
-            <Row>
+          <Modal
+            {...this.props}
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            show={this.state.modalShow}
+            onHide={modalClose}
+          ></Modal>
+          <Modal
+            header='Add a Child'
+            trigger={<Button>CREATE CHILD</Button>}
+          >
+            <form>
               <Input
                 type="text"
-                value={this.state.name}
+                value={this.state.child_name}
                 onChange={this.handleInputChange}
-                name="name"
+                name="child_name"
                 placeholder="Name (required)"
               />
               <Input
                 type="number"
-                value={this.state.balance}
+                value={this.state.piggy}
                 onChange={this.handleInputChange}
-                name="balance"
+                name="piggy"
                 placeholder="Budget (Optional)"
               />
-              <Button
-                disabled={!this.state.name}
+              <FormBtn
+                disabled={!(this.state.child_name && this.state.piggy)}
                 onClick={this.handleFormSubmit}
               >
-                Add
-              </Button>
-            </Row>
-          </Col>
-          </Row>
-          <Row>
-            <Jumbotron>
-              <h1>Child List</h1>
-            </Jumbotron>
+                Add Child
+              </FormBtn>
+            </form>
+          </Modal>
+          <Jumbotron>
+            <h1>Child List</h1>
+          </Jumbotron>
 
-            {this.state.children.length ? (
-              <List>
-                {this.state.children.map(child => (
-                  //  <ListItem key={job._id}>
-                  <Col s={12} m={6} key={child.id}>
-                    <Card className='small' title={child.name}
-                    actions={[<Button waves='light' key={child.id} id={child.id} onClick={this.removeChild}> Remove Child</Button>
-                            ]}>
-                      <p className="card-text">{child.name}</p>
-                      <p>Balance: {child.balance}</p>
-                    </Card>
-                  </Col>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </Row>
+          {this.state.children.length ? (
+            <List>
+              {this.state.children.map(child => (
+                //  <ListItem key={job._id}>
+                <Col s={12} m={6} key={child.id}>
+                  <Card className='small' title={child.name}
+                  actions={[<Button waves='light' key={child.id} id={child.id} onClick={this.removeChild}> Remove Child</Button>
+                          ]}>
+                    <p className="card-text">{child.name}</p>
+                    <p>Balance: {child.balance}</p>
+                  </Card>
+                </Col>
+              ))}
+            </List>
+          ) : (
+            <h3>No Results to Display</h3>
+          )}
         </div>
-      );
+        );
+      }
     }
   }
-}
-export default AddChild;
+  export default AddChild;

@@ -6,6 +6,9 @@ import { Col, Row, Container } from "../Grid";
 import { Input, TextArea, FormBtn } from "../Form";
 import { Redirect } from "react-router-dom";
 import Job from "../Job";
+import Button from "react-bootstrap/Button";
+import { Modal } from 'react-materialize';
+import "./style.css";
 
 class CreateJob extends Component {
   state = {
@@ -64,6 +67,7 @@ class CreateJob extends Component {
 
   render() {
     const{children} = this.state;
+    let modalClose = () => this.setState({ modalShow: false });
     if (!this.props.loggedIn) {
       return <Redirect to="/login" />;
     } else {
@@ -71,43 +75,51 @@ class CreateJob extends Component {
         <div>
           <Container fluid>
             <Row>
-              <Col size="md-6">
-                <Jumbotron>
-                  <h1>Create Job</h1>
-                </Jumbotron>
-                <form>
-                  <Input
-                    type="text"
-                    value={this.state.title}
-                    onChange={this.handleInputChange}
-                    name="title"
-                    placeholder="Title (required)"
-                  />
-                  <TextArea
-                    value={this.state.description}
-                    onChange={this.handleInputChange}
-                    name="description"
-                    placeholder="Description (required)"
-                  />
-                  <Input
-                    type="number"
-                    value={this.state.budget}
-                    onChange={this.handleInputChange}
-                    name="budget"
-                    placeholder="Budget (Optional)"
-                  />
-                  <FormBtn
-                    disabled={!(this.state.description && this.state.title)}
-                    onClick={this.handleFormSubmit}
-                  >
-                    Submit Job
-                  </FormBtn>
-                </form>
-              </Col>
-              <Jumbotron>
-                <h1>Job List</h1>
-              </Jumbotron>
               <Col size="md-6 sm-12">
+                <Modal
+                  {...this.props}
+                  size="lg"
+                  aria-labelledby="contained-modal-title-vcenter"
+                  show={this.state.modalShow}
+                  onHide={modalClose}
+                ></Modal>
+                <Modal
+                  header='Add a Job'
+                  trigger={<Button>CREATE JOB</Button>}
+                >
+                  <form>
+                    <Input
+                      type="text"
+                      value={this.state.title}
+                      onChange={this.handleInputChange}
+                      name="title"
+                      placeholder="Title (required)"
+                    />
+                    <TextArea
+                      value={this.state.description}
+                      onChange={this.handleInputChange}
+                      name="description"
+                      placeholder="Description (required)"
+                    />
+                    <Input
+                      type="number"
+                      value={this.state.budget}
+                      onChange={this.handleInputChange}
+                      name="budget"
+                      placeholder="Budget (Optional)"
+                    />
+                    <FormBtn
+                      disabled={!(this.state.description && this.state.title)}
+                      onClick={this.handleFormSubmit}
+                    >
+                      Submit Job
+              </FormBtn>
+
+                  </form>
+                </Modal>
+                <Jumbotron>
+                  <h1>Job List</h1>
+                </Jumbotron>
                 {this.state.jobs.length ? (
                   <List>
                   {this.state.jobs.map(job => (
@@ -116,11 +128,11 @@ class CreateJob extends Component {
                   </List>
                 ) : (
                     <h3>No Results to Display</h3>
-                )}
-              </Col> 
+                  )}
+              </Col>
             </Row>
           </Container>
-          </div>
+        </div>
       );
     }
   };

@@ -17,10 +17,10 @@ module.exports = {
   },
   create: function(req, res) {
     const dataSet = {
-      name: req.body.name,
-      info: req.body.info,
-      qty: req.body.qty,
-      price: req.body.price
+      "name": req.body.name,
+      "info": req.body.info,
+      "qty": req.body.qty,
+      "price": req.body.price
     }
     console.log(dataSet)
     db.Products
