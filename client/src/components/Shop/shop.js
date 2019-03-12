@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import productsList from "./productList";
-// import { Col, Row, Container } from "../Grid";
-// import Jumbotron from "../Jumbotron";
-// import { Input, TextArea, FormBtn } from "../Form";
+import ProductList from "./productList";
 import { Redirect } from "react-router-dom";
 import { Row } from "react-materialize";
 import AddProductForm from "./AddProductForm";

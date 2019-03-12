@@ -1,13 +1,13 @@
 const db = require("../models");
 const piggyBanks = require("./piggyBanksController");
 const children = require("./childrenController");
-
+const Op = db.Sequelize.Op;
 // Defining methods
 module.exports = {
   //find all jobs relate to requestor
   findAllByRequestor: function(req, res) {
     db.Job
-      .findAll({include: [db.Child],where:{assigneeId: req.session.username}})
+      .findAll({include: [db.Child],where:{assigneeId: req.session.username,}})
       .then(dbModel => res.status(200).json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -23,7 +23,7 @@ module.exports = {
 
   getJobs: function(req,res) {
     db.Job
-      .findAll({where:{requestorEmail: req.session.username}})
+      .findAll({where:{requestorEmail: req.session.username,status: {[Op.ne]:"Closed"}}})
       .then(dbModel => res.status(200).json(dbModel))
       .catch(err => res.status(422).json(err));
   },
