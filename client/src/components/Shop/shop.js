@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import ProductList from "./productList";
+import Product from "./product";
 import { Redirect } from "react-router-dom";
 import { Row } from "react-materialize";
 import AddProductForm from "./AddProductForm";
+import { List } from "../List";
 
 class Shop extends Component {
   state = {
     products: [],
+    children: [],
     modalShow: false,
     name: "",
     info: "",
@@ -23,15 +25,17 @@ class Shop extends Component {
 
   loadProducts = () => {
     API.getAllProducts()
-      .then(res =>
+      .then(products => this.loadChildren(products))
+      .catch(err => console.log(err));
+  };
+
+  loadChildren = (products) => {
+    API.findAllByChild()
+      .then(children =>
         this.setState({
-          products: res.data,
-          name: "",
-          info: "",
-          qty: 0,
-          price: 0
-        })
-      )
+          children: children.data,
+          products: products.data
+        }))
       .catch(err => console.log(err));
   };
 
@@ -56,10 +60,6 @@ class Shop extends Component {
     }
   };
 
-  addCart() {
-
-  };
-
   add() {
     this.setState({
       qty: this.state.qty + 1
@@ -79,6 +79,7 @@ class Shop extends Component {
   }
 
   render() {
+    const { products,children } = this.state;
     if (!this.props.loggedIn) {
       return <Redirect to="/login" />;
     } else {
@@ -87,8 +88,12 @@ class Shop extends Component {
         <div>
           <AddProductForm handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit}/>
           <Row> 
-              {this.state.products.length ? (
-                <ProductList products={this.state.products} />
+              {products ? (
+                <List>
+                {products.map(product => (
+                  <Product product={product} children={children} key={product.id}/>
+                ))}
+                </List>
               ) : (
                 <h3>No Results to Display</h3>
               )}

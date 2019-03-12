@@ -3,17 +3,13 @@ import {Button, Col, Card} from 'react-materialize';
 import API from "../../utils/API";
 
 class Job extends Component {
-  constructor(props) {
-    super(props);
-    const {job,children} =  props;
-    this.state={
-      childId: job.assigneeId,
-      childName: children ? this.getName() : "",
-      status: job.status,
-      counter: 0,
-      buttonName: this.getButtonName()
-    };
-  }
+  state={
+    childId: this.props.job.assigneeId,
+    childName: this.props.job.assignee !== null ? this.props.job.assignee.name : null,
+    status: this.props.job.status,
+    counter: 0,
+    buttonName: this.getButtonName(this.props.job.status)
+  };
 
   toggleChildren = () =>{
     const { counter,status } = this.state;
@@ -27,17 +23,18 @@ class Job extends Component {
   };
 
   completeJob = dataSet => {
+    if(this.props.job.status !== "Assigned"){
+      return;
+    }
     API.completeJob(dataSet)
-      .then(res => {
-        this.setState({status: (res.data[0] === 1 ? "Completed" : "Assigned")});
-      })
+      .then(() => this.props.loadJobs())
       .catch(err => console.log(err));
   };
 
   assignJob = dataSet=>{
     API.assignJob(dataSet)
-      .then(res => {
-        this.setState({status: (res.data[0] === 1 ? "Assigned" : "Open")});
+      .then(() => {
+          this.setState({status: 'Assigned',buttonName: this.getButtonName("Assigned")});
       })
       .catch(err => console.log(err));
   };
@@ -52,19 +49,13 @@ class Job extends Component {
       jobId: id,
       childId: childId
     }
-    
     return status === "Open" ? this.assignJob(data) : this.completeJob(data);
   };
 
-  getName(){
-    const {job,children} = this.props;
-    return job.assigneeId != null ? children.filter(item => item.id === job.assigneeId)[0].name : null;
-  };
-
-  getButtonName()
+  getButtonName(status)
   {
     let buttonName = "ASSIGN JOB"
-    switch (this.props.job.status){
+    switch (status){
       case "Open":
         buttonName = "ASSIGN JOB";
         break;
@@ -93,7 +84,7 @@ class Job extends Component {
             <Button waves='light' key={job.id} id={job.id} onClick={this.updateJobStatus}>{this.state.buttonName}</Button>
           ]}>
           <p>{job.description}</p>
-          <p onClick={this.toggleChildren} data-assignee={this.state.assigneeId}>Assign to : {this.state.childName}</p>
+          <p onClick={this.toggleChildren}>Assign to : {this.state.childName}</p>
         </Card>
       </Col>
       

@@ -7,7 +7,7 @@ module.exports = {
   //find all jobs relate to requestor
   findAllByRequestor: function(req, res) {
     db.Job
-      .findAll({include: [db.Child],where:{assigneeId: req.session.username,}})
+      .findAll({include: [db.Child],where:{assigneeId: req.session.username}})
       .then(dbModel => res.status(200).json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -23,9 +23,10 @@ module.exports = {
 
   getJobs: function(req,res) {
     db.Job
-      .findAll({where:{requestorEmail: req.session.username,status: {[Op.ne]:"Closed"}}})
+      .findAll({include: [{model: db.Child,as: 'assignee'}] ,where:{requestorEmail: req.session.username,status: {[Op.ne]:"Closed"}}})
       .then(dbModel => res.status(200).json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .catch(err => //res.status(422).json(err)
+      console.log(err));
   },
 
   findById: function(req, res) {
