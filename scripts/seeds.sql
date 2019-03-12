@@ -4,3 +4,8 @@ INSERT INTO Users (email,password,account_type,parent_email,createdAt,updatedAt)
 --Create Jobs
 insert into jobs (title,description, budget,status, date_assigned, date_completed,createdAt,updatedAt,requestorEmail)values
 ('Clean Room','Pick up all your dirty clothes off the floor.',10,'open',sysdate(),null,sysdate(),sysdate(),'dennist82@yahoo.com');
+
+INSERT INTO piggy_bank (amount, transaction, description)
+VALUES (2, 'deposit', 'finished cleaning');
+INSERT INTO piggy_bank (amount, transaction, description)
+VALUES (1, 'deposit', 'finished cleaning');

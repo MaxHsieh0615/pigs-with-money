@@ -23,6 +23,19 @@ class PiggyBank extends Component {
     this.loadPiggyBank();
   }
 
+  loadChild = () => {
+    API.findAllByChild()
+      .then(res =>
+        this.setState({
+          children: res.data,
+          child_name: "",
+          piggy: "",
+          budget: ""
+        })
+      )
+      .catch(err => console.log(err));
+  };
+
   loadPiggyBank = () => {
     API.showAllTransactions()
       .then(res =>
@@ -42,7 +55,7 @@ class PiggyBank extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h1>{this.state.Child.child_name}'s Piggy Bank</h1>
+              <h1>{this.state.child_name}'s Piggy Bank</h1>
             </Jumbotron>
           </Col>
         </Row>
@@ -50,10 +63,10 @@ class PiggyBank extends Component {
           {this.state.piggyBank.map(item => (
             <Col size="md-12">
               <p>
-                <h3>Balance: {this.state.piggyBank.item.balance}</h3>
+                <h3>Balance: {item.amount}</h3>
               </p>
               <p>
-                <h3>Transactions: {this.state.piggyBank.item.transaction}</h3>
+                <h3>Transactions: {item.transaction}</h3>
               </p>
             </Col>
           ))}

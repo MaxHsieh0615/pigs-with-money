@@ -30,6 +30,7 @@ require("./routes/api/user")(app);
 require("./routes/api/job")(app);
 require("./routes/api/children")(app);
 require("./routes/api/products")(app);
+require("./routes/api/piggyBanks")(app);
 // FIXME: store route
 
 

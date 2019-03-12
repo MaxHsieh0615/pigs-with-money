@@ -52,6 +52,7 @@ db.Users.hasOne(db.Users, {as: "parent"});
 // TODO: children table 
 db.PiggyBank.belongsTo(db.Users, {as: "owner"});
 db.Child = require("./Child")(sequelize, Sequelize);
+db.Child.belongsTo(db.Users, {as: "parent"});
 
 
 module.exports = db;

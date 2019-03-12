@@ -11,6 +11,7 @@ import About from "./components/About/about";
 import AddChild from "./components/AddChild/addchild";
 import Shop from "./components/Shop/shop";
 import MyVerticallyCenteredModal from "./components/Modals/index";
+import PiggyBank from "./components/PiggyBank/piggybank";
 
 class App extends Component {
   constructor() {
@@ -85,6 +86,10 @@ class App extends Component {
           <Route
             path="/shop"
             render={() => <Shop loggedIn={this.state.loggedIn} />}
+          />
+          <Route
+            path="/piggyBank"
+            render={() => <PiggyBank loggedIn={this.state.loggedIn} />}
           />
         </div>
       </div>
