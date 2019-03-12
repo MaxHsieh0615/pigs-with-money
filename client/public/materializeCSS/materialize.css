@@ -3,6 +3,14 @@
  * Copyright 2014-2017 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
+
+ .loginbox, .signupform{
+    background: white;
+    opacity: .8;
+    padding: 20px;
+    margin-top: 40% !important;
+ }
+
  .materialize-red {
   background-color: #e51c23 !important;
 }
