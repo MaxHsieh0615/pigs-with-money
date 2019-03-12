@@ -87,18 +87,18 @@ class AddChild extends Component {
                 type="text"
                 value={this.state.child_name}
                 onChange={this.handleInputChange}
-                name="child_name"
+                name="name"
                 placeholder="Name (required)"
               />
               <Input
                 type="number"
                 value={this.state.piggy}
                 onChange={this.handleInputChange}
-                name="piggy"
+                name="balance"
                 placeholder="Budget (Optional)"
               />
               <FormBtn
-                disabled={!(this.state.child_name && this.state.piggy)}
+                disabled={!(this.state.name)}
                 onClick={this.handleFormSubmit}
               >
                 Add Child

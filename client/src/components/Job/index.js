@@ -29,8 +29,7 @@ class Job extends Component {
   completeJob = dataSet => {
     API.completeJob(dataSet)
       .then(res => {
-        this.setState({status: res.data.status});
-        this.getButtonName();
+        this.setState({status: (res.data[0] === 1 ? "Completed" : "Assigned")});
       })
       .catch(err => console.log(err));
   };
@@ -38,8 +37,7 @@ class Job extends Component {
   assignJob = dataSet=>{
     API.assignJob(dataSet)
       .then(res => {
-        this.setState({status: res.data.status});
-        this.getButtonName();
+        this.setState({status: (res.data[0] === 1 ? "Assigned" : "Open")});
       })
       .catch(err => console.log(err));
   };
@@ -95,7 +93,7 @@ class Job extends Component {
             <Button waves='light' key={job.id} id={job.id} onClick={this.updateJobStatus}>{this.state.buttonName}</Button>
           ]}>
           <p>{job.description}</p>
-          <p onClick={this.toggleChildren}>Assign to : {this.state.childName}</p>
+          <p onClick={this.toggleChildren} data-assignee={this.state.assigneeId}>Assign to : {this.state.childName}</p>
         </Card>
       </Col>
       
