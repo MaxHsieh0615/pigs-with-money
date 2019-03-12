@@ -7,10 +7,10 @@ class Product extends Component {
     super(props);
     const { product } =  props;
     this.state={
-      //childId: product.assigneeId,
-      //childName: product.assignee !== null ? product.assignee.name : null,
-      //status: product.status,
-      counter: 0,
+      name: product.name,
+      info: product.info,
+      price: product.price,
+      qty: product.qty
     };
   };
 
@@ -32,15 +32,15 @@ class Product extends Component {
     const { product } = this.props;
     return (
       <Col s={12} m={6}>
-        {/* <Card className='small' title={product.name}
+        {<Card className='small' title={product.name}
           actions={[
             <Button waves='light' key={product.id} id={product.id} onClick={this.buy}>Buy</Button>
           ]}>
           <p>{product.info}</p>
           <p className="card-text">Qty: {product.qty}</p>
           <p className="card-text">Price: ${product.price}</p>
-          <p onClick={this.toggleChildren}>Assign to : {this.state.childName}</p>
-        </Card> */}
+          <p onClick={this.toggleChildren}>For: {this.state.childName}</p>
+        </Card> }
       </Col>
     )
   }

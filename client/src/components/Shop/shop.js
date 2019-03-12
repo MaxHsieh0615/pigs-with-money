@@ -88,7 +88,7 @@ class Shop extends Component {
         <div>
           <AddProductForm handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit}/>
           <Row> 
-              {products ? (
+              {products !== null ? (
                 <List>
                 {products.map(product => (
                   <Product product={product} children={children} key={product.id}/>
