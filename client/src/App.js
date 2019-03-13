@@ -13,6 +13,7 @@ import AddChild from "./components/AddChild/addchild";
 import Shop from "./components/Shop/shop";
 import MyVerticallyCenteredModal from "./components/Modals/index";
 import { Footer } from "react-materialize";
+import { InstantSearch } from 'react-instantsearch-dom';
 
 
 class App extends Component {
