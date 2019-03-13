@@ -116,25 +116,25 @@ class CreateJob extends Component {
                   </form>
                 </Modal>
               </Col>
-            </Row>
-            <Row>
-              <Jumbotron>
-                <h1>Job List</h1>
-              </Jumbotron>
-              {this.state.jobs.length ? (
-                <List>
-                  {this.state.jobs.map(job => (
-                    <Job job={job} children={children} key={job.id} />
-                  ))}
-                </List>
-              ) : (
-                  <h3>No Results to Display</h3>
-                )}
-            </Row>
-          </Container>
-        </div>
-      );
-    }
+          </Row>
+          <Row>
+          <Jumbotron>
+            <h1>Job List</h1>
+          </Jumbotron>
+          {this.state.jobs.length ? (
+            <List>
+              {this.state.jobs.map(job => (
+                <Job job={job} children={children} loadJobs={this.loadJobs} key={job.id} />
+              ))}
+            </List>
+          ) : (
+              <h3>No Results to Display</h3>
+            )}
+          </Row>
+        </Container>
+      </div>
+    );
+  }
   };
 }
 
