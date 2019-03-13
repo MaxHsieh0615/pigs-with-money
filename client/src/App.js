@@ -93,7 +93,7 @@ class App extends Component {
           />
         </div>
         <Footer
-          copyrights={'\u00A9' + " 2019 Copyright Piggy Business"} 
+          copyrights="&copy; 2019 Copyright Piggy Business"
           moreLinks={
             <a className="grey-text text-lighten-4 right" href="https://github.com/MaxHsieh0615/pigs-with-money">
               Github

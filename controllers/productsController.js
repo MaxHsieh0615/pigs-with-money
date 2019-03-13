@@ -1,11 +1,11 @@
 const db = require("../models");
+const Op = db.Sequelize.Op;
 
 // Defining methods for the booksController
 module.exports = {
-  getAllProducts: function(req, res) {
-    console.log('words in here')
+  findAllProducts: function(req, res) {
     db.Products
-      .findAll()
+      .findAll({where: {qty: {[Op.gt]:0}}})
       .then(products => res.status(200).json(products))
       .catch(err => res.status(422).json(err));
   },
