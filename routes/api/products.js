@@ -8,7 +8,7 @@ module.exports = (app) =>{
   
   app.get("api/findbyid", productsController.findById);
   
-  app.put("/api/updateProduct", productsController.update);
+  app.put("/api/buyProduct", productsController.buy);
   
   app.delete("/api/removeProduct", productsController.remove);
 

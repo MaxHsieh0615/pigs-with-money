@@ -41,8 +41,12 @@ export default {
   },
   // Shop section
   // submit product
-  createProduct: function(productData) {
+  createProduct: function(productData){
     return axios.post("/api/products", productData);
+  },
+
+  buyProduct: function(productData){
+    return axios.put("/api/buyProduct",productData);
   },
 
   // view all products

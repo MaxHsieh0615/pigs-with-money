@@ -20,13 +20,25 @@ module.exports = {
   },
 
   //related to above if Child going to be in Users table.
-  addBudget: function(jobId) {
+  addBudget: function( jobId ) {
     db.Job.findOne({where: {id: jobId}})
     .then(job => {
       db.Child
         .update({balance: db.Sequelize.literal("balance +" 
         + job.budget)},{where:{id:job.assigneeId}})
       .then(transaction => console.log("Deposite money Successfully."))
+      .catch(err => console.log(err));
+    })
+    .catch(err => console.log(err));
+  },
+
+  deductBudget: function( productId, buyer ){
+    db.Products.findOne({where: {id: productId}})
+    .then(product => {
+      db.Child
+        .update({balance: db.Sequelize.literal("balance -" 
+        + product.price)},{where:{id: buyer}})
+      .then(transaction => console.log(`Withdraw money for ${product.name}`))
       .catch(err => console.log(err));
     })
     .catch(err => console.log(err));
