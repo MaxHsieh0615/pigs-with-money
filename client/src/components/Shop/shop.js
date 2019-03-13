@@ -91,7 +91,7 @@ class Shop extends Component {
               {products !== null ? (
                 <List>
                 {products.map(product => (
-                  <Product product={product} children={children} key={product.id}/>
+                  <Product product={product} children={children} loadProducts={this.loadProducts} key={product.id}/>
                 ))}
                 </List>
               ) : (

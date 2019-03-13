@@ -7,24 +7,35 @@ class Product extends Component {
     super(props);
     const { product } =  props;
     this.state={
+      id: product.id,
       name: product.name,
       info: product.info,
       price: product.price,
-      qty: product.qty
+      qty: product.qty,
+      childId: "",
+      childName: "",
+      counter: 0
     };
   };
 
-  buy = event => {
-    const { id } = event.target;
-    if (this.state.title && this.state.description) {
-      API.getCreateJob({
-        title: this.state.title,
-        description: this.state.description,
-        budget: this.state.budget
-      })
-        .then(res => this.loadJobs())
-        .catch(err => console.log(err));
+  toggleChildren = () =>{
+    const { counter } = this.state;
+    const { children } = this.props; 
+    if ( children.length >= 0 ){
+      const key = counter % children.length;
+      this.setState({childName:children[key].name,
+        childId: children[key].id, 
+        counter: counter + 1});
     }
+  };
+
+  buy = event => {
+      API.buyProduct({
+        productId: this.state.id,
+        childId: this.state.childId
+      })
+        .then(res => this.props.loadProducts())
+        .catch(err => console.log(err));
   }
 
 
