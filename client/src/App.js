@@ -12,7 +12,6 @@ import About from "./components/About/about";
 import AddChild from "./components/AddChild/addchild";
 import Shop from "./components/Shop/shop";
 import { Footer } from "react-materialize";
-import { InstantSearch } from 'react-instantsearch-dom';
 
 class App extends Component {
   constructor() {

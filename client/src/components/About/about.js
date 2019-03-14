@@ -76,23 +76,6 @@ class About extends Component {
               header={<CardTitle reveal image={picture} waves="light" />}
               title="Dennis Tam"
               reveal={
-<<<<<<< HEAD
-                <div className="center">
-                  <h3>Web Developer</h3>
-                  <h4>Let Dennis think about this.</h4>
-                </div>
-              }
-            >
-              <p>
-                <a
-                  href="https://github.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Github Profile
-                </a>
-              </p>
-=======
               <div className="center">
                 <h3>Web Developer</h3>
                 <h4>
@@ -111,7 +94,6 @@ class About extends Component {
                 </h4>
               </div>}>
               <p><a href="https://github.com" target="_blank" rel="noopener noreferrer">Github Profile</a></p>
->>>>>>> 2236ee26b31eeb9a01c458f6b92f6bb101bad7e6
             </Card>
           </Col>
         </Row>
