@@ -6,7 +6,8 @@ import { Input, FormBtn } from "../Form";
 import { Redirect } from "react-router-dom";
 import { Modal,Card,Col,Row } from 'react-materialize';
 import Button from 'react-bootstrap/Button';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 class AddChild extends Component {
@@ -14,8 +15,11 @@ class AddChild extends Component {
     children: [],
     name: "",
     balance: 0,
-    status: ""
+    status: "",
+    isModalOpen: false
   };
+
+  notify = (msg) => toast(msg);
 
   componentDidMount() {
     if (this.props.loggedIn) {
@@ -49,38 +53,50 @@ class AddChild extends Component {
         name: this.state.name,
         balance: this.state.balance
       })
-        // FIXME: see .then below
-        .then(res => this.loadChild())
+        .then(res => {
+          this.notify(`Added ${this.state.name}.`);
+          this.setState({isModalOpen: false});
+          //reset form.
+          this.setState({name: "",
+          balance: 0});
+          this.loadChild()})
         .catch(err => console.log(err));
     }
   };
 
   removeChild = events => {
     const {id} = events.target;
+    const childMatch = this.state.children.filter(child => child.id === id);
+
+
     API.removeChild(id)
-      .then(res => this.loadChild())
+      .then(res => {
+        this.notify(`I disown yoooOOOUUU ${childMatch}!!!!!`);  
+        this.loadChild()})
       .catch(err => console.log(err));
   };
 
+  openModal = () => {
+    this.setState({isModalOpen: true});
+  };
+
   render() {
-    const modalClose = () => this.setState(
-          { modalShow: false },
-          this.loadJobs(),
-          this.reload()
-      );
     if (!this.props.loggedIn) {
       return <Redirect to="/login" />;
     } else {
       return (
         <div>
-          <Modal
+          <Button onClick={this.openModal}>CREATE CHILD</Button>
+          <ToastContainer/>
+          {/* <Modal
+            open={this.state.isModalOpen}
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             show={this.state.modalShow}
-          ></Modal>
+          ></Modal> */}
           <Modal
+            open={this.state.isModalOpen}
             header='Add a Child'
-            trigger={<Button>CREATE CHILD</Button>}
           >
             <form>
               <Input
