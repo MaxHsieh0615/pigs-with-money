@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./about.css";
-import picture from "../img/piggy_gg.png";
+import piggyPicture from "../img/piggy_gg.png";
 import { Col, Card, CardTitle, Row } from "react-materialize";
 
 class About extends Component {
@@ -73,24 +73,15 @@ class About extends Component {
           </Col>
           <Col s={12} m={6} l={6}>
             <Card
-              header={<CardTitle reveal image={picture} waves="light" />}
+              header={<CardTitle reveal image={piggyPicture} waves="light" />}
               title="Dennis Tam"
               reveal={
               <div className="center">
                 <h3>Web Developer</h3>
                 <h4>
-                  I have Full Stack Web Developer experienced with web development 
-                  technologies like Javascript, jQuery, Bootstrap, CSS, HTML, 
-                  SQL and JAVA.  Recently graduated from the UC Berkeley Bootcamp 
-                  in full stack web development and continuing to improve my 
-                  technological knowledge.
-
-                  Brings over 5 years of experience in debugging / solving 
-                  problems on websites.  Excels at  decision-making on project 
-                  design and providing best practices for stakeholders.  In the 
-                  design process, I like to put myself in the user’s shoes to view 
-                  the design in a different perspective.  Creative and always looking 
-                  for better ways to simplify a process.
+                I am an experienced Full Stack Web Developer with technologies such as Javascript, jQuery, Bootstrap, CSS, HTML, SQL and JAVA.</h4>
+                <h4>As a life-long learner, I'm committed to expanding my technical knowledge.</h4>
+                <h4>Fun fact: I like boba and my rice cooker rings every night at 8:45 pm (ok, teapot).
                 </h4>
               </div>}>
               <p><a href="https://github.com" target="_blank" rel="noopener noreferrer">Github Profile</a></p>
@@ -100,7 +91,7 @@ class About extends Component {
         <Row>
           <Col s={12} m={6} l={6}>
             <Card
-              header={<CardTitle reveal image={picture} waves="light" />}
+              header={<CardTitle reveal image={piggyPicture} waves="light" />}
               title="Max Hsieh"
               reveal={
                 <div className="center">
@@ -122,12 +113,13 @@ class About extends Component {
           </Col>
           <Col s={12} m={6} l={6}>
             <Card
-              header={<CardTitle reveal image={picture} waves="light" />}
+              header={<CardTitle reveal image={piggyPicture} waves="light" />}
               title="Gian Banares"
               reveal={
                 <div className="center">
                   <h3>Software Engineer</h3>
                   <h4>Big-picture thinker with a passion for pursuing new technologies.</h4>
+                  <h4>I believe in creating purposeful and meaningful projects. As an advocate for user-centric design,  my goal is to enhance our interaction and dependence with technology. </h4>
                 </div>
               }
             >
@@ -146,7 +138,7 @@ class About extends Component {
         <Row>
           <Col s={12} m={6} l={6}>
             <Card
-              header={<CardTitle reveal image={picture} waves="light" />}
+              header={<CardTitle reveal image={piggyPicture} waves="light" />}
               title="Richard Luong"
               reveal={
                 <div className="center">
@@ -168,7 +160,7 @@ class About extends Component {
           </Col>
           <Col s={12} m={6} l={6}>
             <Card
-              header={<CardTitle reveal image={picture} waves="light" />}
+              header={<CardTitle reveal image={piggyPicture} waves="light" />}
               title="Piggy Banksalot"
               reveal={
                 <div className="center">
