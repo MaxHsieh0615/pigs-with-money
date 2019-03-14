@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 class LoginForm extends Component {
   constructor() {
     super();
@@ -14,6 +17,7 @@ class LoginForm extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  notify = (msg) => toast(msg);
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
@@ -33,6 +37,7 @@ class LoginForm extends Component {
         console.log("login response: ");
         console.log(response);
         if (response.status === 200) {
+          this.notify("Login Successfully.")
           // update App.js state
           this.props.updateUser({
             loggedIn: true,
@@ -45,6 +50,7 @@ class LoginForm extends Component {
         }
       })
       .catch(error => {
+        this.notify("Password or username is invalid.");
         console.log("login error: ");
         console.log(error);
       });
@@ -57,7 +63,7 @@ class LoginForm extends Component {
     } else {
       return (
         <div className="container loginbox">
-
+          <ToastContainer/>
           <h4>Login</h4>
           <form className="form-horizontal">
             <div className="form-group">

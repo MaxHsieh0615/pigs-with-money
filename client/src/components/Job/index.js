@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import {Button, Col, Card} from 'react-materialize';
 import API from "../../utils/API";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class Job extends Component {
   state={
@@ -10,6 +12,8 @@ class Job extends Component {
     counter: 0,
     buttonName: this.getButtonName(this.props.job.status)
   };
+
+  notify = (msg) => toast(msg);
 
   toggleChildren = () =>{
     const { counter,status } = this.state;
@@ -27,14 +31,22 @@ class Job extends Component {
       return;
     }
     API.completeJob(dataSet)
-      .then(() => this.props.loadJobs())
+      .then(() => {
+        this.notify(`Job ${this.props.job.title} complete. Add $${this.props.job.budget} to ${this.state.childName}`);
+        this.props.loadJobs()})
       .catch(err => console.log(err));
   };
 
   assignJob = dataSet=>{
+    if(this.state.childName == null){
+      this.notify("Please assign job to a child.");
+      return
+    }
+
     API.assignJob(dataSet)
       .then(() => {
-          this.setState({status: 'Assigned',buttonName: this.getButtonName("Assigned")});
+        this.notify(`Job assigned to ${this.state.childName}`)
+        this.setState({status: 'Assigned',buttonName: this.getButtonName("Assigned")});
       })
       .catch(err => console.log(err));
   };
@@ -79,12 +91,14 @@ class Job extends Component {
     const {job} = this.props;
     return (
       <Col s={12} m={6}>
+      <ToastContainer/>
         <Card className='small' title={job.title}
           actions={[
             <Button waves='light' key={job.id} id={job.id} onClick={this.updateJobStatus}>{this.state.buttonName}</Button>
           ]}>
           <p>{job.description}</p>
-          <p onClick={this.toggleChildren}>Assign to : {this.state.childName}</p>
+          <p>{job.budget}</p>
+          <p onClick={this.toggleChildren} className="btn">Assign to : {this.state.childName}</p>
         </Card>
       </Col>
       

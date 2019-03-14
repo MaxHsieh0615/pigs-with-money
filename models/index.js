@@ -51,8 +51,8 @@ db.Job.belongsTo(db.Users,{as: "requestor"});
 db.Job.belongsTo(db.Child,{as: "assignee"});
 db.Users.hasOne(db.Users, {as: "parent"});
 db.Child.belongsTo(db.Users,{as: "parent"});
-// TODO: children table 
 db.PiggyBank.belongsTo(db.Child, {as: "owner"});
+db.Products.belongsTo(db.Users,{as: "creator"});
 
 
 module.exports = db;

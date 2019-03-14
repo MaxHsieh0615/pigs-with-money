@@ -9,6 +9,8 @@ import Job from "../Job";
 import Button from "react-bootstrap/Button";
 import { Col, Row, Modal } from 'react-materialize';
 import "./style.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class CreateJob extends Component {
   state = {
@@ -17,8 +19,11 @@ class CreateJob extends Component {
     title: "",
     description: "",
     budget: 0,
-    status: ""
+    status: "",
+    isModalOpen: false
   };
+
+  notify = (msg) => toast(msg);
 
   componentDidMount() {
     if (this.props.loggedIn) {
@@ -60,30 +65,33 @@ class CreateJob extends Component {
         description: this.state.description,
         budget: this.state.budget
       })
-        .then(res => this.loadJobs())
+        .then(res => {
+          this.setState({isModalOpen:false});
+          this.notify("Added a job.");
+          this.loadJobs()})
         .catch(err => console.log(err));
     }
   };
 
+  openModal = () => {
+    this.setState({isModalOpen: true});
+  };
+
   render() {
     const { children } = this.state;
-    let modalClose = () => this.setState({ modalShow: false });
     if (!this.props.loggedIn) {
       return <Redirect to="/login" />;
     } else {
       return (
         <div>
+          <ToastContainer/>
           <Container fluid>
             <Row>
+              <Button onClick={this.openModal}>CREATE JOB</Button>
               <Col m={6} s={12}>
                 <Modal
-                  size="lg"
-                  aria-labelledby="contained-modal-title-vcenter"
-                  show={this.state.modalShow}
-                ></Modal>
-                <Modal
+                  open={this.state.isModalOpen}
                   header='Add a Job'
-                  trigger={<Button>CREATE JOB</Button>}
                 >
                   <form>
                     <Input

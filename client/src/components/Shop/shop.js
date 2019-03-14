@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import Product from "./product";
 import { Redirect } from "react-router-dom";
-import { Row } from "react-materialize";
+import { Button,Row,Modal } from "react-materialize";
 import AddProductForm from "./AddProductForm";
 import { List } from "../List";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class Shop extends Component {
   state = {
@@ -14,8 +16,11 @@ class Shop extends Component {
     name: "",
     info: "",
     qty: 0,
-    price: 0
+    price: 0,
+    isModalOpen: false
   };
+
+  notify = (msg) => toast(msg);
 
   componentDidMount() {
    if (this.props.loggedIn) {
@@ -55,28 +60,19 @@ class Shop extends Component {
         price: this.state.price,
         qty: this.state.qty
       })
-        .then(res =>{})
+        .then(res =>{
+
+          this.setState({isModalOpen:false});
+          this.loadProducts();
+          this.notify("Added product.");
+        })
         .catch(err => console.log(err));
     }
   };
 
-  add() {
-    this.setState({
-      qty: this.state.qty + 1
-    });
-    this.props.handleTotal(this.props.price);
+  openModal = () => {
+    this.setState({isModalOpen: true});
   };
-
-  subtract() {
-    this.setState({
-      qty: this.state.qty - 1
-    });
-    this.props.handleTotal(-this.props.price);
-  }
-
-  showInfo() {
-    this.props.handleShow(this.props.info);
-  }
 
   render() {
     const { products,children } = this.state;
@@ -86,7 +82,14 @@ class Shop extends Component {
       
       return (
         <div>
-          <AddProductForm handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit}/>
+          <ToastContainer />
+          <Button onClick={this.openModal}>Add Product</Button>
+          <Modal
+          open={this.state.isModalOpen}
+          header='Create Product'
+          >
+            <AddProductForm handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit}/>
+          </Modal>
           <Row> 
               {products !== null ? (
                 <List>

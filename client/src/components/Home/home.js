@@ -1,13 +1,30 @@
 import React, { Component } from "react";
 import { Parallax, Slider, Slide } from "react-materialize";
+import "./style.css";
+import Typist from 'react-typist';
+import TypistLoop from 'react-typist-loop'
 
 class Home extends Component {
   render() {
+
     return (
       <div>
         <div className="container">
           <h1 className="header center">Learn. Earn. Save.</h1>
-          <Slider>
+
+          <h1 className="center">
+            <TypistLoop interval={1000}>
+              {[
+                'Teaching Values',
+                'Saving for the future',
+                'Creating fun',
+              ].map(text => <Typist key={text} startDelay={0}>
+                {text}
+                <Typist.Backspace count={text.length} delay={1000} />
+              </Typist>)}
+            </TypistLoop>
+          </h1>
+          {/* <Slider>
             <Slide
               src={require("../img/img_slide1.jpg")}
               title="Teaching values"
@@ -28,8 +45,8 @@ class Home extends Component {
             >
               Give them the power of choice.
             </Slide>
-          </Slider>
-        </div>        
+          </Slider> */}
+        </div>
         <div className="section transparent z-depth-0">
           <div className="row container">
             <h2 className="header center">Children today are more connected than ever.</h2>

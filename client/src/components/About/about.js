@@ -76,6 +76,7 @@ class About extends Component {
               header={<CardTitle reveal image={picture} waves="light" />}
               title="Dennis Tam"
               reveal={
+<<<<<<< HEAD
                 <div className="center">
                   <h3>Web Developer</h3>
                   <h4>Let Dennis think about this.</h4>
@@ -91,6 +92,26 @@ class About extends Component {
                   Github Profile
                 </a>
               </p>
+=======
+              <div className="center">
+                <h3>Web Developer</h3>
+                <h4>
+                  I have Full Stack Web Developer experienced with web development 
+                  technologies like Javascript, jQuery, Bootstrap, CSS, HTML, 
+                  SQL and JAVA.  Recently graduated from the UC Berkeley Bootcamp 
+                  in full stack web development and continuing to improve my 
+                  technological knowledge.
+
+                  Brings over 5 years of experience in debugging / solving 
+                  problems on websites.  Excels at  decision-making on project 
+                  design and providing best practices for stakeholders.  In the 
+                  design process, I like to put myself in the user’s shoes to view 
+                  the design in a different perspective.  Creative and always looking 
+                  for better ways to simplify a process.
+                </h4>
+              </div>}>
+              <p><a href="https://github.com" target="_blank" rel="noopener noreferrer">Github Profile</a></p>
+>>>>>>> 2236ee26b31eeb9a01c458f6b92f6bb101bad7e6
             </Card>
           </Col>
         </Row>

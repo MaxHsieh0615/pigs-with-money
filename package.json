@@ -43,10 +43,12 @@
     "react": "^16.8.3",
     "react-bootstrap": "^1.0.0-beta.5",
     "react-dom": "^16.8.3",
-    "react-instantsearch-dom": "^5.4.0",
     "react-materialize": "^2.6.0",
     "react-native-elements": "^1.1.0",
     "react-router-dom": "^4.3.1",
+    "react-toastify": "^4.5.2",
+    "react-typist": "^2.0.5",
+    "react-typist-loop": "0.0.5",
     "sequelize": "^4.42.0"
   }
 }

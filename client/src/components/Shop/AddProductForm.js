@@ -1,14 +1,9 @@
 import React, {Component} from "react";
-import {Button,Input,Row,Modal} from "react-materialize";
+import {Button,Input} from "react-materialize";
 
-class AddProductForm extends Component {
+class AddProductForm extends Component { 
   render(){
     return (
-      <Row>
-        <Modal
-          header='Create Product'
-          trigger={<Button>Create Product</Button>}
-          >
           <form>
             <Input
               type="text"
@@ -40,8 +35,6 @@ class AddProductForm extends Component {
             />
             <Button onClick={this.props.handleFormSubmit} >Create</Button>
           </form>
-        </Modal>
-      </Row>
     )
   }
 }

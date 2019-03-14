@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class Signup extends Component {
   constructor() {
@@ -14,6 +16,9 @@ class Signup extends Component {
 	  this.handleSubmit = this.handleSubmit.bind(this)
 	  this.handleChange = this.handleChange.bind(this)
 	}
+
+	notify = (msg) => toast(msg);
+
 	handleChange(event) {
 	  this.setState({
 		[event.target.name]: event.target.value
@@ -30,11 +35,11 @@ class Signup extends Component {
 	  .then(response => {
 		const {message,errMsg} = response.data
 		if (!response.data.errMsg) {
-		console.log('successful signup')
-		this.setState({ //redirect to login page
-		  redirectTo: '/login',
-		  flashMessage: message
-		})
+			this.notify('successful signup');
+			this.setState({ //redirect to login page
+				redirectTo: '/login',
+				flashMessage: message
+			})
 		} else {
 		this.setState({flashMessage: errMsg})
 		}
@@ -51,6 +56,7 @@ class Signup extends Component {
 		}else{
 			return (
 				<div className="container signupform">
+					<ToastContainer/>
 					<div className="SignupForm">
 						<h4>Sign up</h4>
 						<form className="form-horizontal">
