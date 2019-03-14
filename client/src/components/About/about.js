@@ -123,7 +123,7 @@ class About extends Component {
               title="Gian Banares"
               reveal={
                 <div className="center">
-                  <h3>Creative Technologist</h3>
+                  <h3>Software Engineer</h3>
                   <h4>Big-picture thinker with a passion for pursuing new technologies.</h4>
                 </div>
               }
