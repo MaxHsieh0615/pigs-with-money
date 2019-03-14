@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Route } from "react-router-dom";
+import "./App.css";
 // components
 import Signup from "./components/sign-up";
 import LoginForm from "./components/login-form";
@@ -12,13 +13,14 @@ import AddChild from "./components/AddChild/addchild";
 import Shop from "./components/Shop/shop";
 import MyVerticallyCenteredModal from "./components/Modals/index";
 import PiggyBank from "./components/PiggyBank/piggybank";
+import { Footer } from "react-materialize";
+
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       loggedIn: false,
-      modalShow: false
     };
 
     this.getUser = this.getUser.bind(this);
@@ -55,9 +57,8 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
-        <div className="container">
-          {loggedIn && <p>Logged In as user: {this.state.username}</p>}
+        <Navbar updateUser={this.updateUser} loggedIn={loggedIn} />
+        <div className="container flex-box">
           <MyVerticallyCenteredModal
             show={this.state.modalShow}
             text="example text goes"
@@ -76,8 +77,12 @@ class App extends Component {
 
           <Route
             path="/jobs"
-            render={() =>
-              <CreateJob loggedIn={this.state.loggedIn} email={this.state.email}/>}
+            render={() => (
+              <CreateJob
+                loggedIn={this.state.loggedIn}
+                email={this.state.email}
+              />
+            )}
           />
           <Route
             path="/children"
@@ -92,6 +97,14 @@ class App extends Component {
             render={() => <PiggyBank loggedIn={this.state.loggedIn} />}
           />
         </div>
+        <Footer
+          copyrights="&copy; 2019 Copyright Piggy Business"
+          moreLinks={
+            <a className="grey-text text-lighten-4 right" href="https://github.com/MaxHsieh0615/pigs-with-money">
+              Github
+            </a>
+          }
+        />
       </div>
     );
   }

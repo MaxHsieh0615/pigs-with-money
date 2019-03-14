@@ -16,5 +16,7 @@ module.exports = (app) =>{
   app.put("/api/completeJob", jobsController.complete);
   
   app.delete("/api/removeJob", jobsController.remove);
+
+  app.put("/api/assignJob", jobsController.assignJob);
   
 }

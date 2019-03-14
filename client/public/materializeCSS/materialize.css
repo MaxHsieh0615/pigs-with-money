@@ -3,7 +3,15 @@
  * Copyright 2014-2017 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
-.materialize-red {
+
+ .loginbox, .signupform{
+    background: white;
+    opacity: .8;
+    padding: 20px;
+    margin-top: 40% !important;
+ }
+
+ .materialize-red {
   background-color: #e51c23 !important;
 }
 
@@ -5795,7 +5803,7 @@ body.keyboard-focused .dropdown-content li:focus {
 }
 
 .modal .modal-footer .btn, .modal .modal-footer .btn-large, .modal .modal-footer .btn-small, .modal .modal-footer .btn-flat {
-  margin: 6px auto;
+  margin: 6px 0;
 }
 
 .modal-overlay {
