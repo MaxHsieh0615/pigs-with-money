@@ -4,7 +4,7 @@ import API from "../../utils/API";
 import { List } from "../List";
 import { Input, FormBtn } from "../Form";
 import { Redirect } from "react-router-dom";
-import { Modal,Card,Col } from 'react-materialize';
+import { Modal,Card,Col,Row } from 'react-materialize';
 import Button from 'react-bootstrap/Button';
 
 
@@ -108,12 +108,12 @@ class AddChild extends Component {
           <Jumbotron>
             <h1>Child List</h1>
           </Jumbotron>
-
+          <Row>
           {this.state.children.length ? (
             <List>
               {this.state.children.map(child => (
                 //  <ListItem key={job._id}>
-                <Col s={12} m={6} key={child.id}>
+                <Col s={12} m={3} key={child.id}>
                   <Card className='small' title={child.name}
                   actions={[<Button waves='light' key={child.id} id={child.id} onClick={this.removeChild}> Remove Child</Button>
                           ]}>
@@ -126,6 +126,7 @@ class AddChild extends Component {
           ) : (
             <h3>No Results to Display</h3>
           )}
+          </Row>
         </div>
         );
       }

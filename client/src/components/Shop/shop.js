@@ -60,24 +60,10 @@ class Shop extends Component {
     }
   };
 
-  add() {
-    this.setState({
-      qty: this.state.qty + 1
-    });
-    this.props.handleTotal(this.props.price);
-  };
-
-  subtract() {
-    this.setState({
-      qty: this.state.qty - 1
-    });
-    this.props.handleTotal(-this.props.price);
-  }
-
   showInfo() {
     this.props.handleShow(this.props.info);
   }
-
+ 
   render() {
     const { products,children } = this.state;
     if (!this.props.loggedIn) {
