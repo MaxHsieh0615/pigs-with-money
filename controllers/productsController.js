@@ -7,7 +7,7 @@ const Op = db.Sequelize.Op;
 module.exports = {
   findAllProducts: function(req, res) {
     db.Products
-      .findAll({where: {qty: {[Op.gt]:0}}})
+      .findAll({where: {qty: {[Op.gt]:0},creatorEmail: req.session.username}})
       .then(products => res.status(200).json(products))
       .catch(err => res.status(422).json(err));
   },
@@ -22,7 +22,8 @@ module.exports = {
       "name": req.body.name,
       "info": req.body.info,
       "qty": req.body.qty,
-      "price": req.body.price
+      "price": req.body.price,
+      "creatorEmail": req.session.username
     }
     console.log(dataSet)
     db.Products

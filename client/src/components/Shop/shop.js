@@ -61,7 +61,8 @@ class Shop extends Component {
         qty: this.state.qty
       })
         .then(res =>{
-          this.setState({isModalOpen:false})
+
+          this.setState({isModalOpen:false});
           this.loadProducts();
           this.notify("Added product.");
         })
