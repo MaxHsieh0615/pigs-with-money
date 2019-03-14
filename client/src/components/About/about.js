@@ -58,7 +58,18 @@ class About extends Component {
               <div className="center">
                 <h3>Web Developer</h3>
                 <h4>
-                  Let Dennis think about this.
+                  I have Full Stack Web Developer experienced with web development 
+                  technologies like Javascript, jQuery, Bootstrap, CSS, HTML, 
+                  SQL and JAVA.  Recently graduated from the UC Berkeley Bootcamp 
+                  in full stack web development and continuing to improve my 
+                  technological knowledge.
+
+                  Brings over 5 years of experience in debugging / solving 
+                  problems on websites.  Excels at  decision-making on project 
+                  design and providing best practices for stakeholders.  In the 
+                  design process, I like to put myself in the user’s shoes to view 
+                  the design in a different perspective.  Creative and always looking 
+                  for better ways to simplify a process.
                 </h4>
               </div>}>
               <p><a href="https://github.com" target="_blank" rel="noopener noreferrer">Github Profile</a></p>

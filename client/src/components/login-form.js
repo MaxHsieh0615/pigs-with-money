@@ -18,6 +18,7 @@ class LoginForm extends Component {
   }
 
   notify = (msg) => toast(msg);
+  
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
