@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Button, Col, Card,Carousel } from 'react-materialize'
+import { Button, Col, Card } from 'react-materialize'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -37,6 +37,12 @@ class Product extends Component {
   };
 
   buy = event => {
+    const childMatch = this.props.children.filter(child => child.name === this.state.childName);
+    if (childMatch ===0){
+      this.notify("Please click 'For' to assign child." );
+      return
+    }
+
     if (this.state.childBalance - this.state.price <0) {
       this.notify("Not enough money.");
       return

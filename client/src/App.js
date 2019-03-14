@@ -11,9 +11,7 @@ import CreateJob from "./components/CreateJob/createjob";
 import About from "./components/About/about";
 import AddChild from "./components/AddChild/addchild";
 import Shop from "./components/Shop/shop";
-import MyVerticallyCenteredModal from "./components/Modals/index";
 import { Footer } from "react-materialize";
-
 
 class App extends Component {
   constructor() {
@@ -52,17 +50,11 @@ class App extends Component {
 
   render() {
     const { loggedIn } = this.state;
-    const modalClose = () => this.setState({ modalShow: false });
 
     return (
       <div className="App">
         <Navbar updateUser={this.updateUser} loggedIn={loggedIn} />
         <div className="container flex-box">
-          <MyVerticallyCenteredModal
-            show={this.state.modalShow}
-            text="example text goes"
-            onHide={modalClose}
-          />
           <Route exact path="/" component={Home} />
 
           <Route
