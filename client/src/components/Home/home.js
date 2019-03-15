@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Parallax, Slider, Slide } from "react-materialize";
+import { Parallax} from "react-materialize";
 import "./style.css";
 import Typist from 'react-typist';
 import TypistLoop from 'react-typist-loop'
@@ -54,7 +54,7 @@ class Home extends Component {
               They have been born in a fast-paced, ever-changing world full of technological advances. Today is a world where technology is the norm.</h4>
           </div>
         </div>
-        <Parallax imageSrc="http://materializecss.com/images/parallax1.jpg" />
+        <Parallax imageSrc={require("../img/img_slide1.jpg")}/>
         <div className="section transparent z-depth-0">
           <div className="row container center">
             <h4 className="grey-text text-darken-3 lighten-3">
@@ -67,7 +67,7 @@ class Home extends Component {
             </h4>
           </div>
         </div>
-        <Parallax imageSrc="http://materializecss.com/images/parallax2.jpg" />
+        <Parallax imageSrc={require("../img/img_slide2.jpg")} />
         <div className="section transparent z-depth-0">
           <div className="row container center">
             <h4 className="grey-text text-darken-3 lighten-3">
@@ -78,7 +78,7 @@ class Home extends Component {
               the child’s piggy bank.{" "}</h4>
           </div>
         </div>
-        <Parallax imageSrc="http://materializecss.com/images/parallax1.jpg" />
+        <Parallax imageSrc={require("../img/img_slide3.jpg")} />
         <div className="section transparent z-depth-0">
           <div className="row container center">
             <h4 className="grey-text text-darken-3 lighten-3">
