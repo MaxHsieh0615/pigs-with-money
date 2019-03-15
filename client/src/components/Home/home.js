@@ -91,7 +91,7 @@ class Home extends Component {
         <div className="section transparent z-depth-0">
           <div className="row container center">
             <h4 className="grey-text text-darken-3 lighten-3">
-              Enjoy your visit, and hope you sign-up!</h4>
+            <a href="/signup">Sign up</a> today!</h4>
           </div>
         </div>
       </div>
