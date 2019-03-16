@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Jumbotron from "../Jumbotron";
 import API from "../../utils/API";
-import { Input, TextArea, FormBtn } from "../Form";
+import { Input, FormBtn } from "../Form";
 import { List } from "../List";
 import { Redirect } from "react-router-dom";
 import { Modal,Card,Col,Row } from 'react-materialize';

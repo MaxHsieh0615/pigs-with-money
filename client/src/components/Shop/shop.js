@@ -91,7 +91,7 @@ class Shop extends Component {
             <AddProductForm handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit}/>
           </Modal>
           <Row> 
-              {products !== null ? (
+              {products === null ? (
                 <List>
                 {products.map(product => (
                   <Product product={product} children={children} loadProducts={this.loadProducts} key={product.id}/>
