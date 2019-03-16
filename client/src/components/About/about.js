@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./about.css";
 import piggyPicture from "../img/piggy_gg.png";
 import { Col, Card, CardTitle, Row } from "react-materialize";
+import MarkDark from "../img/GitHub-Mark-Dark.png"
 
 class About extends Component {
   render() {
@@ -66,7 +67,7 @@ class About extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Github Profile
+                <img src={MarkDark} alt="github mark" className="githubMark"/>
                 </a>
               </p>
             </Card>
@@ -89,7 +90,8 @@ class About extends Component {
                   href="https://github.com/saikay"
                   target="_blank"
                   rel="noopener noreferrer"
-                >Github Profile
+                >
+                <img src={MarkDark} alt="github mark" className="githubMark"/>
                 </a>
               </p>
             </Card>
@@ -114,7 +116,7 @@ class About extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Github Profile
+                <img src={MarkDark} alt="github mark" className="githubMark"/>
                 </a>
               </p>
             </Card>
@@ -137,7 +139,7 @@ class About extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Github Profile
+                <img src={MarkDark} alt="github mark" className="githubMark"/>
                 </a>
               </p>
             </Card>
@@ -161,7 +163,7 @@ class About extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Github Profile
+                <img src={MarkDark} alt="github mark" className="githubMark"/>
                 </a>
               </p>
             </Card>
@@ -183,7 +185,7 @@ class About extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  PiggyBusiness Github
+                <img src={MarkDark} alt="github mark" className="githubMark"/>
                 </a>
               </p>
             </Card>

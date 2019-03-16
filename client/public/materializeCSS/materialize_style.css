@@ -35,6 +35,15 @@
   font-size: 3rem;
 }
 
+ .card .card-content {
+   padding: 24px 24px 0px 24px;
+ }
+
+ .card .card-content p {
+  font-size: 30px;
+  text-align: center;
+}
+
  .card .card-title {
    font-size: 55px;
    text-align: center;

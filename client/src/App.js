@@ -12,6 +12,7 @@ import About from "./components/About/about";
 import AddChild from "./components/AddChild/addchild";
 import Shop from "./components/Shop/shop";
 import { Footer } from "react-materialize";
+import MarkLight from "./components/img/GitHub-Mark-Light.png"
 
 class App extends Component {
   constructor() {
@@ -51,10 +52,12 @@ class App extends Component {
   render() {
     const { loggedIn } = this.state;
 
+
+
     return (
       <div className="App">
         <Navbar updateUser={this.updateUser} loggedIn={loggedIn} />
-        <div className="container flex-box AppContainer">
+        <div className="container AppContainer">
           <Route exact path="/" component={Home} />
 
           <Route
@@ -87,8 +90,8 @@ class App extends Component {
         <Footer
           copyrights="&copy; 2019 Copyright Piggy Business"
           moreLinks={
-            <a className="grey-text text-lighten-4 right githubFooter" href="https://github.com/MaxHsieh0615/pigs-with-money">
-              Github
+            <a className="grey-text text-lighten-4 right" href="https://github.com/MaxHsieh0615/pigs-with-money">
+            <img src={MarkLight} alt="github mark" id="githubMarkLight"/>
             </a>
           }
         />
