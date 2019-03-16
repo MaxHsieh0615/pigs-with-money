@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Jumbotron from "../Jumbotron";
 import API from "../../utils/API";
-import { Col, Row, Container } from "../Grid";
+// import { Col, Row, Container } from "../Grid";
 import { List } from "../List";
+import { Button, Col, Row, Container } from "react-materialize";
+import "./style.css";
 // import { Redirect } from "react-router-dom";
 
 class PiggyBank extends Component {
@@ -44,6 +46,21 @@ class PiggyBank extends Component {
     return (
       <Container fluid>
         <Row>
+          {this.state.children.length ? (
+            <List>
+              {this.state.children.map(child => (
+                <Col s={12} m={3} key={child.id}>
+                  <Button id="selectChild">
+                    View {child.name}'s Balance
+                  </Button>
+                </Col>
+              ))}
+            </List>
+          ) : (
+            <h3>No Results to Display</h3>
+          )}
+        </Row>
+        <Row>
           <Col size="md-12">
             <Jumbotron>
               <h1>{this.state.name}'s Piggy Bank</h1>
@@ -60,7 +77,8 @@ class PiggyBank extends Component {
                   <List>
                     {this.state.transactions.map(item => (
                       <h5>
-                        {item.updatedAt}: {item.transaction}.  {item.description}.
+                        {item.updatedAt}: {item.transaction}. {item.description}
+                        .
                       </h5>
                     ))}
                   </List>

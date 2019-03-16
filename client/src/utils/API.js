@@ -23,6 +23,10 @@ export default {
   saveAddChild: function(childrenData) {
     return axios.post("/api/addchild", childrenData);
   },
+  //select a child to display
+  selectChild: function(childrenData) {
+    return axios.get("/api/selectChild", childrenData);
+  },
 
   findAllByChild: function() {
     return axios.get("/api/findAllByChild");
@@ -33,26 +37,26 @@ export default {
   },
 
   showAllTransactions: function(id) {
-    return axios.get("/api/showAllTransactions/"+id);
+    return axios.get("/api/showAllTransactions/" + id);
   },
 
   // Shop section
 
-  assignJob: function(jobData){
-    return axios.put("api/assignJob",jobData);
+  assignJob: function(jobData) {
+    return axios.put("api/assignJob", jobData);
   },
 
-  completeJob: function(jobData){
-    return axios.put("api/completeJob",jobData);
+  completeJob: function(jobData) {
+    return axios.put("api/completeJob", jobData);
   },
   // Shop section
   // submit product
-  createProduct: function(productData){
+  createProduct: function(productData) {
     return axios.post("/api/products", productData);
   },
 
-  buyProduct: function(productData){
-    return axios.put("/api/buyProduct",productData);
+  buyProduct: function(productData) {
+    return axios.put("/api/buyProduct", productData);
   },
 
   // view all products
