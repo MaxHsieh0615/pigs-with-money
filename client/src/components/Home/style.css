@@ -1,3 +1,10 @@
+.parallax img {
+  width: 150%;
+}
+
+.section {
+  padding-top: 0px !important;
+}
 .cd-headline.rotate-1 .cd-words-wrapper {
     display: inline-block;
     perspective: 300px;
