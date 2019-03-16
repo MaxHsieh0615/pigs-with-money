@@ -1,7 +1,7 @@
-const jobsController = require('../../controllers/jobsController');
+const jobsController = require("../../controllers/jobsController");
 
 module.exports = (app) =>{
-  app.post('/api/createJob',jobsController.createJob);
+  app.post("/api/createJob",jobsController.createJob);
 
   app.get("/api/findAllByRequestor", jobsController.findAllByRequestor);
   

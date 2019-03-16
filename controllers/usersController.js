@@ -15,7 +15,7 @@ module.exports = {
         user=> res.json(user)
       )
       .catch(err =>{
-        //console.log('User.js create user error: ', err);
+        //console.log("User.js create user error: ", err);
         return res.status(422).json(err);
       });
   },
@@ -32,7 +32,7 @@ module.exports = {
           res.status(200).json({errMsg:"User already exists"})
       })
       .catch(err =>{
-        //console.log('User.js create user error: ', err);
+        //console.log("User.js create user error: ", err);
         return res.status(422).json(err);
       });
   },
@@ -45,7 +45,7 @@ module.exports = {
   },
   //sign up
   create: function(req, res) {
-    console.log('user signup');
+    console.log("user signup");
     const { email, password } = req.body;
     db.Users
       .create(req.body)

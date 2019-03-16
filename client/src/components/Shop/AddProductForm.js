@@ -9,29 +9,25 @@ class AddProductForm extends Component {
               type="text"
               onChange={this.props.handleInputChange}
               name="name"
-              label="name"
-              placeholder="Product name (required)"
+              label="Product Name (Required)"
             />
             <Input
               type="textarea"
               onChange={this.props.handleInputChange}
               name="info"
-              label="info"
-              placeholder="Info (required)"
+              label="Info (Required)"
             />
             <Input
               type="number"
               onChange={this.props.handleInputChange}
               name="price"
-              label="price"
-              placeholder="Price (optional)"
+              label="Price (Optional)"
             />
             <Input
               type="number"
               onChange={this.props.handleInputChange}
               name="qty"
-              label="qty"
-              placeholder="Qty (optional)"
+              label="Quantity (Optional)"
             />
             <Button onClick={this.props.handleFormSubmit} >Create</Button>
           </form>

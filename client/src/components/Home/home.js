@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Parallax} from "react-materialize";
 import "./style.css";
-import Typist from 'react-typist';
-import TypistLoop from 'react-typist-loop'
+import Typist from "react-typist";
+import TypistLoop from "react-typist-loop"
 
 class Home extends Component {
   render() {
@@ -15,9 +15,9 @@ class Home extends Component {
           <h1 className="center">
             <TypistLoop interval={1000}>
               {[
-                'Teaching Values',
-                'Saving for the future',
-                'Creating fun',
+                "Teaching Values",
+                "Saving for the future",
+                "Creating fun",
               ].map(text => <Typist key={text} startDelay={0}>
                 {text}
                 <Typist.Backspace count={text.length} delay={1000} />

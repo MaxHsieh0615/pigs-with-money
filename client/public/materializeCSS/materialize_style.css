@@ -6,6 +6,10 @@
  * Made By MaterializeCSS.com
  */
 
+ input {
+  font-family: 'Amatic SC', cursive";
+ }
+
  .loginbox, .signupform {
   background: white;
   opacity: .8;

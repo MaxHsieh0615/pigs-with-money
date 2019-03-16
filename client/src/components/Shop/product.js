@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Button, Col, Card } from 'react-materialize'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { Button, Col, Card } from "react-materialize"
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class Product extends Component {
   constructor(props) {
@@ -66,9 +66,9 @@ class Product extends Component {
       <Col s={12} m={6}>
         <ToastContainer />
 
-        {<Card className='small' title={product.name}
+        {<Card className="small" title={product.name}
           actions={[
-            <Button waves='light' key={product.id} id={product.id} onClick={this.buy}>Buy</Button>
+            <Button waves="light" key={product.id} id={product.id} onClick={this.buy}>Buy</Button>
           ]}>
           <p>{product.info}</p>
           <p className="card-text">Qty: {product.qty}</p>
