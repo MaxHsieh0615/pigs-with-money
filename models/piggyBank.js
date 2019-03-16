@@ -6,7 +6,7 @@ module.exports = function(db, DataTypes) {
     },
     transaction: {
       type: DataTypes.ENUM,
-      values: ['withdraw', 'deposit']
+      values: ["withdraw", "deposit"]
     },
     description: {
       type: DataTypes.STRING

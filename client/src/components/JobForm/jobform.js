@@ -1,6 +1,6 @@
-import React from 'react';
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
+import React from "react";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 import { Input, TextArea } from "../Form";
 import "./style.css";
 import API from "../../utils/API";

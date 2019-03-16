@@ -1,17 +1,17 @@
-const passport = require('../../passport');
-const usersController = require('../../controllers/usersController');
+const passport = require("../../passport");
+const usersController = require("../../controllers/usersController");
 
 module.exports = (app) =>{
 
   //sign up
-  app.post('/user',usersController.findOrCreate);
+  app.post("/user",usersController.findOrCreate);
 
   app.post(
-    '/user/login',
+    "/user/login",
     (req, res, next) =>{
       next();
     },
-    passport.authenticate('local'),
+    passport.authenticate("local"),
     (req, res) => {
       req.session.username = req.body.email;
       
@@ -21,7 +21,7 @@ module.exports = (app) =>{
       res.json(userInfo);
   });
   
-  app.get('/user', (req, res, next) => {
+  app.get("/user", (req, res, next) => {
     if (req.user) {
       //passing info to app.js
       res.json({ user: req.session.username });
@@ -32,14 +32,14 @@ module.exports = (app) =>{
     next();
   });
 
-  app.post('/logout', (req, res) => {
+  app.post("/logout", (req, res) => {
     if (req.user) {
       req.logout();
       console.log("logging out");
-      res.send({ msg: 'logging out' });
+      res.send({ msg: "logging out" });
     } else {
       console.log("no user to log out");
-      res.send({ msg: 'no user to log out' });
+      res.send({ msg: "no user to log out" });
     }
   });
 }

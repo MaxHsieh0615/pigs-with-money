@@ -13,6 +13,7 @@ import AddChild from "./components/AddChild/addchild";
 import Shop from "./components/Shop/shop";
 import PiggyBank from "./components/PiggyBank/piggybank";
 import { Footer } from "react-materialize";
+import MarkLight from "./components/img/GitHub-Mark-Light.png"
 
 class App extends Component {
   constructor() {
@@ -52,10 +53,12 @@ class App extends Component {
   render() {
     const { loggedIn } = this.state;
 
+
+
     return (
       <div className="App">
         <Navbar updateUser={this.updateUser} loggedIn={loggedIn} />
-        <div className="container flex-box">
+        <div className="container AppContainer">
           <Route exact path="/" component={Home} />
 
           <Route
@@ -93,7 +96,7 @@ class App extends Component {
           copyrights="&copy; 2019 Copyright Piggy Business"
           moreLinks={
             <a className="grey-text text-lighten-4 right" href="https://github.com/MaxHsieh0615/pigs-with-money">
-              Github
+            <img src={MarkLight} alt="github mark" id="githubMarkLight"/>
             </a>
           }
         />

@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import Jumbotron from "../Jumbotron";
 import API from "../../utils/API";
-import { Input, TextArea, FormBtn } from "../Form";
+import { FormBtn } from "../Form";
 import { List } from "../List";
 import { Redirect } from "react-router-dom";
-import { Modal,Card,Col,Row } from 'react-materialize';
-import Button from 'react-bootstrap/Button';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { Modal, Card, Col, Row, Button, Input, Icon } from "react-materialize";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./style.css";
+
 
 
 class AddChild extends Component {
@@ -86,17 +87,10 @@ class AddChild extends Component {
     } else {
       return (
         <div>
-          <Button onClick={this.openModal}>CREATE CHILD</Button>
           <ToastContainer/>
-          {/* <Modal
-            open={this.state.isModalOpen}
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            show={this.state.modalShow}
-          ></Modal> */}
           <Modal
             open={this.state.isModalOpen}
-            header='Add a Child'
+            header="Add a Child"
           >
             <form>
               <Input
@@ -104,15 +98,17 @@ class AddChild extends Component {
                 value={this.state.child_name}
                 onChange={this.handleInputChange}
                 name="name"
-                placeholder="Name (required)"
-              />
+                label="Name (required)">
+                <Icon>account_circle</Icon>
+              </Input>
               <Input
                 type="number"
                 value={this.state.piggy}
                 onChange={this.handleInputChange}
                 name="balance"
-                placeholder="Budget (Optional)"
-              />
+                label="Budget (Optional)">
+                <Icon>attach_money</Icon>
+                </Input>
               <FormBtn
                 disabled={!(this.state.name)}
                 onClick={this.handleFormSubmit}
@@ -122,16 +118,16 @@ class AddChild extends Component {
             </form>
           </Modal>
           <Jumbotron>
+          <Button onClick={this.openModal} id="createChildBtn">CREATE CHILD</Button>
             <h1>Child List</h1>
           </Jumbotron>
           <Row>
           {this.state.children.length ? (
             <List>
               {this.state.children.map(child => (
-                //  <ListItem key={job._id}>
                 <Col s={12} m={3} key={child.id}>
-                  <Card className='small' title={child.name}
-                  actions={[<Button waves='light' key={child.id} id={child.id} onClick={this.removeChild}> Remove Child</Button>
+                  <Card className="small" title={child.name}
+                  actions={[<Button waves="light" key={child.id} id={child.id} onClick={this.removeChild}> Remove Child</Button>
                           ]}>
                     <p className="card-text">{child.name}</p>
                     <p>Balance: {child.balance}</p>

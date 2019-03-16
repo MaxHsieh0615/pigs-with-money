@@ -1,7 +1,7 @@
 const express = require("express");
 const db = require("./models");
-const passport = require('./passport');
-const bodyParser = require('body-parser');
+const passport = require("./passport");
+const bodyParser = require("body-parser");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -16,8 +16,8 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 // Passport
-app.use(require('express-session')({
-  secret: 'keyboard cat',
+app.use(require("express-session")({
+  secret: "keyboard cat",
   resave: false, //required
   saveUninitialized: false //required
 }));

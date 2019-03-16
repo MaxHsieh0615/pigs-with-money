@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import {Button, Col, Card} from 'react-materialize';
+import {Button, Col, Card} from "react-materialize";
 import API from "../../utils/API";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class Job extends Component {
   state={
@@ -46,7 +46,7 @@ class Job extends Component {
     API.assignJob(dataSet)
       .then(() => {
         this.notify(`Job assigned to ${this.state.childName}`)
-        this.setState({status: 'Assigned',buttonName: this.getButtonName("Assigned")});
+        this.setState({status: "Assigned",buttonName: this.getButtonName("Assigned")});
       })
       .catch(err => console.log(err));
   };
@@ -92,9 +92,9 @@ class Job extends Component {
     return (
       <Col s={12} m={6}>
       <ToastContainer/>
-        <Card className='small' title={job.title}
+        <Card className="small" title={job.title}
           actions={[
-            <Button waves='light' key={job.id} id={job.id} onClick={this.updateJobStatus}>{this.state.buttonName}</Button>
+            <Button waves="light" key={job.id} id={job.id} onClick={this.updateJobStatus}>{this.state.buttonName}</Button>
           ]}>
           <p>{job.description}</p>
           <p>{job.budget}</p>
