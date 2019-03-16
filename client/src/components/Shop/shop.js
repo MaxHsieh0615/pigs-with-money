@@ -5,8 +5,10 @@ import { Redirect } from "react-router-dom";
 import { Button,Row,Modal } from "react-materialize";
 import AddProductForm from "./AddProductForm";
 import { List } from "../List";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./style.css";
+
 
 class Shop extends Component {
   state = {
@@ -83,10 +85,10 @@ class Shop extends Component {
       return (
         <div>
           <ToastContainer />
-          <Button onClick={this.openModal}>Add Product</Button>
+          <Button onClick={this.openModal} id="addProductBtn">Add Product</Button>
           <Modal
           open={this.state.isModalOpen}
-          header='Create Product'
+          header="Create Product"
           >
             <AddProductForm handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit}/>
           </Modal>

@@ -32,7 +32,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   buy: function(req, res) {
-    db.Products.decrement('qty',{ where : { id: req.body.productId }})
+    db.Products.decrement("qty",{ where : { id: req.body.productId }})
       .then(dbModel => res.status(200).json(dbModel))
       .catch(err => res.status(422).json(err));
           

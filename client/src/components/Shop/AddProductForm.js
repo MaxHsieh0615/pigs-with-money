@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Button,Input} from "react-materialize";
+import {Button, Input, Icon} from "react-materialize";
 
 class AddProductForm extends Component { 
   render(){
@@ -9,31 +9,31 @@ class AddProductForm extends Component {
               type="text"
               onChange={this.props.handleInputChange}
               name="name"
-              label="name"
-              placeholder="Product name (required)"
-            />
+              label="Product Name (Required)">
+              <Icon>card_giftcard</Icon>
+            </Input>
             <Input
               type="textarea"
               onChange={this.props.handleInputChange}
               name="info"
-              label="info"
-              placeholder="Info (required)"
-            />
+              label="Info (Required)">
+              <Icon>info</Icon>
+            </Input>
             <Input
               type="number"
               onChange={this.props.handleInputChange}
               name="price"
-              label="price"
-              placeholder="Price (optional)"
-            />
+              label="Price (Optional)">
+              <Icon>attach_money</Icon>
+            </Input>
             <Input
               type="number"
               onChange={this.props.handleInputChange}
               name="qty"
-              label="qty"
-              placeholder="Qty (optional)"
-            />
-            <Button onClick={this.props.handleFormSubmit} >Create</Button>
+              label="Quantity (Optional)">
+              <Icon>add</Icon>
+            </Input>
+            <Button onClick={this.props.handleFormSubmit} id="createProductBtn">Create</Button>
           </form>
     )
   }

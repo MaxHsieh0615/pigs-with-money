@@ -2,15 +2,13 @@ import React, { Component } from "react";
 import Jumbotron from "../Jumbotron";
 import { List } from "../List";
 import API from "../../utils/API";
-import { Container } from "../Grid";
-import { Input, TextArea, FormBtn } from "../Form";
+import { FormBtn } from "../Form";
 import { Redirect } from "react-router-dom";
 import Job from "../Job";
-import Button from "react-bootstrap/Button";
-import { Col, Row, Modal } from 'react-materialize';
+import { Col, Row, Modal, Input, Button, Icon } from "react-materialize";
 import "./style.css";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class CreateJob extends Component {
   state = {
@@ -66,15 +64,16 @@ class CreateJob extends Component {
         budget: this.state.budget
       })
         .then(res => {
-          this.setState({isModalOpen:false});
+          this.setState({ isModalOpen: false });
           this.notify("Added a job.");
-          this.loadJobs()})
+          this.loadJobs()
+        })
         .catch(err => console.log(err));
     }
   };
 
   openModal = () => {
-    this.setState({isModalOpen: true});
+    this.setState({ isModalOpen: true });
   };
 
   render() {
@@ -84,14 +83,13 @@ class CreateJob extends Component {
     } else {
       return (
         <div>
-          <ToastContainer/>
-          <Container fluid>
+          <ToastContainer />
+          <div className="container-fluid">
             <Row>
-              <Button onClick={this.openModal}>CREATE JOB</Button>
               <Col m={6} s={12}>
                 <Modal
                   open={this.state.isModalOpen}
-                  header='Add a Job'
+                  header="Add a Job"
                 >
                   <form>
                     <Input
@@ -99,50 +97,55 @@ class CreateJob extends Component {
                       value={this.state.title}
                       onChange={this.handleInputChange}
                       name="title"
-                      placeholder="Title (required)"
-                    />
-                    <TextArea
+                      label="Title (Required)">
+                      <Icon>title</Icon>
+                      </Input>
+                    <Input
+                      type="textarea"
                       value={this.state.description}
                       onChange={this.handleInputChange}
                       name="description"
-                      placeholder="Description (required)"
-                    />
+                      label="Description (Optional)">
+                      <Icon>description</Icon>
+                      </Input>
                     <Input
                       type="number"
                       value={this.state.budget}
                       onChange={this.handleInputChange}
                       name="budget"
-                      placeholder="Budget (Optional)"
-                    />
+                      label="Budget (Optional)"
+                      validate defaultValue="0">
+                      <Icon>attach_money</Icon>
+                    </Input>
                     <FormBtn
                       disabled={!(this.state.description && this.state.title)}
                       onClick={this.handleFormSubmit}
                     >
                       Submit Job
-                </FormBtn>
-
+                    </FormBtn>
                   </form>
                 </Modal>
               </Col>
-          </Row>
-          <Row>
-          <Jumbotron>
-            <h1>Job List</h1>
-          </Jumbotron>
-          {this.state.jobs.length ? (
-            <List>
-              {this.state.jobs.map(job => (
-                <Job job={job} children={children} loadJobs={this.loadJobs} key={job.id} />
-              ))}
-            </List>
-          ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </Row>
-        </Container>
-      </div>
-    );
-  }
+            </Row>
+            <Row>
+              <Jumbotron>
+              <Button onClick={this.openModal}>CREATE JOB</Button>
+                <h1>Job List</h1>
+              </Jumbotron>
+              {this.state.jobs.length ? (
+                <List>
+                  {this.state.jobs.map(job => (
+                    <Job job={job} children={children} loadJobs={this.loadJobs} key={job.id} />
+                  ))}
+                </List>
+              ) : (
+                  <h3>No Results to Display</h3>
+                )}
+            </Row>
+          </div>
+        </div>
+      );
+    }
   };
 }
 
