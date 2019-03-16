@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./about.css";
 import piggyPicture from "../img/piggy_gg.png";
 import { Col, Card, CardTitle, Row } from "react-materialize";
+import MarkDark from "../img/GitHub-Mark-Dark.png"
+import MaxsPic from "../img/Max-about.JPG"
 
 class About extends Component {
   render() {
@@ -66,7 +68,7 @@ class About extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Github Profile
+                <img src={MarkDark} alt="github mark" className="githubMark"/>
                 </a>
               </p>
             </Card>
@@ -76,27 +78,36 @@ class About extends Component {
               header={<CardTitle reveal image={piggyPicture} waves="light" />}
               title="Dennis Tam"
               reveal={
-              <div className="center">
-                <h3>Web Developer</h3>
-                <h4>
-                I am an experienced Full Stack Web Developer with technologies such as Javascript, jQuery, Bootstrap, CSS, HTML, SQL and JAVA.</h4>
-                <h4>As a life-long learner, I'm committed to expanding my technical knowledge.</h4>
-                <h4>Fun fact: I like boba and my rice cooker rings every night at 8:45 pm (ok, teapot).
+                <div className="center">
+                  <h3>Web Developer</h3>
+                  <h4>
+                    I am an experienced Full Stack Web Developer with technologies such as Javascript, jQuery, Bootstrap, CSS, HTML, SQL and JAVA.</h4>
+                  <h4>As a life-long learner, I'm committed to expanding my technical knowledge.</h4>
+                  <h4>Fun fact: I like boba and my rice cooker rings every night at 8:45 pm (ok, teapot).
                 </h4>
-              </div>}>
-              <p><a href="https://github.com" target="_blank" rel="noopener noreferrer">Github Profile</a></p>
+                </div>}>
+              <p>
+                <a
+                  href="https://github.com/saikay"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                <img src={MarkDark} alt="github mark" className="githubMark"/>
+                </a>
+              </p>
             </Card>
           </Col>
         </Row>
         <Row>
           <Col s={12} m={6} l={6}>
             <Card
-              header={<CardTitle reveal image={piggyPicture} waves="light" />}
+              header={<CardTitle reveal image={MaxsPic} waves="light" />}
               title="Max Hsieh"
               reveal={
                 <div className="center">
-                  <h3>Front-End Web Developer</h3>
-                  <h4>Let Max think about this.</h4>
+                  <h3>Software Developer</h3>
+                  <h4>A challenge lover that loves all kinds of challenges.</h4>
+                  <h4>I love working in teams and helping the teams to create incredible apps.  </h4>
                 </div>
               }
             >
@@ -106,7 +117,7 @@ class About extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Github Profile
+                <img src={MarkDark} alt="github mark" className="githubMark"/>
                 </a>
               </p>
             </Card>
@@ -125,11 +136,11 @@ class About extends Component {
             >
               <p>
                 <a
-                  href="https://github.com"
+                  href="https://github.com/gbanares"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Github Profile
+                <img src={MarkDark} alt="github mark" className="githubMark"/>
                 </a>
               </p>
             </Card>
@@ -149,11 +160,11 @@ class About extends Component {
             >
               <p>
                 <a
-                  href="https://github.com"
+                  href="https://github.com/richardluong127"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Github Profile
+                <img src={MarkDark} alt="github mark" className="githubMark"/>
                 </a>
               </p>
             </Card>
@@ -175,7 +186,7 @@ class About extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  PiggyBusiness Github
+                <img src={MarkDark} alt="github mark" className="githubMark"/>
                 </a>
               </p>
             </Card>

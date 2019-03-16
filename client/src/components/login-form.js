@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Row, Input, Icon } from "react-materialize"
 
 class LoginForm extends Component {
   constructor() {
@@ -50,7 +51,7 @@ class LoginForm extends Component {
         }
       })
       .catch(error => {
-        this.notify("Password or username is invalid.");
+        this.notify("Password or username is incorrect.");
         console.log("login error: ");
         console.log(error);
       });
@@ -63,48 +64,34 @@ class LoginForm extends Component {
     } else {
       return (
         <div className="container loginbox">
-          <ToastContainer/>
+          <ToastContainer />
           <h4>Login</h4>
           <form className="form-horizontal">
-            <div className="form-group">
-              <div className="col-1 col-ml-auto">
-                <label className="form-label" htmlFor="username">
-                  Email
-                </label>
-              </div>
-              <div className="col-3 col-mr-auto">
-                <input
-                  className="form-input"
-                  type="text"
-                  id="email"
-                  name="email"
-                  placeholder="email"
-                  value={this.state.email}
-                  onChange={this.handleChange}
-                />
-              </div>
-            </div>
-            <div className="form-group">
-              <div className="col-1 col-ml-auto">
-                <label className="form-label" htmlFor="password">
-                  Password:{" "}
-                </label>
-              </div>
-              <div className="col-3 col-mr-auto">
-                <input
-                  className="form-input"
-                  placeholder="password"
-                  type="password"
-                  name="password"
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                />
-              </div>
-            </div>
+            <Row>
+              <Input
+                type="email"
+                label="Email"
+                id="email"
+                name="email"
+                s={12}
+                value={this.state.email}
+                onChange={this.handleChange}>
+                <Icon>email</Icon>
+              </Input>
+              <Input
+                type="password"
+                label="password"
+                name="password"
+                s={12}
+                value={this.state.password}
+                onChange={this.handleChange}>
+                <Icon>lock</Icon>
+              </Input>
+            </Row>
             <div className="form-group ">
               <div className="col-7" />
               <button
-                className="waves-effect waves-light btn btn-primary col-1 col-mr-auto"
+                className="waves-effect waves-light btn btn-primary col-1 col-mr-auto loginBtn"
                 onClick={this.handleSubmit}
                 type="submit"
               >

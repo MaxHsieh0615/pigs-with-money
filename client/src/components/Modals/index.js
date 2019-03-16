@@ -1,8 +1,8 @@
-import React from 'react';
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
+import React from "react";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 import "./style.css";
-import axios from 'axios';
+import axios from "axios";
 
 class MyVerticallyCenteredModal extends React.Component {
   constructor(props) {
@@ -15,8 +15,8 @@ class MyVerticallyCenteredModal extends React.Component {
 
   logout(event) {
     event.preventDefault();
-    console.log('logging out');
-    axios.post('/logout').then(response => {
+    console.log("logging out");
+    axios.post("/logout").then(response => {
       if (response.status === 200) {
         this.props.updateUser({
           loggedIn: false,
