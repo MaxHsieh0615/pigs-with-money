@@ -84,7 +84,7 @@ class CreateJob extends Component {
       return (
         <div>
           <ToastContainer />
-          <div classname="container-fluid">
+          <div className="container-fluid">
             <Row>
               <Col m={6} s={12}>
                 <Modal

@@ -1,3 +1,9 @@
 #createChildBtn {
     margin-top: 1.8%;
 }
+
+@media only screen and (max-width : 400px) {
+#createChildBtn {
+    margin-top: 6%;
+}
+}

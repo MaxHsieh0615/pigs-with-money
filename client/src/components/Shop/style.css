@@ -2,3 +2,10 @@
     margin-top: 2%;
     margin-left: 44%;
 }
+
+@media only screen and (max-width : 992px) {
+#addProductBtn {
+    margin-top: 6%;
+    margin-left: 37%;
+    }
+}
