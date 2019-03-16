@@ -55,18 +55,6 @@ class CreateJob extends Component {
     });
   };
 
-  // onClearArray = () => {
-  //   this.setState({ 
-  //     children: [],
-  //     jobs: [],
-  //     title: "",
-  //     description: "",
-  //     budget: 0,
-  //     status: "",
-  //     isModalOpen: false
-  //    });
-  // };
-
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.title && this.state.description) {
@@ -79,7 +67,6 @@ class CreateJob extends Component {
           this.setState({ isModalOpen: false });
           this.notify("Added a job.");
           this.loadJobs();
-          // onClearArray;
         })
         .catch(err => console.log(err));
     }
