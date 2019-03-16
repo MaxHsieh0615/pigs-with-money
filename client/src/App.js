@@ -54,7 +54,7 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar updateUser={this.updateUser} loggedIn={loggedIn} />
-        <div className="container flex-box">
+        <div className="container flex-box AppContainer">
           <Route exact path="/" component={Home} />
 
           <Route
@@ -87,7 +87,7 @@ class App extends Component {
         <Footer
           copyrights="&copy; 2019 Copyright Piggy Business"
           moreLinks={
-            <a className="grey-text text-lighten-4 right" href="https://github.com/MaxHsieh0615/pigs-with-money">
+            <a className="grey-text text-lighten-4 right githubFooter" href="https://github.com/MaxHsieh0615/pigs-with-money">
               Github
             </a>
           }

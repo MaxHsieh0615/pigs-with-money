@@ -6,6 +6,18 @@
  * Made By MaterializeCSS.com
  */
 
+ .loginbox, .signupform {
+  background: white;
+  opacity: .8;
+  padding: 20px;
+  margin-top: 10% !important;
+  margin-bottom: 15%;
+}
+
+ .loginBtn, .signUpBtn {
+   margin-left: 45%;
+ }
+
  footer.page-footer {
   padding-top: 0px;
   background-color: #c8c8c8;

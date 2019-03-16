@@ -76,15 +76,22 @@ class About extends Component {
               header={<CardTitle reveal image={piggyPicture} waves="light" />}
               title="Dennis Tam"
               reveal={
-              <div className="center">
-                <h3>Web Developer</h3>
-                <h4>
-                I am an experienced Full Stack Web Developer with technologies such as Javascript, jQuery, Bootstrap, CSS, HTML, SQL and JAVA.</h4>
-                <h4>As a life-long learner, I'm committed to expanding my technical knowledge.</h4>
-                <h4>Fun fact: I like boba and my rice cooker rings every night at 8:45 pm (ok, teapot).
+                <div className="center">
+                  <h3>Web Developer</h3>
+                  <h4>
+                    I am an experienced Full Stack Web Developer with technologies such as Javascript, jQuery, Bootstrap, CSS, HTML, SQL and JAVA.</h4>
+                  <h4>As a life-long learner, I'm committed to expanding my technical knowledge.</h4>
+                  <h4>Fun fact: I like boba and my rice cooker rings every night at 8:45 pm (ok, teapot).
                 </h4>
-              </div>}>
-              <p><a href="https://github.com" target="_blank" rel="noopener noreferrer">Github Profile</a></p>
+                </div>}>
+              <p>
+                <a
+                  href="https://github.com/saikay"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Github Profile
+                </a>
+              </p>
             </Card>
           </Col>
         </Row>
@@ -95,8 +102,9 @@ class About extends Component {
               title="Max Hsieh"
               reveal={
                 <div className="center">
-                  <h3>Front-End Web Developer</h3>
-                  <h4>Let Max think about this.</h4>
+                  <h3>Software Developer</h3>
+                  <h4>A challenge lover that loves all kinds of challenges.</h4>
+                  <h4>I love working in teams and helping the teams to create incredible ideas.  </h4>
                 </div>
               }
             >
@@ -125,7 +133,7 @@ class About extends Component {
             >
               <p>
                 <a
-                  href="https://github.com"
+                  href="https://github.com/gbanares"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -149,7 +157,7 @@ class About extends Component {
             >
               <p>
                 <a
-                  href="https://github.com"
+                  href="https://github.com/richardluong127"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
