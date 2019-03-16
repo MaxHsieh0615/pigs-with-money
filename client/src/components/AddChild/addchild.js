@@ -4,7 +4,7 @@ import API from "../../utils/API";
 import { FormBtn } from "../Form";
 import { List } from "../List";
 import { Redirect } from "react-router-dom";
-import { Modal, Card, Col, Row, Button, Input } from "react-materialize";
+import { Modal, Card, Col, Row, Button, Input, Icon } from "react-materialize";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./style.css";
@@ -98,15 +98,17 @@ class AddChild extends Component {
                 value={this.state.child_name}
                 onChange={this.handleInputChange}
                 name="name"
-                label="Name (required)"
-              />
+                label="Name (required)">
+                <Icon>account_circle</Icon>
+              </Input>
               <Input
                 type="number"
                 value={this.state.piggy}
                 onChange={this.handleInputChange}
                 name="balance"
-                label="Budget (Optional)"
-              />
+                label="Budget (Optional)">
+                <Icon>attach_money</Icon>
+                </Input>
               <FormBtn
                 disabled={!(this.state.name)}
                 onClick={this.handleFormSubmit}

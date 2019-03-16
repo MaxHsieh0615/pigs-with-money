@@ -104,7 +104,7 @@ class About extends Component {
                 <div className="center">
                   <h3>Software Developer</h3>
                   <h4>A challenge lover that loves all kinds of challenges.</h4>
-                  <h4>I love working in teams and helping the teams to create incredible ideas.  </h4>
+                  <h4>I love working in teams and helping the teams to create incredible apps.  </h4>
                 </div>
               }
             >
