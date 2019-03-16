@@ -6,7 +6,7 @@ class Navlinks extends React.Component {
   
   render() {
     const logoutLinks = ["Home", "About", "Login", "Sign Up"];
-    const loginLinks = ["Home", "About", "Jobs", "Children","Shop"];
+    const loginLinks = ["Home", "About", "Jobs", "Children", "Piggy Bank", "Shop"];
     let links = [];
     this.props.loggedIn ? links = loginLinks : links = logoutLinks;
     return (

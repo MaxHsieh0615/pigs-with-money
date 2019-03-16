@@ -32,8 +32,8 @@ export default {
     return axios.get("/api/getAllJobs");
   },
 
-  showAllTransactions: function() {
-    return axios.get("/api/showAllTransactions");
+  showAllTransactions: function(id) {
+    return axios.get("/api/showAllTransactions/"+id);
   },
 
   // Shop section
