@@ -55,6 +55,18 @@ class CreateJob extends Component {
     });
   };
 
+  // onClearArray = () => {
+  //   this.setState({ 
+  //     children: [],
+  //     jobs: [],
+  //     title: "",
+  //     description: "",
+  //     budget: 0,
+  //     status: "",
+  //     isModalOpen: false
+  //    });
+  // };
+
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.title && this.state.description) {
@@ -66,7 +78,8 @@ class CreateJob extends Component {
         .then(res => {
           this.setState({ isModalOpen: false });
           this.notify("Added a job.");
-          this.loadJobs()
+          this.loadJobs();
+          // onClearArray;
         })
         .catch(err => console.log(err));
     }
@@ -75,6 +88,8 @@ class CreateJob extends Component {
   openModal = () => {
     this.setState({ isModalOpen: true });
   };
+
+
 
   render() {
     const { children } = this.state;
