@@ -24,28 +24,6 @@ class Home extends Component {
               </Typist>)}
             </TypistLoop>
           </h1>
-          {/* <Slider>
-            <Slide
-              src={require("../img/img_slide1.jpg")}
-              title="Teaching values"
-            >
-              Start them early!
-            </Slide>
-            <Slide
-              src={require("../img/img_slide2.jpg")}
-              title="Saving for the future"
-              placement="left"
-            >
-              Create savings and set goals!
-            </Slide>
-            <Slide
-              src={require("../img/img_slide3.jpg")}
-              title="Creating fun"
-              placement="right"
-            >
-              Give them the power of choice.
-            </Slide>
-          </Slider> */}
         </div>
         <div className="section transparent z-depth-0">
           <div className="row container">
@@ -85,13 +63,7 @@ class Home extends Component {
               The goal is so that one day, the virtual entrepreneurs can take
               the knowledge gained from their virtual enterprise into the real
               world.</h4>
-          </div>
-        </div>
-        <Parallax imageSrc="http://materializecss.com/images/parallax2.jpg" />
-        <div className="section transparent z-depth-0">
-          <div className="row container center">
-            <h4 className="grey-text text-darken-3 lighten-3">
-            <a href="/signup">Sign up</a> today!</h4>
+              <h4><a href="/signup">Sign up</a> today!</h4>
           </div>
         </div>
       </div>

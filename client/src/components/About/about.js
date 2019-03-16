@@ -3,6 +3,7 @@ import "./about.css";
 import piggyPicture from "../img/piggy_gg.png";
 import { Col, Card, CardTitle, Row } from "react-materialize";
 import MarkDark from "../img/GitHub-Mark-Dark.png"
+import MaxsPic from "../img/Max-about.JPG"
 
 class About extends Component {
   render() {
@@ -100,7 +101,7 @@ class About extends Component {
         <Row>
           <Col s={12} m={6} l={6}>
             <Card
-              header={<CardTitle reveal image={piggyPicture} waves="light" />}
+              header={<CardTitle reveal image={MaxsPic} waves="light" />}
               title="Max Hsieh"
               reveal={
                 <div className="center">
