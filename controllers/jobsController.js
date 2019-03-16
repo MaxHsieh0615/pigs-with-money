@@ -25,8 +25,7 @@ module.exports = {
     db.Job
       .findAll({include: [{model: db.Child,as: "assignee"}] ,where:{requestorEmail: req.session.username,status: {[Op.ne]:"Closed"}}})
       .then(dbModel => res.status(200).json(dbModel))
-      .catch(err => //res.status(422).json(err)
-      console.log(err));
+      .catch(err => res.status(422).json(err));
   },
 
   findById: function(req, res) {

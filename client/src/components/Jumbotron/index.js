@@ -1,6 +1,6 @@
 import React from "react";
 
-const jumbotronStyle ={
+const jumbotronStyle = {
   clear: "both",
   textAlign: "center"
 }

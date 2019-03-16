@@ -38,7 +38,7 @@ class Product extends Component {
 
   buy = event => {
     const childMatch = this.props.children.filter(child => child.name === this.state.childName);
-    if (childMatch ===0){
+    if (childMatch === 0){
       this.notify("Please click 'For' to assign child." );
       return
     }

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import Product from "./product";
 import { Redirect } from "react-router-dom";
-import { Button,Row,Modal } from "react-materialize";
+import { Button, Row, Modal } from "react-materialize";
 import AddProductForm from "./AddProductForm";
 import { List } from "../List";
 import { ToastContainer, toast } from "react-toastify";
@@ -25,9 +25,9 @@ class Shop extends Component {
   notify = (msg) => toast(msg);
 
   componentDidMount() {
-   if (this.props.loggedIn) {
-    this.loadProducts();
-   }
+    if (this.props.loggedIn) {
+      this.loadProducts();
+    }
   }
 
   loadProducts = () => {
@@ -62,9 +62,9 @@ class Shop extends Component {
         price: this.state.price,
         qty: this.state.qty
       })
-        .then(res =>{
+        .then(res => {
 
-          this.setState({isModalOpen:false});
+          this.setState({ isModalOpen: false });
           this.loadProducts();
           this.notify("Added product.");
         })
@@ -73,33 +73,33 @@ class Shop extends Component {
   };
 
   openModal = () => {
-    this.setState({isModalOpen: true});
+    this.setState({ isModalOpen: true });
   };
 
   render() {
-    const { products,children } = this.state;
+    const { products, children } = this.state;
     if (!this.props.loggedIn) {
       return <Redirect to="/login" />;
     } else {
-      
+
       return (
         <div>
           <ToastContainer />
           <Button onClick={this.openModal} id="addProductBtn">Add Product</Button>
           <Modal
-          open={this.state.isModalOpen}
-          header="Create Product"
+            open={this.state.isModalOpen}
+            header="Create Product"
           >
-            <AddProductForm handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit}/>
+            <AddProductForm handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit} />
           </Modal>
-          <Row> 
-              {products !== null ? (
-                <List>
+          <Row>
+            {products !== null ? (
+              <List>
                 {products.map(product => (
-                  <Product product={product} children={children} loadProducts={this.loadProducts} key={product.id}/>
+                  <Product product={product} children={children} loadProducts={this.loadProducts} key={product.id} />
                 ))}
-                </List>
-              ) : (
+              </List>
+            ) : (
                 <h3>No Results to Display</h3>
               )}
           </Row>
