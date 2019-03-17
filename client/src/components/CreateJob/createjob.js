@@ -55,9 +55,6 @@ class CreateJob extends Component {
     });
   };
 
-
-
-
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.title && this.state.description) {
@@ -67,7 +64,7 @@ class CreateJob extends Component {
         budget: this.state.budget
       })
         .then(res => {
-          this.setState({ isModalOpen: false, title: "", description: "", budget: 0,status: "", });
+          this.setState({ isModalOpen: false, title: "", description: "", budget: 0,status: ""});
           this.notify("Added a job.");
           this.loadJobs();
         })
@@ -105,7 +102,7 @@ class CreateJob extends Component {
                     >
                       Submit Job
                     </FormBtn>,
-                    <FormBtn className="btn waves-effect waves-light btn-flat modal-action modal-close"
+                    <FormBtn
                     onClick={this.closeModal}
                   >
                     Close

@@ -56,7 +56,7 @@ class AddChild extends Component {
       })
         .then(res => {
           this.notify(`Added ${this.state.name}.`);
-          this.setState({isModalOpen: false});
+          this.setState({isModalOpen: false, name: "", balance: 0, status: ""});
           //reset form.
           this.setState({name: "",
           balance: 0});
@@ -79,6 +79,10 @@ class AddChild extends Component {
 
   openModal = () => {
     this.setState({isModalOpen: true});
+  };
+
+  closeModal = () => {
+    this.setState({ isModalOpen: false });
   };
 
   render() {
@@ -115,6 +119,11 @@ class AddChild extends Component {
               >
                 Add Child
               </FormBtn>
+              <FormBtn
+                    onClick={this.closeModal}
+                  >
+                    Close
+                  </FormBtn>
             </form>
           </Modal>
           <Jumbotron>
