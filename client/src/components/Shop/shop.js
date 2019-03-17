@@ -97,7 +97,7 @@ class Shop extends Component {
             <h1>Product List</h1>
           </Jumbotron>
           <Row>
-            {products === null ? (
+            {products !== null ? (
               <List>
                 {products.map(product => (
                   <Product product={product} children={children} loadProducts={this.loadProducts} key={product.id} />
