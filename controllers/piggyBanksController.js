@@ -11,7 +11,7 @@ module.exports = {
         description : `Completed: ${job.id} ${job.title}`
       };
       db.PiggyBank.create(dataSet)})
-      .then(transaction => console.log("Deposite money Successfully."))
+      .then(transaction => console.log("Deposite money successfully."))
       .catch(err => console.log(err));
   },
   deductFunds: function(productId,childId) {
