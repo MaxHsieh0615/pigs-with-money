@@ -55,6 +55,9 @@ class CreateJob extends Component {
     });
   };
 
+
+
+
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.title && this.state.description) {
@@ -64,7 +67,7 @@ class CreateJob extends Component {
         budget: this.state.budget
       })
         .then(res => {
-          this.setState({ isModalOpen: false });
+          this.setState({ isModalOpen: false, title: "", description: "", budget: 0,status: "", });
           this.notify("Added a job.");
           this.loadJobs();
         })
@@ -76,6 +79,9 @@ class CreateJob extends Component {
     this.setState({ isModalOpen: true });
   };
 
+  closeModal = () => {
+    this.setState({ isModalOpen: false });
+  };
 
 
   render() {
@@ -92,6 +98,19 @@ class CreateJob extends Component {
                 <Modal
                   open={this.state.isModalOpen}
                   header="Add a Job"
+                  actions={[
+                    <FormBtn
+                      disabled={!(this.state.description && this.state.title)}
+                      onClick={this.handleFormSubmit}
+                    >
+                      Submit Job
+                    </FormBtn>,
+                    <FormBtn className="btn waves-effect waves-light btn-flat modal-action modal-close"
+                    onClick={this.closeModal}
+                  >
+                    Close
+                  </FormBtn>
+                  ]}
                 >
                   <form>
                     <Input
@@ -107,7 +126,7 @@ class CreateJob extends Component {
                       value={this.state.description}
                       onChange={this.handleInputChange}
                       name="description"
-                      label="Description (Optional)">
+                      label="Description (Required)">
                       <Icon>description</Icon>
                       </Input>
                     <Input
@@ -119,12 +138,6 @@ class CreateJob extends Component {
                       validate defaultValue="0">
                       <Icon>attach_money</Icon>
                     </Input>
-                    <FormBtn
-                      disabled={!(this.state.description && this.state.title)}
-                      onClick={this.handleFormSubmit}
-                    >
-                      Submit Job
-                    </FormBtn>
                   </form>
                 </Modal>
               </Col>
