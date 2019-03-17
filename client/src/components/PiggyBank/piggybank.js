@@ -16,8 +16,8 @@ class PiggyBank extends Component {
   };
 
   componentDidMount() {
-    this.loadChild();
-  }
+      this.loadChild();
+  };
 
   loadChild = () => {
     API.findAllByChild()
@@ -27,7 +27,7 @@ class PiggyBank extends Component {
           name: res.data[0].name,
           balance: res.data[0].balance
         });
-        this.showAllTransactions();
+        // this.showAllTransactions();
       })
       .catch(err => console.log(err));
   };
@@ -42,6 +42,10 @@ class PiggyBank extends Component {
       .catch(err => console.log(err));
   };
 
+selectChild = () => {
+  this.setState({isChildSelected: true});
+};
+
   render() {
     return (
       <Container fluid>
@@ -50,7 +54,7 @@ class PiggyBank extends Component {
             <List>
               {this.state.children.map(child => (
                 <Col s={12} m={3} key={child.id}>
-                  <Button id="selectChild">
+                  <Button onClick={this.selectChild} id="selectChild">
                     View {child.name}'s Balance
                   </Button>
                 </Col>
@@ -60,6 +64,8 @@ class PiggyBank extends Component {
             <h3>No Results to Display</h3>
           )}
         </Row>
+        </Container>
+        
         <Row>
           <Col size="md-12">
             <Jumbotron>
@@ -90,7 +96,7 @@ class PiggyBank extends Component {
             </Row>
           </Col>
         </Row>
-      </Container>
+      
     );
   }
 }

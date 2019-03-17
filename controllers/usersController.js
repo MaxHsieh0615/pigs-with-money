@@ -25,13 +25,13 @@ module.exports = {
     const { email, password } = req.body;
     db.Users
       .findOrCreate({where:{email:email},defaults:{email:email,password:password}} )
-      .then(result=> {
+      .then(result => {
         //result true: record is created. false: record already exists. 
         result[1] ?
           res.status(200).json({message:"Created user"}) :
           res.status(200).json({errMsg:"User already exists"})
       })
-      .catch(err =>{
+      .catch(err => {
         //console.log("User.js create user error: ", err);
         return res.status(422).json(err);
       });
