@@ -27,9 +27,9 @@ module.exports = {
         .update({balance: db.Sequelize.literal("balance +" 
         + job.budget)},{where:{id:job.assigneeId}})
       .then(transaction => console.log("Deposite money Successfully."))
-      .catch(err => console.log(err));
+      .catch(err => res.status(422).json(err));
     })
-    .catch(err => console.log(err));
+    .catch(err => res.status(422).json(err));
   },
 
   deductBudget: function( productId, buyer ){
@@ -39,9 +39,9 @@ module.exports = {
         .update({balance: db.Sequelize.literal("balance -" 
         + product.price)},{where:{id: buyer}})
       .then(transaction => console.log(`Withdraw money for ${product.name}`))
-      .catch(err => console.log(err));
+      .catch(err => res.status(422).json(err));
     })
-    .catch(err => console.log(err));
+    .catch(err => res.status(422).json(err));
   },
 
   removeChild: function(req, res) {
