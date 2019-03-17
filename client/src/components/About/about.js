@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import "./about.css";
-import piggyPicture from "../img/piggy_gg.png";
+import piggyPicture from "../img/piggy_banksalots_photo.png";
 import { Col, Card, CardTitle, Row } from "react-materialize";
 import MarkDark from "../img/GitHub-Mark-Dark.png"
 import MaxsPic from "../img/Max-about.JPG"
+import PicOfJosh from "../img/Pic_of_Josh.jpg"
 
 class About extends Component {
   render() {
@@ -39,7 +40,7 @@ class About extends Component {
                 <CardTitle
                   reveal
                   image={
-                    "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/37766365_10155970757989023_3043695154893422592_n.jpg?_nc_cat=110&_nc_ht=scontent-sjc3-1.xx&oh=f1f5e7783461d469aa5301f78a9fecd2&oe=5D1CECE2"
+                    PicOfJosh
                   }
                   waves="light"
                 />

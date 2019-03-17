@@ -82,7 +82,7 @@ class CreateJob extends Component {
 
 
   render() {
-    const { children } = this.state;
+    let { children } = this.state;
     if (!this.props.loggedIn) {
       return <Redirect to="/login" />;
     } else {
@@ -141,7 +141,7 @@ class CreateJob extends Component {
             </Row>
             <Row>
               <Jumbotron>
-              <Button onClick={this.openModal}>CREATE JOB</Button>
+              <Button onClick={this.openModal} id="createJobBtn">CREATE JOB</Button>
                 <h1>Job List</h1>
               </Jumbotron>
               {this.state.jobs.length ? (
