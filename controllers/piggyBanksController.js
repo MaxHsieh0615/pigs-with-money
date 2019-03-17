@@ -25,7 +25,7 @@ module.exports = {
       };
       db.PiggyBank.create(dataSet)
       .then(transaction => console.log("Withdraw money Successfully."))
-      .catch(err => console.log(err));
+      .catch(err => res.status(422).json(err));
     });
   },
   showAllTransactions: function(req, res) {

@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 class Job extends Component {
-  state={
+  state = {
     childId: this.props.job.assigneeId,
     childName: this.props.job.assignee !== null ? this.props.job.assignee.name : null,
     status: this.props.job.status,
@@ -15,7 +15,7 @@ class Job extends Component {
 
   notify = (msg) => toast(msg);
 
-  toggleChildren = () =>{
+  toggleChildren = () => {
     const { counter,status } = this.state;
     const { children } = this.props; 
     if ( children.length >= 0 && status === "Open"){
@@ -37,7 +37,7 @@ class Job extends Component {
       .catch(err => console.log(err));
   };
 
-  assignJob = dataSet=>{
+  assignJob = dataSet => {
     if(this.state.childName == null){
       this.notify("Please assign job to a child.");
       return
@@ -52,7 +52,7 @@ class Job extends Component {
   };
 
   updateJobStatus = event => {
-    if(this.state.childId ===""){
+    if(this.state.childId === ""){
       return
     }
     const { id } = event.target;

@@ -77,7 +77,7 @@ class CreateJob extends Component {
   };
 
   render() {
-    const { children } = this.state;
+    let { children } = this.state;
     if (!this.props.loggedIn) {
       return <Redirect to="/login" />;
     } else {
