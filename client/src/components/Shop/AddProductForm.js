@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Button, Input, Icon} from "react-materialize";
+import {Button, Input, Icon, Modal} from "react-materialize";
 
 class AddProductForm extends Component { 
   render(){
@@ -34,6 +34,11 @@ class AddProductForm extends Component {
               <Icon>add</Icon>
             </Input>
             <Button onClick={this.props.handleFormSubmit} id="createProductBtn">Create</Button>
+        <Modal
+          open={this.props.handleFormSubmit}
+          header="Create again"
+           >
+          </Modal>
           </form>
     )
   }

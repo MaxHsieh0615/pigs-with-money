@@ -3,7 +3,7 @@ import API from "../../utils/API";
 import Product from "./product";
 import { Redirect } from "react-router-dom";
 import Jumbotron from "../Jumbotron";
-import { Button, Row, Modal } from "react-materialize";
+import { Button, Row, Modal, FormBtn } from "react-materialize";
 import AddProductForm from "./AddProductForm";
 import { List } from "../List";
 import { ToastContainer, toast } from "react-toastify";
@@ -77,6 +77,10 @@ class Shop extends Component {
     this.setState({ isModalOpen: true });
   };
 
+  closeModal = () => {
+    this.setState({ isModalOpen: false });
+  };
+
   render() {
     const { products, children } = this.state;
     if (!this.props.loggedIn) {
@@ -91,13 +95,14 @@ class Shop extends Component {
             <Modal
               open={this.state.isModalOpen}
               header="Create Product"
+
             >
               <AddProductForm handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit} />
             </Modal>
             <h1>Product List</h1>
           </Jumbotron>
           <Row>
-            {products === null ? (
+            {products !== null ? (
               <List>
                 {products.map(product => (
                   <Product product={product} children={children} loadProducts={this.loadProducts} key={product.id} />
