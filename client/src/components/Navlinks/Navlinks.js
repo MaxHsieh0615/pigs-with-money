@@ -11,12 +11,12 @@ class Navlinks extends React.Component {
     this.props.loggedIn ? links = loginLinks : links = logoutLinks;
     return (
       <div>
-          { links.map(link =>(
-          <li>
-            <Link className="sidenav-close" to={"/"+  ((link === "Home") ? "" : link.replace(" ",""))}>
-              {link}
-            </Link>
-          </li>
+          { links.map(link => (
+            <li key={link}>
+              <Link className="sidenav-close" to={"/"+  ((link === "Home") ? "" : link.replace(" ",""))}>
+                {link}
+              </Link>
+            </li>
           )
         )}
         {this.props.loggedIn && (

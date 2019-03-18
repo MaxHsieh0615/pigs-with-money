@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export default {
-  // Gets all books
   //View tasks
   getCreateJob: function(jobData) {
     return axios.post("/api/createjob", jobData);
@@ -12,14 +11,13 @@ export default {
     return axios.post("/api/createjobs", jobData);
   },
 
-  // TODO CHILD & CHILDREN Section
-
-  getAddChild: function(childrenData) {
-    return axios.post("/api/addchild", childrenData);
+  createChild: function(childrenData) {
+    return axios.post("/api/createChild", childrenData);
   },
 
-  deleteAddChild: function(id) {
-    return axios.delete("/api/removeChild/" + id);
+  //parameter: String
+  removeChild: function(childrenData) {
+    return axios.delete(`/api/removeChild/${childrenData}`);
   },
   // Add Child
   saveAddChild: function(childrenData) {
@@ -33,6 +31,34 @@ export default {
   getAllJobs: function() {
     return axios.get("/api/getAllJobs");
   },
+
+  assignJob: function(jobData){
+    return axios.put("api/assignJob",jobData);
+  },
+
+  completeJob: function(jobData){
+    return axios.put("api/completeJob",jobData);
+  },
+  // Shop section
+  // submit product
+  createProduct: function(productData){
+    return axios.post("/api/products", productData);
+  },
+
+  buyProduct: function(productData){
+    return axios.put("/api/buyProduct",productData);
+  },
+
+  // view all products
+  getAllProducts: function() {
+    return axios.get("/api/products");
+  },
+
+  // delete product
+  deleteProduct: function(id) {
+    return axios.delete("/api/products" + id);
+  },
+
   //complete tasks router
   completeTask: {},
   updateTask: {}

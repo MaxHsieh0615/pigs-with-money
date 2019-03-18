@@ -1,20 +1,27 @@
 import React, { Component } from "react";
 import Jumbotron from "../Jumbotron";
+import { List } from "../List";
 import API from "../../utils/API";
-import { Col, Row, Container } from "../Grid";
-
-import { Input, TextArea, FormBtn } from "../Form";
+import { FormBtn } from "../Form";
 import { Redirect } from "react-router-dom";
-import ListJobs from "../ListJobs";
+import Job from "../Job";
+import { Col, Row, Modal, Input, Button, Icon } from "react-materialize";
+import "./style.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class CreateJob extends Component {
   state = {
+    children: [],
     jobs: [],
     title: "",
     description: "",
     budget: 0,
-    status: ""
+    status: "",
+    isModalOpen: false
   };
+
+  notify = (msg) => toast(msg);
 
   componentDidMount() {
     if (this.props.loggedIn) {
@@ -22,16 +29,22 @@ class CreateJob extends Component {
     }
   };
 
+  //Load Jobs and Load Children together, so both state will be available for the child component
   loadJobs = () => {
     API.getAllJobs()
-      .then(res =>
+      .then(jobs => {
+        this.loadChildren(jobs);
+      })
+      .catch(err => console.log(err));
+  };
+
+  loadChildren = (jobs) => {
+    API.findAllByChild()
+      .then(children =>
         this.setState({
-          jobs: res.data,
-          title: "",
-          description: "",
-          budget: ""
-        })
-      )
+          children: children.data,
+          jobs: jobs.data
+        }))
       .catch(err => console.log(err));
   };
 
@@ -50,66 +63,99 @@ class CreateJob extends Component {
         description: this.state.description,
         budget: this.state.budget
       })
-        .then(res => this.loadJobs())
+        .then(res => {
+          this.setState({ isModalOpen: false, title: "", description: "", budget: 0,status: ""});
+          this.notify("Added a job.");
+          this.loadJobs();
+        })
         .catch(err => console.log(err));
     }
   };
 
+  openModal = () => {
+    this.setState({ isModalOpen: true });
+  };
+
+  closeModal = () => {
+    this.setState({ isModalOpen: false });
+  };
+
+
   render() {
+    let { children } = this.state;
     if (!this.props.loggedIn) {
       return <Redirect to="/login" />;
     } else {
       return (
         <div>
-          <h1>{this.props.email}</h1>
-          <Container fluid>
+          <ToastContainer />
+          <div className="container-fluid">
             <Row>
-              <Col size="md-6">
-                <Jumbotron>
-                  <h1>Create Job</h1>
-                </Jumbotron>
-                <form>
-                  <Input
-                    type="text"
-                    value={this.state.title}
-                    onChange={this.handleInputChange}
-                    name="title"
-                    placeholder="Title (required)"
-                  />
-                  <TextArea
-                    value={this.state.description}
-                    onChange={this.handleInputChange}
-                    name="description"
-                    placeholder="Description (required)"
-                  />
-                  <Input
-                    type="number"
-                    value={this.state.budget}
-                    onChange={this.handleInputChange}
-                    name="budget"
-                    placeholder="Budget (Optional)"
-                  />
-                  <FormBtn
-                    disabled={!(this.state.description && this.state.title)}
-                    onClick={this.handleFormSubmit}
+              <Col m={6} s={12}>
+                <Modal
+                  open={this.state.isModalOpen}
+                  header="Add a Job"
+                  actions={[
+                    <FormBtn
+                      disabled={!(this.state.description && this.state.title)}
+                      onClick={this.handleFormSubmit}
+                    >
+                      Submit Job
+                    </FormBtn>,
+                    <FormBtn
+                    onClick={this.closeModal}
                   >
-                    Submit Job
+                    Close
                   </FormBtn>
-                </form>
+                  ]}
+                >
+                  <form>
+                    <Input
+                      type="text"
+                      value={this.state.title}
+                      onChange={this.handleInputChange}
+                      name="title"
+                      label="Title (Required)">
+                      <Icon>title</Icon>
+                      </Input>
+                    <Input
+                      type="textarea"
+                      value={this.state.description}
+                      onChange={this.handleInputChange}
+                      name="description"
+                      label="Description (Required)">
+                      <Icon>description</Icon>
+                      </Input>
+                    <Input
+                      type="number"
+                      value={this.state.budget}
+                      onChange={this.handleInputChange}
+                      name="budget"
+                      label="Budget (Optional)"
+                      validate defaultValue="0">
+                      <Icon>attach_money</Icon>
+                    </Input>
+                  </form>
+                </Modal>
               </Col>
-              <Col size="md-6 sm-12">
-                <Jumbotron>
-                  <h1>Job List</h1>
-                </Jumbotron>
-                {this.state.jobs.length ? (
-                  <ListJobs jobs={this.state.jobs}/>
-                ) : (
-                    <h3>No Results to Display</h3>
-                )}
-              </Col> 
             </Row>
-          </Container>
+            <Row>
+              <Jumbotron>
+              <Button onClick={this.openModal} id="createJobBtn">CREATE JOB</Button>
+                <h1>Job List</h1>
+              </Jumbotron>
+              {this.state.jobs.length ? (
+                <List>
+                  {this.state.jobs.map(job => (
+                    <Job job={job} children={children} loadJobs={this.loadJobs} key={job.id} />
+                  ))}
+                </List>
+              ) : (
+                  <h3>No Results to Display</h3>
+                )}
+            </Row>
           </div>
+        </div>
       );
     }
   };

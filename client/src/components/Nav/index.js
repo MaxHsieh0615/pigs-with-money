@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "../img/piggybusiness_logo_01.png";
+import logo from "../../logo.svg";
 import "../../App.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -43,6 +43,7 @@ class Navbar extends Component {
               <Link to="#!">
                 <img className="brand-logo" id="logo" alt="logo" src={logo} />
               </Link>
+              
               <Link
                 to="#"
                 data-target="mobile-demo"

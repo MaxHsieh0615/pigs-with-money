@@ -1,6 +1,6 @@
 
 module.exports = function(db, DataTypes) {
-  const Job = db.define('job', {
+  const Job = db.define("job", {
     title: {
       type: DataTypes.STRING
     },
@@ -12,7 +12,7 @@ module.exports = function(db, DataTypes) {
     },
     status: {
       type: DataTypes.STRING,
-      values: DataTypes.ENUM('Open', 'Closed')
+      values: DataTypes.ENUM("Open","Assigned","Completed", "Closed")
     },
 
     date_assigned:{

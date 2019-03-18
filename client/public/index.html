@@ -20,22 +20,28 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-  <base href="/">
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="materializeCSS/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
-  <link href="materializeCSS/materialize_style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="materializeJS/materialize.js"></script>
-  <script src="materializeJS/init.js"></script>
-  <title>Piggy Business React Page</title>
+    <base href="/">
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+    <link href="materializeCSS/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="materializeCSS/materialize_style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="materializeJS/materialize.js"></script>
+    <script src="materializeJS/init.js"></script>
+    <title>Piggy Business React Page</title>
 </head>
 
-<body>
+<body style="font-family: 'Amatic SC', cursive">
   <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="root"></div>
+  <div id="root" style="height: 100%">
 
+  </div>
+  <script>
+  $(document).ready(function(){
+    $('.modal').modal();
+  });</script>
   <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -46,7 +52,7 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  
+    
 </body>
 
 </html>

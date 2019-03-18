@@ -1,0 +1,9 @@
+#addJobBtn {
+    margin-top: 1.8%;
+}
+
+@media only screen and (max-width : 992px) {
+#addJobBtn {
+    margin-top: 6%;
+}
+}

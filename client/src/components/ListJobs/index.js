@@ -1,7 +1,6 @@
 import React from "react";
 import { List } from "../List";
-import Jumbotron from "../Jumbotron";
-import { Col } from "../Grid";
+import "./style.css"
 
 function ListJobs(props){
   return (
@@ -17,7 +16,7 @@ function ListJobs(props){
                 <span className="card-title">{job.title}</span>
                 <p>{job.description}</p>
                 <button
-                  id="addjobbtn"
+                  id="addJobBtn"
                   className="waves-effect waves-light btn btn-success"
                 >
                   ADD JOB
