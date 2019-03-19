@@ -129,7 +129,7 @@ class CreateJob extends Component {
             </Row>
             <Row>
               <Jumbotron>
-              <Button onClick={this.openModal}>CREATE JOB</Button>
+              <Button onClick={this.openModal} id="createJobBtn">CREATE JOB</Button>
                 <h1>Job List</h1>
               </Jumbotron>
               {this.state.jobs.length ? (

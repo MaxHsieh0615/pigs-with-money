@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import Product from "./product";
 import { Redirect } from "react-router-dom";
+import Jumbotron from "../Jumbotron";
 import { Button, Row, Modal } from "react-materialize";
 import AddProductForm from "./AddProductForm";
 import { List } from "../List";
@@ -85,13 +86,16 @@ class Shop extends Component {
       return (
         <div>
           <ToastContainer />
-          <Button onClick={this.openModal} id="addProductBtn">Add Product</Button>
-          <Modal
-            open={this.state.isModalOpen}
-            header="Create Product"
-          >
-            <AddProductForm handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit} />
-          </Modal>
+          <Jumbotron>
+            <Button onClick={this.openModal} id="addProductBtn">Add Product</Button>
+            <Modal
+              open={this.state.isModalOpen}
+              header="Create Product"
+            >
+              <AddProductForm handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit} />
+            </Modal>
+            <h1>Product List</h1>
+          </Jumbotron>
           <Row>
             {products !== null ? (
               <List>
