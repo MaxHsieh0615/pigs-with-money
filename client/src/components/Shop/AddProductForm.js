@@ -33,12 +33,7 @@ class AddProductForm extends Component {
               label="Quantity (Optional)">
               <Icon>add</Icon>
             </Input>
-            <Button onClick={this.props.handleFormSubmit} id="createProductBtn">Create</Button>
-        <Modal
-          open={this.props.handleFormSubmit}
-          header="Create again"
-           >
-          </Modal>
+
           </form>
     )
   }

@@ -65,7 +65,7 @@ class Shop extends Component {
       })
         .then(res => {
 
-          this.setState({ isModalOpen: false });
+          this.setState({ isModalOpen: false, name: "", info: "", price: 0, qty: 0 });
           this.loadProducts();
           this.notify("Added product.");
         })
@@ -95,9 +95,12 @@ class Shop extends Component {
             <Modal
               open={this.state.isModalOpen}
               header="Create Product"
-
+              actions={
+                [<Button onClick={this.closeModal}>Close</Button>,
+                  <Button onClick={this.handleFormSubmit} id="createProductBtn">Create</Button>]
+              }
             >
-              <AddProductForm handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit} />
+              <AddProductForm handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit} closeModal={this.closeModal}/>
             </Modal>
             <h1>Product List</h1>
           </Jumbotron>

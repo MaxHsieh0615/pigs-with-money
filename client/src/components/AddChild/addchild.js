@@ -56,9 +56,6 @@ class AddChild extends Component {
         .then(res => {
           this.notify(`Added ${this.state.name}.`);
           this.setState({isModalOpen: false, name: "", balance: 0, status: ""});
-          //reset form.
-          this.setState({name: "",
-          balance: 0});
           this.loadChild()})
         .catch(err => console.log(err));
     }
