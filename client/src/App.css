@@ -1,0 +1,29 @@
+html {
+  height: 100%;
+  }
+  
+body {
+  background-image: url(./components/img/background.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+ } 
+.App {
+  height: 100%;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.AppContainer {
+  flex: 1;
+}
+
+#githubMarkLight {
+  max-height: 35px;
+  margin-top: 5px;
+}
+
+footer {
+  font-size: 30px;
+}

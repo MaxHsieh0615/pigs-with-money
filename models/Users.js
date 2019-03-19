@@ -1,4 +1,4 @@
-const bcrypt = require('bcryptjs');
+const bcrypt = require("bcryptjs");
 
 module.exports = function(db, DataTypes){
   const Users = db.define("Users",{
@@ -26,8 +26,8 @@ module.exports = function(db, DataTypes){
     // enumeration account_type value can be parent or child 
     account_type:{  
       type:   DataTypes.ENUM,
-      values: ['parent', 'child'],
-      defaultValue: 'parent'
+      values: ["parent", "child"],
+      defaultValue: "parent"
     }
     
   });

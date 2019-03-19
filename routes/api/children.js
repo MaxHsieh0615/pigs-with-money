@@ -1,12 +1,10 @@
-const childrenController = require('../../controllers/childrenController');
+const childrenController = require("../../controllers/childrenController");
 
 module.exports = (app) =>{
-  app.post('/api/addChild',childrenController.createChild);
+  app.post("/api/createChild",childrenController.create);
 
   app.get("/api/findAllByChild", childrenController.findAllByChild);
   
-  app.put("/api/updateChildBudget", childrenController.updateChildBudget);
-  
-  app.delete("/api/removeChild", childrenController.removeChild);
+  app.delete("/api/removeChild/:id", childrenController.removeChild);
 
 }

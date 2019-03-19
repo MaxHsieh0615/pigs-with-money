@@ -6,18 +6,51 @@
  * Made By MaterializeCSS.com
  */
 
- .modal {
-   position: relative;
+ input {
+  font-family: 'Amatic SC', cursive";
  }
 
- nav ul a,
- nav .brand-logo {
-   color: #444;
-   text-align: left;
+ .loginbox, .signupform {
+  background: white;
+  opacity: .8;
+  padding: 20px;
+  margin-top: 10%;
+  margin-bottom: 15%;
+}
+
+ .loginBtn, .signUpBtn {
+   margin-left: 45%;
  }
- 
- p {
-   line-height: 2rem;
+
+ footer.page-footer {
+  padding-top: 0px;
+  background-color: #c8c8c8;
+}
+
+ footer div.row {
+  margin-bottom: 0px;
+}
+
+ .sidenav li > a {
+  font-size: 3rem;
+}
+
+ .card .card-content {
+   padding: 24px 24px 0px 24px;
+ }
+
+ .card .card-content p {
+  font-size: 30px;
+  text-align: center;
+}
+
+ .card .card-title {
+   font-size: 55px;
+   text-align: center;
+ }
+
+ .modal {
+   position: relative;
  }
 
  .sidenav-trigger {
@@ -56,8 +89,5 @@
  .icon-block .material-icons {
    font-size: inherit;
  }
- 
- footer.page-footer {
-   margin: 0;
- }
+
  

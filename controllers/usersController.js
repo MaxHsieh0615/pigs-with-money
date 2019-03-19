@@ -15,7 +15,7 @@ module.exports = {
         user=> res.json(user)
       )
       .catch(err =>{
-        //console.log('User.js create user error: ', err);
+        //console.log("User.js create user error: ", err);
         return res.status(422).json(err);
       });
   },
@@ -25,14 +25,14 @@ module.exports = {
     const { email, password } = req.body;
     db.Users
       .findOrCreate({where:{email:email},defaults:{email:email,password:password}} )
-      .then(result=> {
+      .then(result => {
         //result true: record is created. false: record already exists. 
         result[1] ?
           res.status(200).json({message:"Created user"}) :
           res.status(200).json({errMsg:"User already exists"})
       })
-      .catch(err =>{
-        //console.log('User.js create user error: ', err);
+      .catch(err => {
+        //console.log("User.js create user error: ", err);
         return res.status(422).json(err);
       });
   },
@@ -45,7 +45,7 @@ module.exports = {
   },
   //sign up
   create: function(req, res) {
-    console.log('user signup');
+    console.log("user signup");
     const { email, password } = req.body;
     db.Users
       .create(req.body)

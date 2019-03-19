@@ -1,23 +1,24 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Route } from "react-router-dom";
+import "./App.css";
 // components
-import Signup from "./components/sign-up";
-import LoginForm from "./components/login-form";
+import Signup from "./components/SignupForm/sign-up";
+import LoginForm from "./components/LoginForm/login-form";
 import Navbar from "./components/Nav/index";
 import Home from "./components/Home/home";
 import CreateJob from "./components/CreateJob/createjob";
 import About from "./components/About/about";
 import AddChild from "./components/AddChild/addchild";
 import Shop from "./components/Shop/shop";
-import MyVerticallyCenteredModal from "./components/Modals/index";
+import { Footer } from "react-materialize";
+import MarkLight from "./components/img/GitHub-Mark-Light.png"
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       loggedIn: false,
-      modalShow: false
     };
 
     this.getUser = this.getUser.bind(this);
@@ -50,18 +51,13 @@ class App extends Component {
 
   render() {
     const { loggedIn } = this.state;
-    const modalClose = () => this.setState({ modalShow: false });
+
+
 
     return (
       <div className="App">
-        <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
-        <div className="container">
-          {loggedIn && <p>Logged In as user: {this.state.username}</p>}
-          <MyVerticallyCenteredModal
-            show={this.state.modalShow}
-            text="example text goes"
-            onHide={modalClose}
-          />
+        <Navbar updateUser={this.updateUser} loggedIn={loggedIn} />
+        <div className="container AppContainer">
           <Route exact path="/" component={Home} />
 
           <Route
@@ -75,8 +71,12 @@ class App extends Component {
 
           <Route
             path="/jobs"
-            render={() =>
-              <CreateJob loggedIn={this.state.loggedIn} email={this.state.email}/>}
+            render={() => (
+              <CreateJob
+                loggedIn={this.state.loggedIn}
+                email={this.state.email}
+              />
+            )}
           />
           <Route
             path="/children"
@@ -87,6 +87,14 @@ class App extends Component {
             render={() => <Shop loggedIn={this.state.loggedIn} />}
           />
         </div>
+        <Footer
+          copyrights="&copy; 2019 Copyright Piggy Business"
+          moreLinks={
+            <a className="grey-text text-lighten-4 right" href="https://github.com/MaxHsieh0615/pigs-with-money">
+            <img src={MarkLight} alt="github mark" id="githubMarkLight"/>
+            </a>
+          }
+        />
       </div>
     );
   }
