@@ -3,7 +3,8 @@ import API from "../../utils/API";
 import Product from "./product";
 import { Redirect } from "react-router-dom";
 import Jumbotron from "../Jumbotron";
-import { Button, Row, Modal, FormBtn } from "react-materialize";
+import { Button, Row, Modal} from "react-materialize";
+import { FormBtn } from "../Form";
 import AddProductForm from "./AddProductForm";
 import { List } from "../List";
 import { ToastContainer, toast } from "react-toastify";
@@ -96,8 +97,8 @@ class Shop extends Component {
               open={this.state.isModalOpen}
               header="Create Product"
               actions={
-                [<Button onClick={this.closeModal}>Close</Button>,
-                  <Button onClick={this.handleFormSubmit} id="createProductBtn">Create</Button>]
+                [<FormBtn onClick={this.closeModal}>Close</FormBtn>,
+                  <FormBtn onClick={this.handleFormSubmit} id="createProductBtn">Create</FormBtn>]
               }
             >
               <AddProductForm handleInputChange={this.handleInputChange} handleFormSubmit={this.handleFormSubmit} closeModal={this.closeModal}/>
