@@ -53,6 +53,7 @@ db.Users.hasOne(db.Users, {as: "parent"});
 db.Child.belongsTo(db.Users,{as: "parent"});
 db.PiggyBank.belongsTo(db.Child, {as: "owner"});
 db.Products.belongsTo(db.Users,{as: "creator"});
+db.Child.belongsTo(db.Products,{as: "purchased"});
 
 
 module.exports = db;

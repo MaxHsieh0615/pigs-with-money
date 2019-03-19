@@ -24,8 +24,8 @@ export default {
     return axios.post("/api/addchild", childrenData);
   },
   //select a child to display
-  selectChild: function(childrenData) {
-    return axios.get("/api/selectChild", childrenData);
+  selectChild: function(id) {
+    return axios.get("/api/selectChild"+id);
   },
 
   findAllByChild: function() {
