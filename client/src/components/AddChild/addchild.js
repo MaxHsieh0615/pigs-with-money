@@ -10,7 +10,6 @@ import "react-toastify/dist/ReactToastify.css";
 import "./style.css";
 
 
-
 class AddChild extends Component {
   state = {
     children: [],
@@ -56,10 +55,7 @@ class AddChild extends Component {
       })
         .then(res => {
           this.notify(`Added ${this.state.name}.`);
-          this.setState({isModalOpen: false});
-          //reset form.
-          this.setState({name: "",
-          balance: 0});
+          this.setState({isModalOpen: false, name: "", balance: 0, status: ""});
           this.loadChild()})
         .catch(err => console.log(err));
     }
@@ -81,6 +77,10 @@ class AddChild extends Component {
     this.setState({isModalOpen: true});
   };
 
+  closeModal = () => {
+    this.setState({ isModalOpen: false });
+  };
+
   render() {
     if (!this.props.loggedIn) {
       return <Redirect to="/login" />;
@@ -91,6 +91,15 @@ class AddChild extends Component {
           <Modal
             open={this.state.isModalOpen}
             header="Add a Child"
+            actions={[
+              <FormBtn
+                disabled={!(this.state.name)}
+                onClick={this.handleFormSubmit}
+              >
+                Submit Job
+              </FormBtn>,
+              <FormBtn onClick={this.closeModal}>Close</FormBtn>
+            ]}
           >
             <form>
               <Input
@@ -109,12 +118,6 @@ class AddChild extends Component {
                 label="Budget (Optional)">
                 <Icon>attach_money</Icon>
                 </Input>
-              <FormBtn
-                disabled={!(this.state.name)}
-                onClick={this.handleFormSubmit}
-              >
-                Add Child
-              </FormBtn>
             </form>
           </Modal>
           <Jumbotron>

@@ -3,8 +3,8 @@ import axios from "axios";
 import { Route } from "react-router-dom";
 import "./App.css";
 // components
-import Signup from "./components/sign-up";
-import LoginForm from "./components/login-form";
+import Signup from "./components/SignupForm/sign-up";
+import LoginForm from "./components/LoginForm/login-form";
 import Navbar from "./components/Nav/index";
 import Home from "./components/Home/home";
 import CreateJob from "./components/CreateJob/createjob";
