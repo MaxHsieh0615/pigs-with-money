@@ -7,6 +7,7 @@ import MaxsPic from "../img/Max-about.JPG";
 import PicOfJosh from "../img/Pic_of_Josh.jpg";
 import PicOfDennis from "../img/dennis_about.jpg";
 import PicOfGian from "../img/giab_about_pic.jpg";
+import PicOfRichard from "../img/rich-about2.jpg";
 
 class About extends Component {
   render() {
@@ -152,12 +153,12 @@ class About extends Component {
         <Row>
           <Col s={12} m={6} l={6}>
             <Card
-              header={<CardTitle reveal image={piggyPicture} waves="light" />}
+              header={<CardTitle reveal image={PicOfRichard} waves="light" />}
               title="Richard Luong"
               reveal={
                 <div className="center">
-                  <h3>Web Developer</h3>
-                  <h4>Let Richard think about this.</h4>
+                  <h3>Full Stack Developer</h3>
+                  <h4>I've always had an affinity for the digital world.  The possibilities out there for great projects are endless!</h4>
                 </div>
               }
             >
