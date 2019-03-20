@@ -7,7 +7,7 @@ import MaxsPic from "../img/Max-about.JPG";
 import PicOfJosh from "../img/Pic_of_Josh.jpg";
 import PicOfDennis from "../img/dennis_about.jpg";
 import PicOfGian from "../img/giab_about_pic.jpg";
-import PicOfRichard from "../img/rich-about.jpg";
+import PicOfRichard from "../img/rich-about2.jpg";
 
 class About extends Component {
   render() {
