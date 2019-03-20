@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Jumbotron from "../Jumbotron";
 import API from "../../utils/API";
 import { List } from "../List";
-import { Button, Col, Row, Container, Collection } from "react-materialize";
+import { Button, Col, Row, Container } from "react-materialize";
 import "./style.css";
 // import { Redirect } from "react-router-dom";
 
