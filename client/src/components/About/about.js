@@ -24,10 +24,10 @@ class About extends Component {
               others around us too. We’ve seen parents and children alike find joy in earning and
               learning to spend money wisely.
             </p>
-            <p>This application is a team project that we
+            {/* <p>This application is a team project that we
               started for a class. It has since evolved into something more!
               We hope you <a href="/signup">sign up</a> and check it out!
-            </p>
+            </p> */}
             <p>Feel free to reach out to our team.</p>
             <p>Enjoy your visit!</p>
           </h4>
