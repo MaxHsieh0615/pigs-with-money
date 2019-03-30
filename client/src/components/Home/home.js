@@ -63,7 +63,7 @@ class Home extends Component {
               The goal is so that one day, the virtual entrepreneurs can take
               the knowledge gained from their virtual enterprise into the real
               world.</h4>
-              <h4><a href="/signup">Sign up</a> today!</h4>
+              {/* <h4><a href="/signup">Sign up</a> today!</h4> */}
           </div>
         </div>
       </div>
