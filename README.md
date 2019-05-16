@@ -27,3 +27,7 @@ Created for project 3. Details to follow.
 * Richard
 * Max
 * Gian
+
+### Screenshot
+
+![Piggy Business Screenshot - Login Page](/other/piggy_screenshot.png)
