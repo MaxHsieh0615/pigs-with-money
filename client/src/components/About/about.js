@@ -2,9 +2,12 @@ import React, { Component } from "react";
 import "./about.css";
 import piggyPicture from "../img/piggy_banksalots_photo.png";
 import { Col, Card, CardTitle, Row } from "react-materialize";
-import MarkDark from "../img/GitHub-Mark-Dark.png"
-import MaxsPic from "../img/Max-about.JPG"
-import PicOfJosh from "../img/Pic_of_Josh.jpg"
+import MarkDark from "../img/GitHub-Mark-Dark.png";
+import MaxsPic from "../img/Max-about.JPG";
+import PicOfJosh from "../img/Pic_of_Josh.jpg";
+import PicOfDennis from "../img/dennis_about.jpg";
+import PicOfGian from "../img/giab_about_pic.jpg";
+import PicOfRichard from "../img/rich-about2.jpg";
 
 class About extends Component {
   render() {
@@ -21,10 +24,10 @@ class About extends Component {
               others around us too. We’ve seen parents and children alike find joy in earning and
               learning to spend money wisely.
             </p>
-            <p>This application is a team project that we
+            {/* <p>This application is a team project that we
               started for a class. It has since evolved into something more!
               We hope you <a href="/signup">sign up</a> and check it out!
-            </p>
+            </p> */}
             <p>Feel free to reach out to our team.</p>
             <p>Enjoy your visit!</p>
           </h4>
@@ -76,7 +79,7 @@ class About extends Component {
           </Col>
           <Col s={12} m={6} l={6}>
             <Card
-              header={<CardTitle reveal image={piggyPicture} waves="light" />}
+              header={<CardTitle reveal image={PicOfDennis} waves="light" />}
               title="Dennis Tam"
               reveal={
                 <div className="center">
@@ -125,7 +128,7 @@ class About extends Component {
           </Col>
           <Col s={12} m={6} l={6}>
             <Card
-              header={<CardTitle reveal image={piggyPicture} waves="light" />}
+              header={<CardTitle reveal image={PicOfGian} waves="light" />}
               title="Gian Banares"
               reveal={
                 <div className="center">
@@ -150,12 +153,12 @@ class About extends Component {
         <Row>
           <Col s={12} m={6} l={6}>
             <Card
-              header={<CardTitle reveal image={piggyPicture} waves="light" />}
+              header={<CardTitle reveal image={PicOfRichard} waves="light" />}
               title="Richard Luong"
               reveal={
                 <div className="center">
-                  <h3>Web Developer</h3>
-                  <h4>Let Richard think about this.</h4>
+                  <h3>Full Stack Developer</h3>
+                  <h4>I've always had an affinity for the digital world.  The possibilities out there for great projects are endless!</h4>
                 </div>
               }
             >

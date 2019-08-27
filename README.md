@@ -1,10 +1,10 @@
 # Project 3: Piggy Business
 
-UCB Coding - Project 3
+UC Berkeley project, created for parents to use with children to track tasks and rewards.
 
 ## What is this?
 
-Created for project 3. Details to follow.
+MVC design application, RESTful, MERN stack
 
 ## Setup Instructions
 
@@ -27,3 +27,7 @@ Created for project 3. Details to follow.
 * Richard
 * Max
 * Gian
+
+### Screenshot
+
+![Piggy Business Screenshot - Login Page](/other/piggy_screenshot.png)
