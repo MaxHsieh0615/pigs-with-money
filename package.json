@@ -20,35 +20,35 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^4.1.0",
-    "nodemon": "^1.18.7"
+    "concurrently": "^4.1.2",
+    "nodemon": "^1.19.1"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.3.1",
     "chai": "^4.2.0",
-    "codyhouse-framework": "^1.1.1",
+    "codyhouse-framework": "^1.2.1",
     "dotenv": "^6.2.0",
-    "express": "^4.16.3",
-    "express-session": "^1.15.6",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
     "if-env": "^1.0.4",
     "jQuery": "^1.7.4",
-    "mocha": "^6.0.1",
-    "mongoose": "^5.3.16",
+    "mocha": "^6.2.0",
+    "mongoose": "^5.6.11",
     "mysql2": "^1.6.5",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "prop-types": "^15.7.2",
-    "react": "^16.8.3",
-    "react-bootstrap": "^1.0.0-beta.5",
-    "react-dom": "^16.8.3",
+    "react": "^16.9.0",
+    "react-bootstrap": "^1.0.0-beta.12",
+    "react-dom": "^16.9.0",
     "react-materialize": "^2.6.0",
     "react-native-elements": "^1.1.0",
     "react-router-dom": "^4.3.1",
     "react-toastify": "^4.5.2",
     "react-typist": "^2.0.5",
     "react-typist-loop": "0.0.5",
-    "sequelize": "^4.42.0"
+    "sequelize": "^6.0.0"
   }
 }
