@@ -12,92 +12,92 @@ import About from "./components/About/about";
 import AddChild from "./components/AddChild/addchild";
 import Shop from "./components/Shop/shop";
 import { Footer } from "react-materialize";
-import MarkLight from "./components/img/GitHub-Mark-Light.png"
+import MarkLight from "./components/img/GitHub-Mark-Light.png";
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      loggedIn: false,
-    };
+	constructor() {
+		super();
+		this.state = {
+			loggedIn: false
+		};
 
-    this.getUser = this.getUser.bind(this);
-    this.componentDidMount = this.componentDidMount.bind(this);
-    this.updateUser = this.updateUser.bind(this);
-  }
+		this.getUser = this.getUser.bind(this);
+		this.componentDidMount = this.componentDidMount.bind(this);
+		this.updateUser = this.updateUser.bind(this);
+	}
 
-  componentDidMount() {
-    this.getUser();
-  }
+	componentDidMount() {
+		this.getUser();
+	}
 
-  updateUser(userObject) {
-    this.setState(userObject);
-  }
+	updateUser(userObject) {
+		this.setState(userObject);
+	}
 
-  getUser() {
-    axios.get("/user").then(response => {
-      if (response.data.user) {
-        this.setState({
-          loggedIn: true
-        });
-      } else {
-        console.log("Get user: no user");
-        this.setState({
-          loggedIn: false
-        });
-      }
-    });
-  }
+	getUser() {
+		axios.get("/user").then(response => {
+			if (response.data.user) {
+				this.setState({
+					loggedIn: true
+				});
+			} else {
+				console.log("Get user: no user");
+				this.setState({
+					loggedIn: false
+				});
+			}
+		});
+	}
 
-  render() {
-    const { loggedIn } = this.state;
+	render() {
+		const { loggedIn } = this.state;
+		return (
+			<div className="App">
+				<Navbar updateUser={this.updateUser} loggedIn={loggedIn} />
+				<div className="container AppContainer">
+					<Route exact path="/" component={Home} />
 
+					<Route
+						path="/login"
+						render={() => <LoginForm updateUser={this.updateUser} />}
+					/>
 
+					<Route path="/signup" render={() => <Signup />} />
 
-    return (
-      <div className="App">
-        <Navbar updateUser={this.updateUser} loggedIn={loggedIn} />
-        <div className="container AppContainer">
-          <Route exact path="/" component={Home} />
+					<Route path="/about" render={() => <About />} />
 
-          <Route
-            path="/login"
-            render={() => <LoginForm updateUser={this.updateUser} />}
-          />
-
-          <Route path="/signup" render={() => <Signup />} />
-
-          <Route path="/about" render={() => <About />} />
-
-          <Route
-            path="/jobs"
-            render={() => (
-              <CreateJob
-                loggedIn={this.state.loggedIn}
-                email={this.state.email}
-              />
-            )}
-          />
-          <Route
-            path="/children"
-            render={() => <AddChild loggedIn={this.state.loggedIn} />}
-          />
-          <Route
-            path="/shop"
-            render={() => <Shop loggedIn={this.state.loggedIn} />}
-          />
-        </div>
-        <Footer
-          copyrights="&copy; 2019 Copyright Piggy Business"
-          moreLinks={
-            <a className="grey-text text-lighten-4 right" href="https://github.com/MaxHsieh0615/pigs-with-money">
-            <img src={MarkLight} alt="github mark" id="githubMarkLight"/>
-            </a>
-          }
-        />
-      </div>
-    );
-  }
+					<Route
+						path="/jobs"
+						render={() => (
+							<CreateJob
+								loggedIn={this.state.loggedIn}
+								email={this.state.email}
+							/>
+						)}
+					/>
+					<Route
+						path="/children"
+						render={() => <AddChild loggedIn={this.state.loggedIn} />}
+					/>
+					<Route
+						path="/shop"
+						render={() => <Shop loggedIn={this.state.loggedIn} />}
+					/>
+				</div>
+				<Footer
+					copyrights="&copy; 2019 Copyright Piggy Business"
+					moreLinks={
+						<a
+							className="grey-text text-lighten-4 right"
+							href="https://github.com/MaxHsieh0615/pigs-with-money"
+						>
+							<img src={MarkLight} alt="github mark" id="githubMarkLight" />
+						</a>
+					}
+				/>
+			</div>
+		);
+	}
 }
 
 export default App;
