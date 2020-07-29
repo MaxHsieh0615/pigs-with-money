@@ -1,17 +1,15 @@
 # Project 3: Piggy Business
 
-UC Berkeley project, created for parents to use with children to track tasks and rewards.
+UC Berkeley project
 
 ## What is this?
 
-MVC design application, RESTful, MERN stack
+It is a web app created for parents to use with children to track tasks and rewards. Parents are able to create their own accounts then log in to create a to-do list with virtual coins as a reward system for their kid(s). Once the tasks are done, parents can redeem the virtual coins that the kid earned from completing the task to get real life reward such as ice cream.
 
 ## Setup Instructions
 
 1. Clone Repo
-1. Run npm i
-1. Copy contents of config.template and save as .env
-    1. Update db passwords
+2. Run npm i
 
 ### Technologies
 
