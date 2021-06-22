@@ -1,16 +1,16 @@
 {
   "development": {
-    "username": "root",
-    "password": "password",
-    "database": "piggybusiness",
-    "host": "localhost",
+    "username": "xufh1lqgp79oqjdk",
+    "password": "t49m6mfni09p3bzy",
+    "database": "ibeklps3qxnacpxp",
+    "host": "zj2x67aktl2o6q2n.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": "password",
-    "database": "testdb",
-    "host": "localhost",
+    "username": "xufh1lqgp79oqjdk",
+    "password": "t49m6mfni09p3bzy",
+    "database": "ibeklps3qxnacpxp",
+    "host": "zj2x67aktl2o6q2n.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql",
     "logging": false
   },

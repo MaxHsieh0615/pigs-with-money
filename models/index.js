@@ -5,20 +5,23 @@ const path = require("path");
 const Sequelize = require("sequelize");
 const basename = path.basename(module.filename);
 const env = process.env.NODE_ENV || "development";
+const dbconfig = require("../config/config.json");
 require("dotenv").config();
+const {development} = dbconfig;
+
 
 let db = {};
 if (env !="development") {
   var sequelize = new Sequelize(process.env["JAWSDB_URL"]);
 } else {
   var sequelize = new Sequelize(
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PASS,
+    development.database,
+    development.username,
+    development.password,
     {
-      host: process.env.DB_HOST,
+      host: development.host,
       dialect: "mysql"
-    });
+    }); 
 }
 
 fs.readdirSync(__dirname)
@@ -33,6 +36,7 @@ fs.readdirSync(__dirname)
   });
 
 Object.keys(db).forEach(function(modelName) {
+  
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
